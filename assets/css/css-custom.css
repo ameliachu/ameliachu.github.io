@@ -13,6 +13,9 @@
 .bs-docs-header .container {
     position: relative;
 }
+.card {
+  margin-bottom: 15px;
+}
 
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
