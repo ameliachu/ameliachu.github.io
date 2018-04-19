@@ -33,12 +33,31 @@
 
   </head>
 <body>
-<div id="graphdiv"></div>
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
+        <a class="navbar-brand" href="https://ameliachu.github.io/index.html"><img src="https://ameliachu.github.io/assets/img/lola.svg" height="32" width="32" alt="Lola."></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item"><a class="nav-link" href="https://www.linkedin.com/in/ameliachu"><i class="fa fa-linkedin"></i></a></li>
+          <li class="nav-item"><a class="nav-link" href="https://www.twitter.com/amelianchu"><i class="fa fa-twitter"></i></a></li>
+          <li class="nav-item"><a class="nav-link" href="https://www.github.com/ameliachu"><i class="fa fa-github"></i></a></li>
+          <li class="nav-item"><a class="nav-link" href="https://ameliachu.github.io/resume.html">resume</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://amelianchu.tumblr.com">unabridged.</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+
+  </nav> <!--/navigation-->
+<div id="status"></div>
 <script type="text/javascript">
   g = new Dygraph(
 
     // containing div
-    document.getElementById("graphdiv"),
+    document.getElementById("status"),
     // CSV or path to a CSV file.
     "status_161.csv",
     {
