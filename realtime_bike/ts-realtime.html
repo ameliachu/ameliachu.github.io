@@ -55,22 +55,133 @@
   <div class="container"><!--body -->
     <p>The data for this project was retrieved every minute via the real-time Citi Bike station status feed from April 7, 2018 to April 16, 2018. This feed scans for updates every 10 seconds and contains information on the availability of bikes and docks at each station in the Citi Bike system. The LaGuardia Pl & W 3 St Citi Bike station was selected because it had slightly above average bike capacity of 35 bikes (μ = 30.3), and appeared to be consistently used (Figure 1 & Figure 2a).
   </p>
-  <div id="status"></div>
+  <div class="row"><!--Figure 1-->
+    <div class="col-sm-3">
+      <div class="card">
+        <div class="card-body">
+          <div id="status" style="height:200px;"></div>
+        </div>
+
+        <div class="card-footer text-muted">
+           Number of Bikes Available by Minute
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="card">
+        <div class="card-body">
+          <div id="2b" style="height:200px;"></div>
+        </div>
+
+        <div class="card-footer text-muted">
+           Log of Bikes Available by Minute
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="card">
+        <div class="card-body">
+          <div id="status" style="height:200px;"></div>
+        </div>
+
+        <div class="card-footer text-muted">
+           Diff Log of Bikes Available by Minute
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="card">
+        <div class="card-body">
+          <div id="status" style="height:200px;"></div>
+        </div>
+
+        <div class="card-footer text-muted">
+           2 Diff Log of Bikes Available by Minute
+        </div>
+      </div>
+    </div>
+  </div><!--END Figure 1-->
+<!--ARIMA AICC-->
+    <div class="card">
+      <h5 class="card-header">ARIMA AIC<sub>C</sub></h5>
+      <div class="card-body">
+        <div class="table-responsive">
+        <table class="table table-sm table-hover" id="arima-aicc"></table>
+        </div>
+      </div>
+    </div>
+<!--ARIMA AICC-->
+        <script src="http://d3js.org/d3.v3.min.js"></script>
+        <script>
+        d3.csv("arima-aicc.csv", function(data) {
+          // the columns you'd like to display
+          var columns = ["p","d","q","constant","AICC"];
+          var max = d3.max(data, function(d) { return d.AICC; });
+          var table = d3.select("#arima-aicc"),
+          thead = table.append("thead"),
+          tbody = table.append("tbody");
+
+          // append the header row
+          thead.append("tr")
+          .selectAll("th")
+          .data(columns)
+          .enter()
+          .append("th")
+            .text(function(column) { return column; })
+            .style('font-size', 12);
+
+        // create a row for each object in the data
+        var rows = tbody.selectAll("tr")
+          .data(data)
+          .enter()
+          .append("tr");
+
+          // create a cell in each row for each column
+        //var f = d3.format(",.1%")
+        //var z = d3.scale.linear().range(["white", "steelblue"]);
+        //z.domain([0, 1.0]);
+        var cells = rows.selectAll("td")
+        .data(function(row) {
+            return columns.map(function(column) {
+                return {column: column, value: row[column]};
+              });
+            })
+            .enter()
+            .append("td")
+            .text(function(d) { if (isNaN(d.value)) { return d.value}
+            else {return d.value}; })
+            .style('background-color',function(d){ if(Number(d.value) == Number(max)) { return "steelblue"} })
+            .style('color',function(d) { if(Number(d.value) == Number(max)) { return "white"} })
+            .style('font-size', 10)
+          });
+        </script>
+
+
 </div><!-- END body -->
 
 
 <script type="text/javascript">
-  g = new Dygraph(
-
+  a = new Dygraph(
     // containing div
     document.getElementById("status"),
     // CSV or path to a CSV file.
     "status_161.csv",
     {
-     title: 'Number of Bike Available (Minutes)',
-     ylabel: 'Number of Bike Available',
+     //title: 'Number of Bike Available (Minutes)',
+     //ylabel: 'Number of Bike Available',
+     axisLabelWidth:0
     }
-
+  );
+  b = new Dygraph(
+    // containing div
+    document.getElementById("2b"),
+    // CSV or path to a CSV file.
+    "log_status_161.csv",
+    {
+     //title: 'Number of Bike Available (Minutes)',
+     //ylabel: 'Number of Bike Available',
+     axisLabelWidth:0
+    }
   );
 </script>
 </body>

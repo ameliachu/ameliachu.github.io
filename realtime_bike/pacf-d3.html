@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.bar {
+  fill: steelblue;
+}
+
+.bar:hover {
+  fill: brown;
+}
+
+.axis text {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+</style>
+<svg width="300" height="300"></svg>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+
+var data = [0.998, -0.065, -0.018, -0.003, -0.050, 0.042, -0.026, -0.031, 0.001, -0.015, -0.004, 0.025, 0.002,0.026, -0.023, -0.013, 0.002, -0.010, 0.045, -0.028, -0.001, 0.033, 0.016, 0.004, 0.003, 0.024, 0.027, 0.030, -0.006, -0.010, -0.001, 0.006, -0.024, 0.038, 0.009, -0.025, -0.051, 0.003, 0.006, 0.022, -0.011];
+
+var svg = d3.select("svg"),
+    margin = {top: 30, right: 10, bottom: 10, left: 30},
+    width = +svg.attr("width") - margin.left - margin.right,
+    height = +svg.attr("height") - margin.top - margin.bottom;
+var g = svg.append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+var y = d3.scaleLinear().domain([d3.min(data), d3.max(data)]).rangeRound([height, 0]);
+var x = d3.scaleBand().domain(d3.range(data.length)).rangeRound([0, width]).padding(0.01);
+
+var yAxis = d3.axisLeft(y);
+var tooltip = svg.append("g")
+ .style("position", "absolute")
+	.style("z-index", "10")
+	.style("visibility", "hidden").text("a simple tooltip")
+
+g.selectAll(".bar")
+    .data(data)
+  .enter().append("rect")
+    .attr("class", function(d) { return d < 0 ? "bar negative" : "bar positive"; })
+    .attr("y", function(d) { return y(Math.max(0, d)); })
+    .attr("x", function(d, i) { return x(i); })
+    .attr("height", function(d) { return Math.abs(y(d) - y(0)); })
+    .attr("width", 1)
+    .on("mouseover", function(){return tooltip.style("visibility", "visible");})
+	.on("mousemove", function(){return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");})
+	.on("mouseout", function(){return tooltip.style("visibility", "hidden");});
+
+g.append("g")
+    .attr("class", "x axis")
+    .call(yAxis);
+
+g.append("g")
+    .attr("class", "y axis")
+  .append("line")
+    .attr("y1", y(0))
+    .attr("y2", y(0))
+    .attr("x1", 0)
+    .attr("x2", width);
+</script>
