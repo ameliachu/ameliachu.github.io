@@ -31,29 +31,22 @@ var svg = d3.select("svg"),
     margin = {top: 30, right: 10, bottom: 10, left: 30},
     width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom;
-var g = svg.append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-var y = d3.scaleLinear().domain([d3.min(data), d3.max(data)]).rangeRound([height, 0]);
+
+var g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 var x = d3.scaleBand().domain(d3.range(data.length)).rangeRound([0, width]).padding(0.01);
+var y = d3.scaleLinear().domain([d3.min(data), d3.max(data)]).rangeRound([height, 0]);
+
 
 var yAxis = d3.axisLeft(y);
-var tooltip = svg.append("g")
- .style("position", "absolute")
-	.style("z-index", "10")
-	.style("visibility", "hidden").text("a simple tooltip")
 
 g.selectAll(".bar")
     .data(data)
-  .enter().append("rect")
+    .enter().append("rect")
     .attr("class", function(d) { return d < 0 ? "bar negative" : "bar positive"; })
     .attr("y", function(d) { return y(Math.max(0, d)); })
     .attr("x", function(d, i) { return x(i); })
     .attr("height", function(d) { return Math.abs(y(d) - y(0)); })
-    .attr("width", 1)
-    .on("mouseover", function(){return tooltip.style("visibility", "visible");})
-	.on("mousemove", function(){return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");})
-	.on("mouseout", function(){return tooltip.style("visibility", "hidden");});
-
+    .attr("width", 1);
 g.append("g")
     .attr("class", "x axis")
     .call(yAxis);
