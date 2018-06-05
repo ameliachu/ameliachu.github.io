@@ -21,41 +21,57 @@
   shape-rendering: crispEdges;
 }
 </style>
-<svg width="300" height="300"></svg>
+<!--<svg width="300" height="300" id="status-pacf"></svg>-->
+<svg width="300" height="300" id="status-acf"></svg>
 <script src="https://d3js.org/d3.v4.min.js"></script>
+<!--
+<script src="acf-pacf.js"></script>-->
 <script>
+function acf (csv , id) {d3.csv(csv, function(csv) {
+  var data = []
+  var max = d3.max(csv, function(d) { return d.acf; }),
+      min = d3.min(csv, function(d) { return d.acf; });
+      if (min > 0 ){
+	       var min = 0
+       }; //if min is less that zero only, else return 0
+       csv.map(function(d){
+         data.push(+d.acf)
+       })
+       console.log(max);
+       console.log(min);
+       console.log("data",data);
+       var svg = d3.select(id),
+           margin = {top: 30, right: 10, bottom: 10, left: 30},
+           width = +svg.attr("width") - margin.left - margin.right,
+           height = +svg.attr("height") - margin.top - margin.bottom;
 
-var data = [0.998, -0.065, -0.018, -0.003, -0.050, 0.042, -0.026, -0.031, 0.001, -0.015, -0.004, 0.025, 0.002,0.026, -0.023, -0.013, 0.002, -0.010, 0.045, -0.028, -0.001, 0.033, 0.016, 0.004, 0.003, 0.024, 0.027, 0.030, -0.006, -0.010, -0.001, 0.006, -0.024, 0.038, 0.009, -0.025, -0.051, 0.003, 0.006, 0.022, -0.011];
+       var g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-var svg = d3.select("svg"),
-    margin = {top: 30, right: 10, bottom: 10, left: 30},
-    width = +svg.attr("width") - margin.left - margin.right,
-    height = +svg.attr("height") - margin.top - margin.bottom;
+       var x = d3.scaleBand().domain(d3.range(data.length)).rangeRound([0, width]).padding(0.01);
+       var y = d3.scaleLinear().domain([min, max]).rangeRound([height, 0]);
+       var yAxis = d3.axisLeft(y);
 
-var g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-var x = d3.scaleBand().domain(d3.range(data.length)).rangeRound([0, width]).padding(0.01);
-var y = d3.scaleLinear().domain([d3.min(data), d3.max(data)]).rangeRound([height, 0]);
+     g.selectAll(".bar")
+         .data(data)
+         .enter().append("rect")
+         .attr("class", function(d) { return d < 0 ? "bar negative" : "bar positive"; })
+         .attr("y", function(d) { return y(Math.max(0, d)); })
+         .attr("x", function(d, i) { return x(i); })
+         .attr("height", function(d) { return Math.abs(y(d) - y(0)); })
+         .attr("width", 1);
+     g.append("g")
+         .attr("class", "x axis")
+         .call(yAxis);
 
+     g.append("g")
+         .attr("class", "y axis")
+       .append("line")
+         .attr("y1", y(0))
+         .attr("y2", y(0))
+         .attr("x1", 0)
+         .attr("x2", width);
+       });}
+acf ("logstatusac.csv" , "#status-acf")
+//pacf ("logstatuspacf.csv" , "#status-pacf")
 
-var yAxis = d3.axisLeft(y);
-
-g.selectAll(".bar")
-    .data(data)
-    .enter().append("rect")
-    .attr("class", function(d) { return d < 0 ? "bar negative" : "bar positive"; })
-    .attr("y", function(d) { return y(Math.max(0, d)); })
-    .attr("x", function(d, i) { return x(i); })
-    .attr("height", function(d) { return Math.abs(y(d) - y(0)); })
-    .attr("width", 1);
-g.append("g")
-    .attr("class", "x axis")
-    .call(yAxis);
-
-g.append("g")
-    .attr("class", "y axis")
-  .append("line")
-    .attr("y1", y(0))
-    .attr("y2", y(0))
-    .attr("x1", 0)
-    .attr("x2", width);
 </script>

@@ -6,7 +6,7 @@ d3.csv("arima-aicc.csv", function(data) {
   thead = table.append("thead"),
   tbody = table.append("tbody");
 
-  // append the header row
+  //append the header row
   thead.append("tr")
   .selectAll("th")
   .data(columns)
@@ -22,9 +22,6 @@ var rows = tbody.selectAll("tr")
   .append("tr");
 
   // create a cell in each row for each column
-//var f = d3.format(",.1%")
-//var z = d3.scale.linear().range(["white", "steelblue"]);
-//z.domain([0, 1.0]);
 var cells = rows.selectAll("td")
 .data(function(row) {
     return columns.map(function(column) {
