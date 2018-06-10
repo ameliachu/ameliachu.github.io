@@ -28,7 +28,7 @@
       MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
     </script>
     <script type="text/javascript" async
-      src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML">
     </script>
 
     <!--Font Awesome CSS-->
@@ -89,21 +89,18 @@
 
   <div class="container"><!--body -->
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
-    <strong>Hello, there!</strong> I'm still working on adding in the rest of this paper and improving usability. Feel free to peruse in the meantime!
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
+      <strong>Hello, there!</strong> I'm still working on adding in the rest of this paper and improving usability. Feel free to peruse in the meantime!
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
 
-      <h5>Introduction</h5>
-      <p>The data for this project was retrieved every minute via the real-time Citi Bike station status feed from April 7, 2018 to April 16, 2018.
-        This feed scans for updates every 10 seconds and contains information on the availability of bikes and docks at each station in the Citi Bike system.
-        The LaGuardia Pl & W 3 St Citi Bike station was selected because it had slightly above average bike capacity of 35 bikes (μ = 30.3), and appeared to be consistently used
-        (Figure 1 & Figure 2a).
-     </p>
-
-
-
+    <h5>Introduction</h5>
+    <p>The data for this project was retrieved every minute via the real-time Citi Bike station status feed from April 7, 2018 to April 16, 2018.
+      This feed scans for updates every 10 seconds and contains information on the availability of bikes and docks at each station in the Citi Bike system.
+      The LaGuardia Pl & W 3 St Citi Bike station was selected because it had slightly above average bike capacity of 35 bikes (μ = 30.3), and appeared to be consistently used
+      (Figure 1 & Figure 2a).
+   </p>
   <div class="row"><!--Figure 2-->
     <div class="col-md-6 col-lg-3">
       <div class="card">
@@ -261,19 +258,12 @@
       </div>
     </div>
   </div>
-
-
         <script>
-
         acf ("diff2logstatusacf.csv" , "#diff2status-acf")
         pacf ("diff2logstatuspacf.csv" , "#diff2status-pacf")
-
         </script>
-
-
 </div>
-
-  <!--END Figure 3 MODAL-->
+<!--END Figure 3 MODAL-->
   <!--Part 2: Using AICC to Identify Best p, q for ARIMA(p, 1, q) Model-->
   <h5>Part 2: Using AICC to Identify Best p, q for ARIMA(p, 1, q) Model</h5>
   <p>To help determine the exact $p$ and determine whether or not to include a constant we use AIC<sub>c</sub>. The candidate model with the lowest AIC<sub>c</sub> is ARIMA(3,1,3) without constant (-47050.73; Figure 4).
@@ -294,8 +284,100 @@
     </div>
 <!--END ARIMA AICC-->
 
-        <script type="text/javascript" src="arima-aicc.js"></script>
+<script type="text/javascript" src="arima-aicc.js"></script>
+<div class="table-responsive">
+<table class="table table-sm table-hover" id="arima-param"></table>
+</div>
+<script type="text/javascript" src="arima-param.js"></script>
 
+
+
+<h5>Part 3: Residuals of the ARIMA Model</h5>
+<p>
+  To determine if we have a reasonable model, we will use the Modified Box-Pierce (Ljung-Box) Chi-Square Statistic and examine the residual plots. Using the Modified Box-Pierce Chi-Square Statistic, we see that there is significance at all reported lags (Figure 6). This indicates that there is strong evidence model is inadequate. </p>
+  <div class="table-responsive">
+  <table class="table table-sm table-hover" id="box-pierce"></table>
+  </div>
+  <script type="text/javascript" src="box-pierce.js"></script>
+<p> Additionally, looking at the time series residual plot,  variance is not constant, possibly showing conditional heteroscedasticity (Figure 7).  The ACF and PACF of the residuals look like white noise at earlier lags and does not appear significant until much larger lags, suggesting that the data is uncorrelated (Figure 7a & 7b). The ACF and PACF for the squared residuals show that there is much autocorrelation in the squared residuals even at earlier lags suggesting that the data is correlated (Figure 7c & 7d). Since the residual ACF & PACF suggest that the data is uncorrelated and the squared residual suggest correlated, this would indicate that the data is not independent.  There appears to be some structure in the data that not captured by the ARIMA model, suggesting that a nonlinear model may be appropriate.
+</p>
+
+<!--Figure 7-->
+    <ul class="nav nav-tabs nav-fill" id="meta-tab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-item nav-link active" id="arima-resid-ts-tab" data-toggle="tab" href="#arima-resid-ts" role="tab">Residual Timeseries</a>
+      </li>
+      <li class="nav-item">
+      <a class="nav-item nav-link" id="arima-resid-acf-tab" data-toggle="tab" href="#arima-resid-acfpacf" role="tab">Residual ACF/PACF </a>
+      </li>
+      <li class="nav-item">
+      <a class="nav-item nav-link" id="arima-resid2-acf-tab" data-toggle="tab" href="#arima-resid2-acfpacf" role="tab">Squared Residual ACF/PACF</a>
+      </li>
+    </ul>
+<!--END Figure 7-->
+<!--MODAL FIGURE 7-->
+<div class="tab-content" id="meta-TabContent">
+<!--7a timeseries TAB PANE-->
+<div class="tab-pane fade show active" id="arima-resid-ts" role="tabpanel">
+  <div class="py-4">
+    <div id="7a" style="height:300px;"></div>
+  </div>
+</div>
+<!-- END 7a timeseries TAB PANE-->
+<!-- 7b & 7c status TAB PANE-->
+<div class="tab-pane fade" id="arima-resid-acfpacf" role="tabpanel">
+<div class="row justify-content-md-center py-4">
+  <div class="card-deck">
+    <div class="card">
+      <div class="card-body">
+        <center><svg width="300" height="300" id="arima-resid-acf"></svg></center>
+      </div>
+      <div class="card-footer"><small class="text-muted">ACF</small></div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <center><svg width="300" height="300" id="arima-resid-pacf"></svg></center>
+      </div>
+      <div class="card-footer"><small class="text-muted">PACF</small></div>
+    </div>
+        <script>
+        acf ("arima-resid-acf.csv" , "#arima-resid-acf")
+        pacf ("arima-resid-pacf.csv" , "#arima-resid-pacf")
+        </script>
+  </div><!--card-deck-->
+</div>
+
+</div>
+<!-- END 3c & 3d status TAB PANE-->
+<!-- 3c & 3d status TAB PANE-->
+<div class="tab-pane fade" id="arima-resid2-acfpacf" role="tabpanel">
+  <div class="row justify-content-md-center py-4">
+    <div class="card-deck">
+      <div class="card">
+        <div class="card-body">
+          <svg width="300" height="300" id="arima-resid2-acf"></svg>
+        </div>
+        <div class="card-footer"><small class="text-muted">ACF</small></div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <svg width="300" height="300" id="arima-resid2-pacf"></svg>
+        </div>
+        <div class="card-footer"><small class="text-muted">PACF</small></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+      <script>
+      acf ("arima-resid2-acf.csv" , "#arima-resid2-acf")
+      pacf ("arima-resid2-pacf.csv" , "#arima-resid2-pacf")
+      </script>
+</div>
+<!--END Figure 7 MODAL-->
+<h5>Part 4: GARCH Model Selected</h5>
+<p>To determine which ARCH or GARCH model to use, we use AIC<sub>c</sub>  to evaluate candidate models (Figure 8).
+  The GARCH(1,1) model has the lowest AIC<sub>c</sub> (-61607.05). Thus, we will use this model, which yields $h_{t} =  0.0000005255 + 0.02037\varepsilon^{2}_{t-1} + 0.9812h_{t-1}$. Based on the model output, all estimates are statistically significance with $p < 2.2e-16$.</p>
 
 </div><!-- END body -->
 
@@ -334,6 +416,18 @@
      //title: 'Number of Bike Available (Minutes)',
      //ylabel: 'Number of Bike Available',
      axisLabelWidth:0
+    }
+  );
+  e = new Dygraph(
+    // containing div
+    document.getElementById("7a"),
+    // CSV or path to a CSV file.
+    "arima-resid-ts.csv",
+    {
+     //title: 'Number of Bike Available (Minutes)',
+     ylabel: 'Resid',
+     xlabel: 'Time',
+     //axisLabelWidth:0
     }
   );
 </script>
