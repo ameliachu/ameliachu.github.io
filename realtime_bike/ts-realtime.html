@@ -45,6 +45,8 @@
 
     <script type="text/javascript" src="js/table.js"></script>
     <script src="js/acf-pacf.js"></script>
+    <script src="js/arima-aicc.js"></script>
+
 
     <style>
 
@@ -99,11 +101,13 @@
     </div>
 
     <h5>Introduction</h5>
-    <p>The data for this project was retrieved every minute via the real-time Citi Bike station status feed from April 7, 2018 to April 16, 2018.
+    <p>The data for this project was retrieved every minute via the real-time Citi Bike station status feed<sup> <a href="https://gbfs.citibikenyc.com/gbfs/en/station_status.json" data-toggle="tooltip" data-html="true" title="Citi Bike NYC. Real-time station status. Retrieved from https://gbfs.citibikenyc.com/gbfs/en/station_status.json">1</a></sup> from April 7, 2018 to April 16, 2018.
       This feed scans for updates every 10 seconds and contains information on the availability of bikes and docks at each station in the Citi Bike system.
-      The LaGuardia Pl & W 3 St Citi Bike station was selected because it had slightly above average bike capacity of 35 bikes (μ = 30.3), and appeared to be consistently used
+      The LaGuardia Pl & W 3 St Citi Bike station was selected because it had slightly above average bike capacity of 35 bikes $(\mu = 30.3)$, and appeared to be consistently used
       (Figure 1 & Figure 2a).
    </p>
+   <script src="js/histo.js"></script>
+   <center><svg width="500" height="300" id="arima-forecast"></svg></center>
   <div class="row"><!--Figure 2-->
     <div class="col-md-6 col-lg-3">
       <div class="card">
@@ -152,23 +156,23 @@
   </div><!--END Figure 2-->
   <!--paragraph 2 -->
 
-    <p>The field “num_bikes_available” was used for this project; this field contains the number of bikes available
-      for rental at each station during any given time<sup>2</sup>. Since the feed only updates when there is a change (e.g. when
+    <p>The field "num_bikes_available" was used for this project; this field contains the number of bikes available
+      for rental at each station during any given time <sup><a href="https://github.com/NABSA/gbfs/blob/master/gbfs.md#station_statusjson" data-toggle="tooltip" data-html="true" title="North American Bike Share Association. General bikeshare feed specification (GBFS). Retrieved from https://github.com/NABSA/gbfs/blob/master/gbfs.md#station_statusjson">2</a></sup>. Since the feed only updates when there is a change (e.g. when
        a bike is rented or returned), the timestamp used for this project is based on the time of data retrieval
        (i.e. every minute), rather than the reported timestamp. This was done to ensure evenly spaced time intervals.</p>
     <h5> Part 1: Identify Potential p, d, q for an ARIMA(p, d, q) Model</h5>
-    <p>To determine which ARIMA model is best suited for this dataset (n = 12995), we plot the number of bikes available, its log, and its difference (Figure 2).
+    <p>To determine which ARIMA model is best suited for this dataset $(n = 12995)$, we plot the number of bikes available, its log, and its difference (Figure 2).
       In the plot with the number of bike available by minute, there does appear to be some seasonality.
       The timeseries does appear to dip and rise in some periodic manner, but it does not appear to be completely consistent.
       For example, sometimes the lowest point on a day is around 8:00 UTC (e.g. April 9), other days it’s around 12:00 UTC (e.g. April 12), and on April 16
       it was on 3:00 UTC. The cycles do not appear to match a weekly cadence either: Monday, April 9 had the lowest point around 8:00 UTC compared to April 16 at 3:00 UTC,
       and Saturday, April 7 had the lowest point around 14:00 UTC compared to April 14 at 5:00 UTC. Since it is difficult to discern the seasonal pattern, we will not be making seasonal adjustments.
-      It is also possible that weather temperature had an impact on the timeseries. For example, days with larger dips (e.g. April 12 -14) also happen to have warmer weather.  It also appears that when the there are more bikes available, the timeseries is more volatile, which is suggestive of level-dependent volatility and heteroskedasticity, thus it may be necessary to take logs of the data.
+      It is also possible that weather temperature had an impact on the timeseries. For example, days with larger dips (e.g. April 12 -14) also happen to have warmer weather<sup><a href="https://w2.weather.gov/climate/index.php?wfo=okx" data-toggle="tooltip" data-html="true" title="National Weather Service Forecast Office. Observed Weather Reports. Retrieved from https://w2.weather.gov/climate/index.php?wfo=okx">3</a></sup>.  It also appears that when the there are more bikes available, the timeseries is more volatile, which is suggestive of level-dependent volatility and heteroskedasticity, thus it may be necessary to take logs of the data.
     </p>
     <p>
       Since the ACF plot of log bike available is hanging and the PACF drops off at lag 1, this suggests that we should take differences (Figure 3a & 3b).
       Observing the plots of the differenced data over time, it appears that both are mean reverting (Figure 2c & 2d). The twice differenced ACF show negative value at lag 1,
-      which suggest overdifferencing. This suggested that we should set d = 1. Looking at the ACF and PACF plots of the differenced log bike available, it appears that both
+      which suggest overdifferencing. This suggested that we should set $d = 1$. Looking at the ACF and PACF plots of the differenced log bike available, it appears that both
       plots are dying down, suggestive of an ARMA model. To follow the guiding principle of parsimony, we will try parameters of 3 or less.
     </p>
 
@@ -231,8 +235,8 @@
         <div class="card-footer"><small class="text-muted">PACF</small></div>
       </div>
           <script>
-          acf ("difflogstatusacf.csv" , "#diffstatus-acf")
-          pacf ("3d_difflogstatuspacf.csv" , "#diffstatus-pacf")
+          acf ("csv/3c_difflogstatusacf.csv" , "#diffstatus-acf")
+          pacf ("csv/3d_difflogstatuspacf.csv" , "#diffstatus-pacf")
           </script>
     </div><!--card-deck-->
   </div>
@@ -260,8 +264,8 @@
     </div>
   </div>
         <script>
-        acf ("3e_diff2logstatusacf.csv" , "#diff2status-acf")
-        pacf ("3f_diff2logstatuspacf.csv" , "#diff2status-pacf")
+        acf ("csv/3e_diff2logstatusacf.csv" , "#diff2status-acf")
+        pacf ("csv/3f_diff2logstatuspacf.csv" , "#diff2status-pacf")
         </script>
 </div>
 <!--END Figure 3 MODAL-->
@@ -270,7 +274,7 @@
   <p>To help determine the exact $p$ and determine whether or not to include a constant we use AIC<sub>c</sub>. The candidate model with the lowest AIC<sub>c</sub> is ARIMA(3,1,3) without constant (-47050.73; Figure 4).
     Thus, we will select these parameters and obtain the model:</p>
   <p align = "center">$x_{t} = -0.6394x_{t-1} + 0.1644x_{t-2} + 0.599x_{t-3} + \varepsilon _{t} + 0.7143\varepsilon_{t-1} - 0.0968\varepsilon_{t-2}  - 0.0667\varepsilon_{t-3} $</p>
-  <p>where $x_{t}$ is  $log bikes\_available_{t} - log bikes\_available_{t - 1}$ </p>
+  <p>where $x_{t}$ is  log bikes_available$_{t}$ - log bikes_available$_{t - 1}$ </p>
   <!--END Part 2: Using AICC to Identify Best p, q for ARIMA(p, 1, q) Model-->
 <!--ARIMA AICC-->
     <div class="card">
@@ -284,7 +288,6 @@
       </div>
     </div>
 <!--END ARIMA AICC-->
-<script src="js/arima-aicc.js"></script>
 <div class="table-responsive">
 <table class="table table-sm table-hover" id="arima-param"></table>
 </div>
@@ -382,7 +385,6 @@
 <!--END Figure 7 MODAL-->
 <h5>Part 4: GARCH Model Selected</h5>
 <p>To determine which ARCH or GARCH model to use, we use AIC<sub>c</sub>  to evaluate candidate models (Figure 8).
-  The GARCH(1,1) model has the lowest AIC<sub>c</sub> (-61607.05). Thus, we will use this model, which yields $h_{t} =  0.0000005255 + 0.02037\varepsilon^{2}_{t-1} + 0.9812h_{t-1}$. Based on the model output, all estimates are statistically significance with $p < 2.2e-16$.
 </p>
 <div class="table-responsive">
 <table class="table table-sm table-hover" id="arch-aicc"></table>
@@ -391,6 +393,10 @@
 <div class="table-responsive">
 <table class="table table-sm table-hover" id="garch-aicc"></table>
 </div>
+<p>
+  The GARCH(1,1) model has the lowest AIC<sub>c</sub> (-61607.05). Thus, we will use this model, which yields $h_{t} =  0.0000005255 + 0.02037\varepsilon^{2}_{t-1} + 0.9812h_{t-1}$. Based on the model output, all estimates are statistically significance with $p < 2.2e-16$.
+</p>
+
 <script>
   table_generator("csv/8a_arch-aicc.csv", "#arch-aicc", ["q","loglik","aicc"])
   table_generator("csv/8b_garch-aicc.csv", "#garch-aicc", ["loglik","aicc"])
@@ -404,23 +410,43 @@
 <div class="table-responsive">
 <table class="table table-sm table-hover" id="garch-diagnostic"></table>
 </div>
-<script>
-  table_generator("csv/9a_garch-residuals.csv", "#garch-residuals", ["Min","1Q","Median","3Q","Max"])
-  table_generator("csv/9b_garch-param.csv", "#garch-param", ["Type","Estimate","Std. Error","t-value","p-value"])
+<script type="text/javascript">
+  _9a = new table_generator("csv/9a_garch-residuals.csv", "#garch-residuals", ["Min","1Q","Median","3Q","Max"]);
   table_generator("csv/9c_garch-diagnostic.csv", "#garch-diagnostic", ["Diagnostic","Data","X-Squared","df","p-value"])
 </script>
+<h5>Part 5: Compare One-Step Ahead Forecast Intervals of ARIMA vs. ARIMA-ARCH Model</h5>
+<p>
+  The 95% one-step ahead forecast for ARIMA is (1.865661, 2.020754) and ARIMA-ARCH is (1.608771, 2.277645).
+  The ARIMA-ARCH forecast interval is wider.
+</p>
 <div class="table-responsive">
 <table class="table table-sm table-hover" id="forecast-intervals"></table>
 </div>
 <script>
   table_generator("csv/10_forecast-intervals.csv", "#forecast-intervals", ["","Upper","Lower"])
 </script>
+<h5>Part 6: Conditional Variances</h5>
+<p>Examining the conditional variance plot (Figure 11), periods of high variance do coincide with periods of high volatility in the original plot (Figure 2a).
+  There are spikes around April 12 - April 14 the coincide with the large dips in the timeseries.
+</p>
 <div id="11" style="height:200px;"></div>
+<h5>Part 7 & 9: Forecast Intervals of the ARIMA/ARIMA-ARCH Model</h5>
+<p>
+  Looking at the forecast from the ARIMA(3,1,3) Model (Figure 12a), it appears that interval is too narrow.
+  If we were to compare the forecast to historical values the ARIMA model forecast would not encompass the majority of values.
+  In contrast, the ARIMA-ARCH model forecasts encompass the majority of values, only failing 738 of the 12955 times (5.6%).
+</p>
 <div id="12b" style="height:200px;"></div>
+<h5>Part 8: Residuals of the ARIMA-ARCH Model</h5>
+<p>The normality plot for ARCH Residuals (Figure 13) appears to exhibit leptokurtosis.
+  There is a large number of data points (outliers) that are curved and trailing both the left and right side of the plot.
+  This suggests that the model did not adequately describe the leptokurtosis, because if the model was adequate, the normality plot would be close to a straight line.
+</p>
 </div><!-- END body -->
 
 
 <script type="text/javascript">
+table_generator("csv/9b_garch-param.csv", "#garch-param", ["Type","Estimate","Std. Error","t-value","p-value"])
   a = new Dygraph(
     // containing div
     document.getElementById("status"),

@@ -2,17 +2,7 @@
 <link rel="stylesheet" href="../../assets/css/dygraph.css" />
 <div id="12b"></div>
 <script type="text/javascript">
-e = new Dygraph(
-  // containing div
-  document.getElementById("12b"),
-  // CSV or path to a CSV file.
+e = new Dygraph(document.getElementById("12b"),
   "12b_forecast-int.csv",
-  {
-   //title: 'Number of Bike Available (Minutes)',
-   ylabel: 'Log Bikes Available',
-   xlabel: 'Time',
-   customBars: true
-   //axisLabelWidth:0
-  }
-);
+  {ylabel: 'Log Bikes Available',xlabel: 'Time',customBars: true});
 </script>
