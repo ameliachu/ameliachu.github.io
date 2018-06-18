@@ -1,8 +1,8 @@
-d3.csv("arima-aicc.csv", function(data) {
+function aicc_table_generator(csv, id, columns_list){d3.csv(csv, function(data) {
   // the columns you'd like to display
-  var columns = ["p","d","q","constant","AICC"];
+  var columns = columns_list;
   var max = d3.max(data, function(d) { return d.AICC; });
-  var table = d3.select("#arima-aicc"),
+  var table = d3.select(id),
   thead = table.append("thead"),
   tbody = table.append("tbody");
 
@@ -16,14 +16,14 @@ d3.csv("arima-aicc.csv", function(data) {
     .style('font-size', 12);
 
 // create a row for each object in the data
-var rows = tbody.selectAll("tr")
+  var rows = tbody.selectAll("tr")
   .data(data)
   .enter()
   .append("tr");
 
   // create a cell in each row for each column
-var cells = rows.selectAll("td")
-.data(function(row) {
+  var cells = rows.selectAll("td")
+  .data(function(row) {
     return columns.map(function(column) {
         return {column: column, value: row[column]};
       });
@@ -35,4 +35,4 @@ var cells = rows.selectAll("td")
     .style('background-color',function(d){ if(Number(d.value) == Number(max)) { return "steelblue"} })
     .style('color',function(d) { if(Number(d.value) == Number(max)) { return "white"} })
     .style('font-size', 10)
-  });
+  });}

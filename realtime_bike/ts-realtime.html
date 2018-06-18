@@ -43,6 +43,9 @@
     <script src="http://d3js.org/d3.v4.min.js"></script>
     <link rel="stylesheet" href="../assets/css/dygraph.css" />
 
+    <script type="text/javascript" src="js/table.js"></script>
+    <script src="js/acf-pacf.js"></script>
+
     <style>
 
     .bar {
@@ -154,7 +157,7 @@
        a bike is rented or returned), the timestamp used for this project is based on the time of data retrieval
        (i.e. every minute), rather than the reported timestamp. This was done to ensure evenly spaced time intervals.</p>
     <h5> Part 1: Identify Potential p, d, q for an ARIMA(p, d, q) Model</h5>
-    <p>To determine which ARIMA model is best suited for this dataset (n = 12995), we plot the monthly total trips, its log, and its difference (Figure 2).
+    <p>To determine which ARIMA model is best suited for this dataset (n = 12995), we plot the number of bikes available, its log, and its difference (Figure 2).
       In the plot with the number of bike available by minute, there does appear to be some seasonality.
       The timeseries does appear to dip and rise in some periodic manner, but it does not appear to be completely consistent.
       For example, sometimes the lowest point on a day is around 8:00 UTC (e.g. April 9), other days it’s around 12:00 UTC (e.g. April 12), and on April 16
@@ -203,8 +206,6 @@
         </div>
         <div class="card-footer"><small class="text-muted">PACF</small></div>
       </div>
-
-          <script src="acf-pacf.js"></script>
           <script>
           acf ("logstatusac.csv" , "#status-acf")
           pacf ("logstatuspacf.csv" , "#status-pacf")
@@ -231,7 +232,7 @@
       </div>
           <script>
           acf ("difflogstatusacf.csv" , "#diffstatus-acf")
-          pacf ("difflogstatuspacf.csv" , "#diffstatus-pacf")
+          pacf ("3d_difflogstatuspacf.csv" , "#diffstatus-pacf")
           </script>
     </div><!--card-deck-->
   </div>
@@ -259,8 +260,8 @@
     </div>
   </div>
         <script>
-        acf ("diff2logstatusacf.csv" , "#diff2status-acf")
-        pacf ("diff2logstatuspacf.csv" , "#diff2status-pacf")
+        acf ("3e_diff2logstatusacf.csv" , "#diff2status-acf")
+        pacf ("3f_diff2logstatuspacf.csv" , "#diff2status-pacf")
         </script>
 </div>
 <!--END Figure 3 MODAL-->
@@ -283,12 +284,14 @@
       </div>
     </div>
 <!--END ARIMA AICC-->
-
-<script type="text/javascript" src="arima-aicc.js"></script>
+<script src="js/arima-aicc.js"></script>
 <div class="table-responsive">
 <table class="table table-sm table-hover" id="arima-param"></table>
 </div>
-<script type="text/javascript" src="arima-param.js"></script>
+<script>
+  aicc_table_generator("csv/4_arima-aicc.csv", "#arima-aicc", ["p","d","q","constant","AICC"])
+  table_generator("csv/5_arima-param.csv", "#arima-param", [" ","AR(1)","AR(2)","AR(3)","MA(1)","MA(2)","MA(3)"])
+</script>
 
 
 
@@ -298,7 +301,9 @@
   <div class="table-responsive">
   <table class="table table-sm table-hover" id="box-pierce"></table>
   </div>
-  <script type="text/javascript" src="box-pierce.js"></script>
+  <script>
+    table_generator("csv/6_box-pierce.csv", "#box-pierce", ["Lag","12","24","36","48"])
+  </script>
 <p> Additionally, looking at the time series residual plot,  variance is not constant, possibly showing conditional heteroscedasticity (Figure 7).  The ACF and PACF of the residuals look like white noise at earlier lags and does not appear significant until much larger lags, suggesting that the data is uncorrelated (Figure 7a & 7b). The ACF and PACF for the squared residuals show that there is much autocorrelation in the squared residuals even at earlier lags suggesting that the data is correlated (Figure 7c & 7d). Since the residual ACF & PACF suggest that the data is uncorrelated and the squared residual suggest correlated, this would indicate that the data is not independent.  There appears to be some structure in the data that not captured by the ARIMA model, suggesting that a nonlinear model may be appropriate.
 </p>
 
@@ -341,8 +346,8 @@
       <div class="card-footer"><small class="text-muted">PACF</small></div>
     </div>
         <script>
-        acf ("arima-resid-acf.csv" , "#arima-resid-acf")
-        pacf ("arima-resid-pacf.csv" , "#arima-resid-pacf")
+        acf ("7b_arima-resid-acf.csv" , "#arima-resid-acf")
+        pacf ("7c_arima-resid-pacf.csv" , "#arima-resid-pacf")
         </script>
   </div><!--card-deck-->
 </div>
@@ -370,15 +375,48 @@
   </div>
 </div>
       <script>
-      acf ("arima-resid2-acf.csv" , "#arima-resid2-acf")
-      pacf ("arima-resid2-pacf.csv" , "#arima-resid2-pacf")
+      acf ("7d_arima-resid2-acf.csv" , "#arima-resid2-acf")
+      pacf ("7e_arima-resid2-pacf.csv" , "#arima-resid2-pacf")
       </script>
 </div>
 <!--END Figure 7 MODAL-->
 <h5>Part 4: GARCH Model Selected</h5>
 <p>To determine which ARCH or GARCH model to use, we use AIC<sub>c</sub>  to evaluate candidate models (Figure 8).
-  The GARCH(1,1) model has the lowest AIC<sub>c</sub> (-61607.05). Thus, we will use this model, which yields $h_{t} =  0.0000005255 + 0.02037\varepsilon^{2}_{t-1} + 0.9812h_{t-1}$. Based on the model output, all estimates are statistically significance with $p < 2.2e-16$.</p>
+  The GARCH(1,1) model has the lowest AIC<sub>c</sub> (-61607.05). Thus, we will use this model, which yields $h_{t} =  0.0000005255 + 0.02037\varepsilon^{2}_{t-1} + 0.9812h_{t-1}$. Based on the model output, all estimates are statistically significance with $p < 2.2e-16$.
+</p>
+<div class="table-responsive">
+<table class="table table-sm table-hover" id="arch-aicc"></table>
+</div>
 
+<div class="table-responsive">
+<table class="table table-sm table-hover" id="garch-aicc"></table>
+</div>
+<script>
+  table_generator("csv/8a_arch-aicc.csv", "#arch-aicc", ["q","loglik","aicc"])
+  table_generator("csv/8b_garch-aicc.csv", "#garch-aicc", ["loglik","aicc"])
+</script>
+<div class="table-responsive">
+<table class="table table-sm table-hover" id="garch-residuals"></table>
+</div>
+<div class="table-responsive">
+<table class="table table-sm table-hover" id="garch-param"></table>
+</div>
+<div class="table-responsive">
+<table class="table table-sm table-hover" id="garch-diagnostic"></table>
+</div>
+<script>
+  table_generator("csv/9a_garch-residuals.csv", "#garch-residuals", ["Min","1Q","Median","3Q","Max"])
+  table_generator("csv/9b_garch-param.csv", "#garch-param", ["Type","Estimate","Std. Error","t-value","p-value"])
+  table_generator("csv/9c_garch-diagnostic.csv", "#garch-diagnostic", ["Diagnostic","Data","X-Squared","df","p-value"])
+</script>
+<div class="table-responsive">
+<table class="table table-sm table-hover" id="forecast-intervals"></table>
+</div>
+<script>
+  table_generator("csv/10_forecast-intervals.csv", "#forecast-intervals", ["","Upper","Lower"])
+</script>
+<div id="11" style="height:200px;"></div>
+<div id="12b" style="height:200px;"></div>
 </div><!-- END body -->
 
 
@@ -387,42 +425,22 @@
     // containing div
     document.getElementById("status"),
     // CSV or path to a CSV file.
-    "status_161.csv",
+    "csv/2a_status161.csv",
     {
      //title: 'Number of Bike Available (Minutes)',
      //ylabel: 'Number of Bike Available',
      axisLabelWidth:0
     }
   );
-  b = new Dygraph(document.getElementById("2b"),"log_status_161.csv",
-    {axisLabelWidth:0});
-  c = new Dygraph(
-    // containing div
-    document.getElementById("2c"),
-    // CSV or path to a CSV file.
-    "difflogstatus.csv",
-    {
-     //title: 'Number of Bike Available (Minutes)',
-     //ylabel: 'Number of Bike Available',
-     axisLabelWidth:0
-    }
-  );
-  d = new Dygraph(
-    // containing div
-    document.getElementById("2d"),
-    // CSV or path to a CSV file.
-    "diff2logstatus.csv",
-    {
-     //title: 'Number of Bike Available (Minutes)',
-     //ylabel: 'Number of Bike Available',
-     axisLabelWidth:0
-    }
-  );
+  b = new Dygraph(document.getElementById("2b"),"csv/2b_logstatus161.csv", {axisLabelWidth:0});
+
+  c = new Dygraph(document.getElementById("2c"),"csv/2c_difflogstatus.csv", {axisLabelWidth:0});
+  d = new Dygraph(document.getElementById("2d"),"csv/2d_diff2logstatus.csv", {axisLabelWidth:0});
   e = new Dygraph(
     // containing div
     document.getElementById("7a"),
     // CSV or path to a CSV file.
-    "arima-resid-ts.csv",
+    "csv/7a_arima-resid-ts.csv",
     {
      //title: 'Number of Bike Available (Minutes)',
      ylabel: 'Resid',
@@ -430,6 +448,21 @@
      //axisLabelWidth:0
     }
   );
+  f = new Dygraph(
+    // containing div
+    document.getElementById("11"),
+    // CSV or path to a CSV file.
+    "csv/11_condition-var.csv",
+    {
+     //title: 'Number of Bike Available (Minutes)',
+     ylabel: 'Conditional Variance',
+     xlabel: 'Time',
+     //axisLabelWidth:0
+    }
+  );
+  g = new Dygraph(document.getElementById("12b"),
+    "12b_forecast-int.csv",
+    {ylabel: 'Log Bikes Available',xlabel: 'Time',customBars: true});
 </script>
 <footer class="footer">
   <div class="container">

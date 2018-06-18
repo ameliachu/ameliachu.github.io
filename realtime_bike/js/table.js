@@ -1,8 +1,8 @@
-d3.csv("box-pierce.csv", function(data) {
+function table_generator(csv, id, columns_list){d3.csv(csv, function(data) {
+  //table_generator("arima-param.csv", "#id", [" ","AR(1)","AR(2)","AR(3)","MA(1)","MA(2)","MA(3)"])
   // the columns you'd like to display
-  var columns = ["Lag","12","24","36","48"];
-
-  var table = d3.select("#box-pierce"),
+  var columns = columns_list;
+  var table = d3.select(id),
   thead = table.append("thead"),
   tbody = table.append("tbody");
 
@@ -35,3 +35,4 @@ var cells = rows.selectAll("td")
 
     .style('font-size', 10)
   });
+}

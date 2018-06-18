@@ -1,0 +1,4 @@
+Diagnostic,Data,X-Squared,df,p-value
+Jarque Bera Test,Residuals,2116700,2,< 2.2e-16
+Box-Ljung Test,Squared.Residuals,1.489,1,0.2224
+log Lik,30774.76,-,3,-
