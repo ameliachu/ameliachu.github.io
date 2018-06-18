@@ -346,8 +346,8 @@
       <div class="card-footer"><small class="text-muted">PACF</small></div>
     </div>
         <script>
-        acf ("7b_arima-resid-acf.csv" , "#arima-resid-acf")
-        pacf ("7c_arima-resid-pacf.csv" , "#arima-resid-pacf")
+        acf ("csv/7b_arima-resid-acf.csv" , "#arima-resid-acf")
+        pacf ("csv/7c_arima-resid-pacf.csv" , "#arima-resid-pacf")
         </script>
   </div><!--card-deck-->
 </div>
@@ -375,8 +375,8 @@
   </div>
 </div>
       <script>
-      acf ("7d_arima-resid2-acf.csv" , "#arima-resid2-acf")
-      pacf ("7e_arima-resid2-pacf.csv" , "#arima-resid2-pacf")
+      acf ("csv/7d_arima-resid2-acf.csv" , "#arima-resid2-acf")
+      pacf ("csv/7e_arima-resid2-pacf.csv" , "#arima-resid2-pacf")
       </script>
 </div>
 <!--END Figure 7 MODAL-->
@@ -461,7 +461,7 @@
     }
   );
   g = new Dygraph(document.getElementById("12b"),
-    "12b_forecast-int.csv",
+    "csv/12b_forecast-int.csv",
     {ylabel: 'Log Bikes Available',xlabel: 'Time',customBars: true});
 </script>
 <footer class="footer">
