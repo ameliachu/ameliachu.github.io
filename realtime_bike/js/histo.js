@@ -1,4 +1,4 @@
-d3.csv("csv/12a_capacity-histo.csv", function(csv) {
+d3.csv("csv/1_capacity-histo.csv", function(csv) {
    var data = []
    var dataMax = d3.max(csv, function(d) { return d.capacity; }),
        dataMin = d3.min(csv, function(d) { return d.capacity; });
@@ -8,8 +8,8 @@ d3.csv("csv/12a_capacity-histo.csv", function(csv) {
    })
    data.y = "Number of Stations ";
   data.x = "Capacity"
-   console.log(data)
-   var svg = d3.select("#arima-forecast"),
+   //console.log(data)
+   var svg = d3.select("#capacity-histo"),
        margin = {top: 30, right: 10, bottom: 10, left: 30},
        width = +svg.attr("width") - margin.left - margin.right,
        height = +svg.attr("height") - margin.top - margin.bottom;
@@ -50,7 +50,7 @@ var yAxis = g => g
         .text(data.y));
   var bar = svg.append("g")
       .attr("fill", "steelblue")
-    .selectAll("rect")
+    .selectAll(".bar")
     .data(bins)
     .enter().append("rect")
       .attr("x", d => x(d.x0) + 1)

@@ -1,0 +1,65 @@
+<script src="../../assets/js/dygraph.min.js"></script>
+<link rel="stylesheet" href="../../assets/css/dygraph.css" />
+<script src="../../assets/js/bootstrap.min.js"></script>
+<script src="http://d3js.org/d3.v4.min.js"></script>
+<script src="table.js"></script>
+
+<link rel="stylesheet" href="../../assets/css/bootstrap.min.css" />
+<div class="container">
+
+<h5>Unique Cards Viewed by Day</h5>
+<div id="domo-view-ts" style="height:200px;"></div>
+<h5>Were Cards Viewed by Their Creator?</h5>
+<div id="CreatorEqualViewer" style="height:200px;"></div>
+<div id="vdsCreatorEqualViewer" style="height:200px;"></div>
+<h5>Unique Cards Created by Day</h5>
+<div id="domo-created-ts" style="height:200px;"></div>
+
+<div id="domo-createdbyuser-ts" style="height:200px;"></div>
+
+<h5>Excel Plugin Usage by Day</h5>
+<div id="domo-excel-ts" style="height:200px;"></div>
+<h5>Excel Plugin Users by Day</h5>
+<div id="domo-excelusers-ts" style="height:200px;"></div>
+<h5>Excel Plugin User Usage by Day</h5>
+<div id="domo-excelusersgroup-ts" style="height:200px;"></div>
+<h5>Excel Plugin Power User Usage by Day</h5>
+<div id="domo-excelusersact-ts" style="height:200px;"></div>
+<div class="table-responsive">
+<table class="table table-sm table-hover" id="user-group"></table>
+</div>
+<script>table_generator("domo-excelusersgroup-ts.csv", "#user-group", ["Date (PDT)","Admin","Agrawal Aditya","Angela Tsai","Anum Shahzad","Ashlee McCullock","Cameron Smith","Claire Joyce","Freddie Dubon","Hayley Feldman","Holly Paul","Jamie Lerch-Ebner","Jerome Lambert","Joseph Evers","Judit Major","Kirsten Kim","Margot Matthews","Marla Wulz","Omprakash Gurubaxani","Park Katy","Paula-Kaye Herdsman","Samuel States","Stephen Reader","Tina Kim"])</script>
+<script type="text/javascript">
+a = new Dygraph(document.getElementById("domo-view-ts"),
+  "domo-view-ts.csv",
+  {ylabel: "Unique Views" ,xlabel: "Date (PDT)"});
+
+b = new Dygraph(document.getElementById("domo-excel-ts"),
+    "domo-excel-ts.csv",
+    {ylabel: "Unique API Calls" ,xlabel: "Date (PDT)"});
+
+c = new Dygraph(document.getElementById("domo-excelusers-ts"),
+        "domo-excelusers-ts.csv",
+        {ylabel: "Unique API Calls" ,xlabel: "Date (PDT)"});
+d = new Dygraph(document.getElementById("domo-excelusersgroup-ts"),
+        "domo-excelusersgroup-ts.csv",
+        {ylabel: "Unique API Calls" ,xlabel: "Date (PDT)"});
+e = new Dygraph(document.getElementById("domo-excelusersact-ts"),
+        "domo-excelusersact-ts.csv",
+        {ylabel: "Unique API Calls" ,xlabel: "Date (PDT)"});
+f = new Dygraph(document.getElementById("domo-created-ts"),
+          "domo-created-ts.csv",
+          {ylabel: "Cards Created" ,xlabel: "Date (PDT)"});
+g = new Dygraph(document.getElementById("domo-createdbyuser-ts"),
+                    "domo-createdbyuser-ts.csv",
+                    {ylabel: "Cards Created" ,xlabel: "Date (PDT)"});
+h = new Dygraph(document.getElementById("CreatorEqualViewer"),
+                                        "CreatorEqualViewer.csv",
+                                        {ylabel: "Unique Views" ,xlabel: "Date (PDT)"});
+i = new Dygraph(document.getElementById("vdsCreatorEqualViewer"),
+                                                                                "vdsCreatorEqualViewer.csv",
+                                                                                {ylabel: "Unique Views" ,xlabel: "Date (PDT)"});
+
+</script>
+
+</div><!--END container-->

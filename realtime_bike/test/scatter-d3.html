@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<!--<svg width="300" height="300" id="status-pacf"></svg>-->
+<center><svg width="500" height="300" id="qq-plot"></svg></center>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<!--
+<script src="acf-pacf.js"></script>-->
+<style>
+#qq-plot {padding: 20px 20px;}
+</style>
+<script>
+
+
+// var svg = d3.select("body").append("svg")
+//    .attr("width", width + margin.left + margin.right)
+//    .attr("height", height + margin.top + margin.bottom)
+//  svg.append("g")
+//    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+d3.csv("../csv/13_qqplot.csv", function(error, data) {
+  if (error) throw error;
+
+  data.forEach(function(d) {
+    d.SampleQuantiles = +d.SampleQuantiles;
+    d.TheoreticalQuantiles = +d.TheoreticalQuantiles;
+  });
+  var svg = d3.select("#qq-plot");
+  //console.log(svg.attr("width"));
+  var margin = {top: 20, right: 20, bottom: 30, left: 20},
+      width = +svg.attr("width")  - margin.left - margin.right,
+      height = +svg.attr("height")  - margin.top - margin.bottom;
+  //console.log(width);
+  //console.log(height);
+
+
+  var x = d3.scaleLinear()
+      .range([0, width]);
+
+  var y = d3.scaleLinear()
+      .range([height, 0]);
+
+
+  var xAxis = d3.axisBottom(x);
+
+  var yAxis = d3.axisLeft(y);
+
+  x.domain(d3.extent(data, function(d) { return d.SampleQuantiles; })).nice();
+  y.domain(d3.extent(data, function(d) { return d.TheoreticalQuantiles; })).nice();
+
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis)
+      .append("text")
+      .attr("x", width - margin.right)
+      .attr("y", -6)
+      .attr("fill", "#000")
+      .style("text-anchor", "end")
+      .attr("font-weight", "bold")
+     .text("Theoretical Quantiles")
+;
+
+  svg.append("g")
+      .attr("class", "y axis")
+      //.attr("transform", "translate(0," + width + ")")
+      .call(yAxis)
+    .append("text")
+      .attr("class", "label")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", ".71em")
+      .attr("fill", "#000")
+      .style("text-anchor", "end")
+      .attr("font-weight", "bold")
+      .text("Sample Quantiles");
+
+  svg.selectAll(".dot")
+      .data(data)
+    .enter().append("circle")
+      .attr("class", "dot")
+      .attr("r", 2)
+      .attr("cx", function(d) { return x(d.SampleQuantiles); })
+      .attr("cy", function(d) { return y(d.TheoreticalQuantiles); })
+      .attr("fill", "steelblue");
+  svg.append("line")
+    .attr("x1", x(-12.5507721429024))  //<<== change your code here
+    .attr("y1", y(-21.7479))
+    .attr("x2", x(14.04521))  //<<== and here
+    .attr("y2", y(24.3488124301189))
+    .style("stroke-width", 1)
+    .style("stroke", "black")
+    .style("fill", "none");
+//      .style("fill", function(d) { return color(d.species);
+});
+</script>
