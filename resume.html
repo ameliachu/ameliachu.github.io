@@ -60,24 +60,51 @@
       <div class="jumbotron" >
         <h2>Resume</h2>
       </div>
-      <!-- Example row of columns -->
-      <div class="card-columns">
-        <div id="accordion" role="tablist" aria-multiselectable="true" style="overflow:hidden;">
+      <!--Nav Tags-->
+      <!--Nav Tags TABS-->
+          <ul class="nav nav-pills justify-content-center" id="nav-tags" role="tablist">
+            <li class="nav-item">
+              <a class="nav-item nav-link active" id="all-tab" data-toggle="tab" href="#all" role="tab">all</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-item nav-link" id="education-tab" data-toggle="tab" href="#education" role="tab">education</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-item nav-link" id="education-tab" data-toggle="tab" href="#leadership" role="tab">leadership</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-item nav-link" id="education-tab" data-toggle="tab" href="#design" role="tab">design</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-item nav-link" id="education-tab" data-toggle="tab" href="#data" role="tab">data</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-item nav-link" id="education-tab" data-toggle="tab" href="#research" role="tab">research</a>
+            </li>
+          </ul>
+      <!--END Nav Tags TABS-->
+      <!--Nav Tags MODAL-->
+      <div class="tab-content" id="nav-tags-TabContent">
+      <!--ALL TAB PANE-->
+      <div class="tab-pane fade show active" id="all" role="tabpanel">
+        <div class="py-4">
+          <div class="card-columns">
+            <div id="accordionALL" role="tablist" aria-multiselectable="true" style="overflow:hidden;">
 
   <div class="card">
-      <div class="card-header" role="tab" id="heading0">
+      <div class="card-header" role="tab" id="headingALL0">
         <h5 class="mb-0">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse0" aria-expanded="true" aria-controls="collapse0">
+          <a data-toggle="collapse" data-parent="#accordionALL" href="#collapseALL0" aria-expanded="true" aria-controls="collapseALL0">
             <h4 class="card-title">Research Assistant</h4>
             <h6 class="card-subtitle mb-2 text-muted"><em>Michael Cohen Group, LLC</em></h6>
           </a>
         </h5>
       </div>
-      <div id="collapse0" class="collapse hide" role="tabpanel" aria-labelledby="heading0">
+      <div id="collapseALL0" class="collapse hide" role="tabpanel" aria-labelledby="headingALL0">
           <div class="card-body">
               <p>New York, NY</p>
               <p>September 2014 – November 2015</p>
-              <p><ul><li>Gained exposure and immersion to entire research process by assisting in over 9 research studies</li><li>Performed qualitative and quantitative analysis, importing data and interpreting descriptives, t-Tests, and ANOVA</li><li>Presented overviews on Python for Data Analysis and Tablets in Education during company-wide meetings</li><li>Assisted in focus group interviews with children and usability testing with Silverback 2 and Invision</li><li>Met with research directors to develop test instruments and review study findings</li><li>Organized literature in reference managers (e.g., Mendeley, Zotero) and created a guide for navigating and using reference tools</li></ul></p>
+              <p><ul> <li> Gained exposure and immersion to entire research process by assisting in over 9 research studies </li><li> Performed qualitative and quantitative analysis, importing data and interpreting descriptives, t-Tests, and ANOVA </li><li> Presented overviews on Python for Data Analysis and Tablets in Education during company-wide meetings </li><li> Assisted in focus group interviews with children and usability testing with Silverback 2 and Invision </li><li> Met with research directors to develop test instruments and review study findings </li><li> Organized literature in reference managers (e.g., Mendeley, Zotero) and created a guide for navigating and using reference tools </li> </ul></p>
          </div>
       </div>
       <div class="card-footer text-muted"><a href="#" class="badge badge-info">research</a> <a href="#" class="badge badge-info">data</a> <a href="#" class="badge badge-info">education</a> </div>
@@ -85,19 +112,19 @@
 
 
   <div class="card">
-      <div class="card-header" role="tab" id="heading1">
+      <div class="card-header" role="tab" id="headingALL1">
         <h5 class="mb-0">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="true" aria-controls="collapse1">
+          <a data-toggle="collapse" data-parent="#accordionALL" href="#collapseALL1" aria-expanded="true" aria-controls="collapseALL1">
             <h4 class="card-title">Information Designer</h4>
             <h6 class="card-subtitle mb-2 text-muted"><em>Michael Cohen Group, LLC</em></h6>
           </a>
         </h5>
       </div>
-      <div id="collapse1" class="collapse hide" role="tabpanel" aria-labelledby="heading1">
+      <div id="collapseALL1" class="collapse hide" role="tabpanel" aria-labelledby="headingALL1">
           <div class="card-body">
               <p>New York, NY</p>
               <p>May 2014 – August 2015</p>
-              <p><ul><li>Ensured research reports, observation logs, presentations, and marketing materials all reflected the company’s brand identity</li><li>Independently managed multiple design tasks and actively sought feedback from different supervisors</li><li>Packaged icons, graphs, and layout for client-side reports with topics ranging from child math affinity to educator online purchasing decisions</li><li>Delivered promptly intuitively organized project files with clearly labeled artboards and layers</li></ul></p>
+              <p><ul> <li> Ensured research reports, observation logs, presentations, and marketing materials all reflected the company’s brand identity </li><li> Independently managed multiple design tasks and actively sought feedback from different supervisors </li><li> Packaged icons, graphs, and layout for client-side reports with topics ranging from child math affinity to educator online purchasing decisions </li><li> Delivered promptly intuitively organized project files with clearly labeled artboards and layers </li> </ul></p>
          </div>
       </div>
       <div class="card-footer text-muted"><a href="#" class="badge badge-info">design</a> <a href="#" class="badge badge-info">data</a> <a href="#" class="badge badge-info">education</a> </div>
@@ -105,19 +132,19 @@
 
 
   <div class="card">
-      <div class="card-header" role="tab" id="heading2">
+      <div class="card-header" role="tab" id="headingALL2">
         <h5 class="mb-0">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="true" aria-controls="collapse2">
+          <a data-toggle="collapse" data-parent="#accordionALL" href="#collapseALL2" aria-expanded="true" aria-controls="collapseALL2">
             <h4 class="card-title">Summer Assistant</h4>
             <h6 class="card-subtitle mb-2 text-muted"><em>NYU Residential Life and Housing Services </em></h6>
           </a>
         </h5>
       </div>
-      <div id="collapse2" class="collapse hide" role="tabpanel" aria-labelledby="heading2">
+      <div id="collapseALL2" class="collapse hide" role="tabpanel" aria-labelledby="headingALL2">
           <div class="card-body">
               <p>New York, NY</p>
               <p>May 2014 – August 2015</p>
-              <p><ul><li>Served as peer counselor and live-in resource for summer residents at Rubin Hall</li><li>Provided emergency and crisis response for over 300 residents throughout a rotating duty schedule</li><li>Authored a cross-platform Social Media Playbook establishing structure, best practices, and resources for future Rubin social media managers</li><li>Determined the official Rubin Hall tumblr’s layout and initial content</li><li>Responded promptly to incoming freshman inquires via Rubin Hall’s tumblr page</li></ul></p>
+              <p><ul> <li> Served as peer counselor and live-in resource for summer residents at Rubin Hall </li><li> Provided emergency and crisis response for over 300 residents throughout a rotating duty schedule </li><li> Authored a cross-platform Social Media Playbook establishing structure, best practices, and resources for future Rubin social media managers </li><li> Determined the official Rubin Hall tumblr’s layout and initial content </li><li> Responded promptly to incoming freshman inquires via Rubin Hall’s tumblr page </li> </ul></p>
          </div>
       </div>
       <div class="card-footer text-muted"><a href="#" class="badge badge-info">design</a> <a href="#" class="badge badge-info">education</a> <a href="#" class="badge badge-info">leadership</a> </div>
@@ -125,19 +152,19 @@
 
 
   <div class="card">
-      <div class="card-header" role="tab" id="heading3">
+      <div class="card-header" role="tab" id="headingALL3">
         <h5 class="mb-0">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="true" aria-controls="collapse3">
+          <a data-toggle="collapse" data-parent="#accordionALL" href="#collapseALL3" aria-expanded="true" aria-controls="collapseALL3">
             <h4 class="card-title">Design Office Assistant</h4>
             <h6 class="card-subtitle mb-2 text-muted"><em>NYU Center of Multicultural Education and Programs (CMEP)</em></h6>
           </a>
         </h5>
       </div>
-      <div id="collapse3" class="collapse hide" role="tabpanel" aria-labelledby="heading3">
+      <div id="collapseALL3" class="collapse hide" role="tabpanel" aria-labelledby="headingALL3">
           <div class="card-body">
               <p>New York, NY</p>
               <p>May 2014 – August 2015</p>
-              <p><ul><li>Acted as an in-house graphics designer in a fast-paced work environment, managing multiple projects on tight timelines</li><li>Created design playbook and trained two incoming office assistants on CMEP design methodologies</li><li>Transformed abstract instruction to concrete visuals to support marketing for diversity and social justice programming</li><li>Collaborated with the Director, Program Administrators and graduate students to determine final products</li></ul></p>
+              <p><ul> <li> Acted as an in-house graphics designer in a fast-paced work environment, managing multiple projects on tight timelines </li><li> Created design playbook and trained two incoming office assistants on CMEP design methodologies </li><li> Transformed abstract instruction to concrete visuals to support marketing for diversity and social justice programming </li><li> Collaborated with the Director, Program Administrators and graduate students to determine final products </li> </ul></p>
          </div>
       </div>
       <div class="card-footer text-muted"><a href="#" class="badge badge-info">design</a> </div>
@@ -145,19 +172,19 @@
 
 
   <div class="card">
-      <div class="card-header" role="tab" id="heading4">
+      <div class="card-header" role="tab" id="headingALL4">
         <h5 class="mb-0">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse4" aria-expanded="true" aria-controls="collapse4">
+          <a data-toggle="collapse" data-parent="#accordionALL" href="#collapseALL4" aria-expanded="true" aria-controls="collapseALL4">
             <h4 class="card-title">Substitute Teaching Assistant</h4>
             <h6 class="card-subtitle mb-2 text-muted"><em>A Place For Kids at PS 2</em></h6>
           </a>
         </h5>
       </div>
-      <div id="collapse4" class="collapse hide" role="tabpanel" aria-labelledby="heading4">
+      <div id="collapseALL4" class="collapse hide" role="tabpanel" aria-labelledby="headingALL4">
           <div class="card-body">
               <p>New York, NY</p>
               <p>October 2012 - August 2013</p>
-              <p><ul><li>Assisted head teachers on various tasks in groups of 15 children (grades K-4)</li><li>Provided individual help in English and Chinese for students struggling with English, Math & Social Studies homework</li><li>Refocused children who are off-task by discussing the importance of their work with them and guiding them through the task until they have regained their concentration</li></ul></p>
+              <p><ul> <li> Assisted head teachers on various tasks in groups of 15 children (grades K-4) </li><li> Provided individual help in English and Chinese for students struggling with English, Math & Social Studies homework </li><li> Refocused children who are off-task by discussing the importance of their work with them and guiding them through the task until they have regained their concentration </li> </ul></p>
          </div>
       </div>
       <div class="card-footer text-muted"><a href="#" class="badge badge-info">education</a> <a href="#" class="badge badge-info">leadership</a> </div>
@@ -165,19 +192,19 @@
 
 
   <div class="card">
-      <div class="card-header" role="tab" id="heading5">
+      <div class="card-header" role="tab" id="headingALL5">
         <h5 class="mb-0">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse5" aria-expanded="true" aria-controls="collapse5">
+          <a data-toggle="collapse" data-parent="#accordionALL" href="#collapseALL5" aria-expanded="true" aria-controls="collapseALL5">
             <h4 class="card-title">Tutor</h4>
             <h6 class="card-subtitle mb-2 text-muted"><em>America Reads at PS 130</em></h6>
           </a>
         </h5>
       </div>
-      <div id="collapse5" class="collapse hide" role="tabpanel" aria-labelledby="heading5">
+      <div id="collapseALL5" class="collapse hide" role="tabpanel" aria-labelledby="headingALL5">
           <div class="card-body">
               <p>New York, NY</p>
               <p> September 2012 - June 2013</p>
-              <p><ul><li>Assisted Kindergarten teacher in a class of 26 bilingual students</li><li>Provided one-on-one or small group tutoring for students struggling with math concepts or writing tasks</li><li>Guided student through conflict resolution</li><li>Provided basic IT support for teacher on computer-troubleshooting issues</li></ul></p>
+              <p><ul> <li> Assisted Kindergarten teacher in a class of 26 bilingual students </li><li> Provided one-on-one or small group tutoring for students struggling with math concepts or writing tasks </li><li> Guided student through conflict resolution </li><li> Provided basic IT support for teacher on computer-troubleshooting issues </li> </ul></p>
          </div>
       </div>
       <div class="card-footer text-muted"><a href="#" class="badge badge-info">education</a> <a href="#" class="badge badge-info">leadership</a> </div>
@@ -185,19 +212,19 @@
 
 
   <div class="card">
-      <div class="card-header" role="tab" id="heading6">
+      <div class="card-header" role="tab" id="headingALL6">
         <h5 class="mb-0">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse6" aria-expanded="true" aria-controls="collapse6">
+          <a data-toggle="collapse" data-parent="#accordionALL" href="#collapseALL6" aria-expanded="true" aria-controls="collapseALL6">
             <h4 class="card-title">Marketing Chair</h4>
             <h6 class="card-subtitle mb-2 text-muted"><em>New York City Asian American Student Conference (NYCAASC)</em></h6>
           </a>
         </h5>
       </div>
-      <div id="collapse6" class="collapse hide" role="tabpanel" aria-labelledby="heading6">
+      <div id="collapseALL6" class="collapse hide" role="tabpanel" aria-labelledby="headingALL6">
           <div class="card-body">
               <p>New York, NY</p>
               <p>August 2015 – August 2016</p>
-              <p><ul><li>Developed and analysed brand and website surveys to assess current user affinity, found significant difference between frequency of visits and perceived aesthetic appeal and significant difference in perceived ease of use in terms of participants’ year in school</li><li>Instructed committee research members on conducting an in-depth interview and running statistical tests in R</li><li>Organized a short design sprint to quickly examine current research and stakeholder mindsets</li><li>Advocated for research and data-driven decision-making amongst board members</li><li>Launched social media campaigns which consistently reaches 80-90% of a larger audience than previous years’ Facebook posts</li><li>Produced and directed all visual representations of NYCAASC including graphics, videos, and website interface</li><li>Coordinated the social media and press team on the day-of the conference</li></ul></p>
+              <p><ul> <li> Developed and analysed brand and website surveys to assess current user affinity, found significant difference between frequency of visits and perceived aesthetic appeal and significant difference in perceived ease of use in terms of participants’ year in school </li><li> Instructed committee research members on conducting an in-depth interview and running statistical tests in R </li><li> Organized a short design sprint to quickly examine current research and stakeholder mindsets </li><li> Advocated for research and data-driven decision-making amongst board members </li><li> Launched social media campaigns which consistently reaches 80-90% of a larger audience than previous years’ Facebook posts </li><li> Produced and directed all visual representations of NYCAASC including graphics, videos, and website interface </li><li> Coordinated the social media and press team on the day-of the conference </li> </ul></p>
          </div>
       </div>
       <div class="card-footer text-muted"><a href="#" class="badge badge-info">education</a> <a href="#" class="badge badge-info">leadership</a> <a href="#" class="badge badge-info">design</a> <a href="#" class="badge badge-info">data</a> <a href="#" class="badge badge-info">research</a> </div>
@@ -205,19 +232,19 @@
 
 
   <div class="card">
-      <div class="card-header" role="tab" id="heading7">
+      <div class="card-header" role="tab" id="headingALL7">
         <h5 class="mb-0">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse7" aria-expanded="true" aria-controls="collapse7">
+          <a data-toggle="collapse" data-parent="#accordionALL" href="#collapseALL7" aria-expanded="true" aria-controls="collapseALL7">
             <h4 class="card-title">Layout Director</h4>
             <h6 class="card-subtitle mb-2 text-muted"><em>NYU Online Publication of Undergraduate Studies (OPUS)</em></h6>
           </a>
         </h5>
       </div>
-      <div id="collapse7" class="collapse hide" role="tabpanel" aria-labelledby="heading7">
+      <div id="collapseALL7" class="collapse hide" role="tabpanel" aria-labelledby="headingALL7">
           <div class="card-body">
               <p>New York, NY</p>
               <p>February 2013 - January 2016</p>
-              <p><ul><li>Determine the web-based and printable layouts of a bi-annual student research publication since the Fall 2012 issue</li><li>Orchestrated layout overhauls and the brand redesign of the online magazine to align aesthetics with OPUS’s mission of providing APUG students with a research journal process and experience</li><li>Maintained the OPUS website by uploading new content and editing webpages using HTML</li><li>Created digital and print promotional materials which aligned with the OPUS brand</li><li>Interviewed, trained, and collaborated with future Layout Director to ensure brand and design continuity</li></ul></p>
+              <p><ul> <li> Determine the web-based and printable layouts of a bi-annual student research publication since the Fall 2012 issue </li><li> Orchestrated layout overhauls and the brand redesign of the online magazine to align aesthetics with OPUS’s mission of providing APUG students with a research journal process and experience </li><li> Maintained the OPUS website by uploading new content and editing webpages using HTML </li><li> Created digital and print promotional materials which aligned with the OPUS brand </li><li> Interviewed, trained, and collaborated with future Layout Director to ensure brand and design continuity </li> </ul></p>
          </div>
       </div>
       <div class="card-footer text-muted"><a href="#" class="badge badge-info">education</a> <a href="#" class="badge badge-info">leadership</a> <a href="#" class="badge badge-info">design</a> <a href="#" class="badge badge-info">research</a> </div>
@@ -225,19 +252,19 @@
 
 
   <div class="card">
-      <div class="card-header" role="tab" id="heading8">
+      <div class="card-header" role="tab" id="headingALL8">
         <h5 class="mb-0">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse8" aria-expanded="true" aria-controls="collapse8">
+          <a data-toggle="collapse" data-parent="#accordionALL" href="#collapseALL8" aria-expanded="true" aria-controls="collapseALL8">
             <h4 class="card-title">Vice President of Communications</h4>
             <h6 class="card-subtitle mb-2 text-muted"><em>NYU Inter-Residence Hall Council (IRHC)</em></h6>
           </a>
         </h5>
       </div>
-      <div id="collapse8" class="collapse hide" role="tabpanel" aria-labelledby="heading8">
+      <div id="collapseALL8" class="collapse hide" role="tabpanel" aria-labelledby="headingALL8">
           <div class="card-body">
               <p>New York, NY</p>
               <p>August 2014 – August 2015</p>
-              <p><ul><li>Managed a team of 7 and hosted one-on-one tutorials with committee members on topics ranging from layout design to coding</li><li>Created user experience maps, personas, and surveys to inform the redesign of the IRHC website</li><li>Conceptualized and designed various marketing materials targeting a college undergraduate audience</li><li>Spearhead campaigns and implemented best practices for IRHC social media outlets: Facebook, Twitter, Instagram</li></ul></p>
+              <p><ul> <li> Managed a team of 7 and hosted one-on-one tutorials with committee members on topics ranging from layout design to coding </li><li> Created user experience maps, personas, and surveys to inform the redesign of the IRHC website </li><li> Conceptualized and designed various marketing materials targeting a college undergraduate audience </li><li> Spearhead campaigns and implemented best practices for IRHC social media outlets: Facebook, Twitter, Instagram </li> </ul></p>
          </div>
       </div>
       <div class="card-footer text-muted"><a href="#" class="badge badge-info">education</a> <a href="#" class="badge badge-info">leadership</a> <a href="#" class="badge badge-info">design</a> </div>
@@ -245,19 +272,19 @@
 
 
   <div class="card">
-      <div class="card-header" role="tab" id="heading9">
+      <div class="card-header" role="tab" id="headingALL9">
         <h5 class="mb-0">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse9" aria-expanded="true" aria-controls="collapse9">
+          <a data-toggle="collapse" data-parent="#accordionALL" href="#collapseALL9" aria-expanded="true" aria-controls="collapseALL9">
             <h4 class="card-title">Director of Communications</h4>
             <h6 class="card-subtitle mb-2 text-muted"><em>NYU S.O.L.I.D. Lafayette Hall Council</em></h6>
           </a>
         </h5>
       </div>
-      <div id="collapse9" class="collapse hide" role="tabpanel" aria-labelledby="heading9">
+      <div id="collapseALL9" class="collapse hide" role="tabpanel" aria-labelledby="headingALL9">
           <div class="card-body">
               <p>New York, NY</p>
               <p>September 2013 - May 2014</p>
-              <p><ul><li>Conceptualized and designed various marketing materials targeting a college undergraduate audience</li><li>Co-managed Lafayette Hall’s social media outlets: Facebook, Twitter, Tumblr, Instagram</li><li>Engaged in discussions with Residence Hall Director regarding hall rebranding and logo design</li><li>Assisted in marketing and event planning in the largest residence hall at New York University</li></ul></p>
+              <p><ul> <li> Conceptualized and designed various marketing materials targeting a college undergraduate audience </li><li> Co-managed Lafayette Hall’s social media outlets: Facebook, Twitter, Tumblr, Instagram </li><li> Engaged in discussions with Residence Hall Director regarding hall rebranding and logo design </li><li> Assisted in marketing and event planning in the largest residence hall at New York University </li> </ul></p>
          </div>
       </div>
       <div class="card-footer text-muted"><a href="#" class="badge badge-info">education</a> <a href="#" class="badge badge-info">leadership</a> <a href="#" class="badge badge-info">design</a> </div>
@@ -265,19 +292,19 @@
 
 
   <div class="card">
-      <div class="card-header" role="tab" id="heading10">
+      <div class="card-header" role="tab" id="headingALL10">
         <h5 class="mb-0">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse10" aria-expanded="true" aria-controls="collapse10">
+          <a data-toggle="collapse" data-parent="#accordionALL" href="#collapseALL10" aria-expanded="true" aria-controls="collapseALL10">
             <h4 class="card-title">Layout Editor</h4>
             <h6 class="card-subtitle mb-2 text-muted"><em>NYU Generasian</em></h6>
           </a>
         </h5>
       </div>
-      <div id="collapse10" class="collapse hide" role="tabpanel" aria-labelledby="heading10">
+      <div id="collapseALL10" class="collapse hide" role="tabpanel" aria-labelledby="headingALL10">
           <div class="card-body">
               <p>New York, NY</p>
               <p>February 2013 - May 2014</p>
-              <p><ul><li>Directed visual presentation of all articles in an Asian American-Interest Magazine</li><li>Created various graphics to complement articles by hand and via Adobe Illustrator</li><li>Ensured brand consistency within and across the magazine</li><li>Invited to lead magazine layout and design workshop for a collaborative event between NYU Digital Arts Club and Generasian</li></ul></p>
+              <p><ul> <li> Directed visual presentation of all articles in an Asian American-Interest Magazine </li><li> Created various graphics to complement articles by hand and via Adobe Illustrator </li><li> Ensured brand consistency within and across the magazine </li><li> Invited to lead magazine layout and design workshop for a collaborative event between NYU Digital Arts Club and Generasian </li> </ul></p>
          </div>
       </div>
       <div class="card-footer text-muted"><a href="#" class="badge badge-info">education</a> <a href="#" class="badge badge-info">leadership</a> <a href="#" class="badge badge-info">design</a> </div>
@@ -285,19 +312,19 @@
 
 
   <div class="card">
-      <div class="card-header" role="tab" id="heading11">
+      <div class="card-header" role="tab" id="headingALL11">
         <h5 class="mb-0">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse11" aria-expanded="true" aria-controls="collapse11">
+          <a data-toggle="collapse" data-parent="#accordionALL" href="#collapseALL11" aria-expanded="true" aria-controls="collapseALL11">
             <h4 class="card-title">Welcome Week Leader</h4>
             <h6 class="card-subtitle mb-2 text-muted"><em>NYU Student Resource Center</em></h6>
           </a>
         </h5>
       </div>
-      <div id="collapse11" class="collapse hide" role="tabpanel" aria-labelledby="heading11">
+      <div id="collapseALL11" class="collapse hide" role="tabpanel" aria-labelledby="headingALL11">
           <div class="card-body">
               <p>New York, NY</p>
               <p>August 2013</p>
-              <p><ul><li>Supported the transition of 5600 incoming students to NYU</li><li>Staffed large scale events with as many as 3000 students in attendance</li><li>Served as a peer mentor and resource for incoming freshmen class</li></ul></p>
+              <p><ul> <li> Supported the transition of 5600 incoming students to NYU </li><li> Staffed large scale events with as many as 3000 students in attendance </li><li> Served as a peer mentor and resource for incoming freshmen class </li> </ul></p>
          </div>
       </div>
       <div class="card-footer text-muted"><a href="#" class="badge badge-info">education</a> <a href="#" class="badge badge-info">leadership</a> </div>
@@ -305,34 +332,786 @@
 
 
   <div class="card">
-      <div class="card-header" role="tab" id="heading12">
+      <div class="card-header" role="tab" id="headingALL12">
         <h5 class="mb-0">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse12" aria-expanded="true" aria-controls="collapse12">
+          <a data-toggle="collapse" data-parent="#accordionALL" href="#collapseALL12" aria-expanded="true" aria-controls="collapseALL12">
             <h4 class="card-title">Design Team Member</h4>
             <h6 class="card-subtitle mb-2 text-muted"><em>ISO - NYU Tisch School of the Arts Photography Magazine</em></h6>
           </a>
         </h5>
       </div>
-      <div id="collapse12" class="collapse hide" role="tabpanel" aria-labelledby="heading12">
+      <div id="collapseALL12" class="collapse hide" role="tabpanel" aria-labelledby="headingALL12">
           <div class="card-body">
               <p>New York, NY</p>
               <p>October 2012 – March 2013</p>
-              <p><ul><li>Participate in the decision process of selecting submissions for publication from over 200 photographs </li><li>Collaborate with a small team of designers and the Editor-in Chief in design and layout</li><li>Designed promotional flyer to recruit submissions</li></ul></p>
+              <p><ul> <li> Participate in the decision process of selecting submissions for publication from over 200 photographs  </li><li> Collaborate with a small team of designers and the Editor-in Chief in design and layout </li><li> Designed promotional flyer to recruit submissions </li> </ul></p>
          </div>
       </div>
       <div class="card-footer text-muted"><a href="#" class="badge badge-info">design</a> </div>
   </div>
 
-</div>
+</div><!-- END ALL ACCORDION -->
+
+​</div><!--END Card Column-->
+</div><!--END py4-->
+      </div>
+      <!-- END ALL TAB PANE-->
+      <!--EDUCATION TAB PANE-->
+      <div class="tab-pane fade" id="education" role="tabpanel">
+        <div class="py-4">
+          <!--<p>That's educaaton. ;)</p>-->
+          <div class="card-columns">
+            <div id="accordionEDU" role="tablist" aria-multiselectable="true" style="overflow:hidden;">
+              <div class="card">
+                  <div class="card-header" role="tab" id="headingEDU0">
+                    <h5 class="mb-0">
+                      <a data-toggle="collapse" data-parent="#accordionEDU" href="#collapseEDU0" aria-expanded="true" aria-controls="collapseEDU0">
+                        <h4 class="card-title">Research Assistant</h4>
+                        <h6 class="card-subtitle mb-2 text-muted"><em>Michael Cohen Group, LLC</em></h6>
+                      </a>
+                    </h5>
+                  </div>
+                  <div id="collapseEDU0" class="collapse hide" role="tabpanel" aria-labelledby="headingEDU0">
+                      <div class="card-body">
+                          <p>New York, NY</p>
+                          <p>September 2014 – November 2015</p>
+                          <p><ul> <li> Gained exposure and immersion to entire research process by assisting in over 9 research studies </li><li> Performed qualitative and quantitative analysis, importing data and interpreting descriptives, t-Tests, and ANOVA </li><li> Presented overviews on Python for Data Analysis and Tablets in Education during company-wide meetings </li><li> Assisted in focus group interviews with children and usability testing with Silverback 2 and Invision </li><li> Met with research directors to develop test instruments and review study findings </li><li> Organized literature in reference managers (e.g., Mendeley, Zotero) and created a guide for navigating and using reference tools </li> </ul></p>
+                     </div>
+                  </div>
+                  <div class="card-footer text-muted"><a href="#" class="badge badge-info">research</a> <a href="#" class="badge badge-info">data</a> <a href="#" class="badge badge-info">education</a> </div>
+              </div>
+
+
+              <div class="card">
+                  <div class="card-header" role="tab" id="headingEDU1">
+                    <h5 class="mb-0">
+                      <a data-toggle="collapse" data-parent="#accordionEDU" href="#collapseEDU1" aria-expanded="true" aria-controls="collapseEDU1">
+                        <h4 class="card-title">Information Designer</h4>
+                        <h6 class="card-subtitle mb-2 text-muted"><em>Michael Cohen Group, LLC</em></h6>
+                      </a>
+                    </h5>
+                  </div>
+                  <div id="collapseEDU1" class="collapse hide" role="tabpanel" aria-labelledby="headingEDU1">
+                      <div class="card-body">
+                          <p>New York, NY</p>
+                          <p>May 2014 – August 2015</p>
+                          <p><ul> <li> Ensured research reports, observation logs, presentations, and marketing materials all reflected the company’s brand identity </li><li> Independently managed multiple design tasks and actively sought feedback from different supervisors </li><li> Packaged icons, graphs, and layout for client-side reports with topics ranging from child math affinity to educator online purchasing decisions </li><li> Delivered promptly intuitively organized project files with clearly labeled artboards and layers </li> </ul></p>
+                     </div>
+                  </div>
+                  <div class="card-footer text-muted"><a href="#" class="badge badge-info">design</a> <a href="#" class="badge badge-info">data</a> <a href="#" class="badge badge-info">education</a> </div>
+              </div>
+
+
+              <div class="card">
+                  <div class="card-header" role="tab" id="headingEDU2">
+                    <h5 class="mb-0">
+                      <a data-toggle="collapse" data-parent="#accordionEDU" href="#collapseEDU2" aria-expanded="true" aria-controls="collapseEDU2">
+                        <h4 class="card-title">Summer Assistant</h4>
+                        <h6 class="card-subtitle mb-2 text-muted"><em>NYU Residential Life and Housing Services </em></h6>
+                      </a>
+                    </h5>
+                  </div>
+                  <div id="collapseEDU2" class="collapse hide" role="tabpanel" aria-labelledby="headingEDU2">
+                      <div class="card-body">
+                          <p>New York, NY</p>
+                          <p>May 2014 – August 2015</p>
+                          <p><ul> <li> Served as peer counselor and live-in resource for summer residents at Rubin Hall </li><li> Provided emergency and crisis response for over 300 residents throughout a rotating duty schedule </li><li> Authored a cross-platform Social Media Playbook establishing structure, best practices, and resources for future Rubin social media managers </li><li> Determined the official Rubin Hall tumblr’s layout and initial content </li><li> Responded promptly to incoming freshman inquires via Rubin Hall’s tumblr page </li> </ul></p>
+                     </div>
+                  </div>
+                  <div class="card-footer text-muted"><a href="#" class="badge badge-info">design</a> <a href="#" class="badge badge-info">education</a> <a href="#" class="badge badge-info">leadership</a> </div>
+              </div>
+
+
+              <div class="card">
+                  <div class="card-header" role="tab" id="headingEDU3">
+                    <h5 class="mb-0">
+                      <a data-toggle="collapse" data-parent="#accordionEDU" href="#collapseEDU3" aria-expanded="true" aria-controls="collapseEDU3">
+                        <h4 class="card-title">Substitute Teaching Assistant</h4>
+                        <h6 class="card-subtitle mb-2 text-muted"><em>A Place For Kids at PS 2</em></h6>
+                      </a>
+                    </h5>
+                  </div>
+                  <div id="collapseEDU3" class="collapse hide" role="tabpanel" aria-labelledby="headingEDU3">
+                      <div class="card-body">
+                          <p>New York, NY</p>
+                          <p>October 2012 - August 2013</p>
+                          <p><ul> <li> Assisted head teachers on various tasks in groups of 15 children (grades K-4) </li><li> Provided individual help in English and Chinese for students struggling with English, Math & Social Studies homework </li><li> Refocused children who are off-task by discussing the importance of their work with them and guiding them through the task until they have regained their concentration </li> </ul></p>
+                     </div>
+                  </div>
+                  <div class="card-footer text-muted"><a href="#" class="badge badge-info">education</a> <a href="#" class="badge badge-info">leadership</a> </div>
+              </div>
+
+
+              <div class="card">
+                  <div class="card-header" role="tab" id="headingEDU4">
+                    <h5 class="mb-0">
+                      <a data-toggle="collapse" data-parent="#accordionEDU" href="#collapseEDU4" aria-expanded="true" aria-controls="collapseEDU4">
+                        <h4 class="card-title">Tutor</h4>
+                        <h6 class="card-subtitle mb-2 text-muted"><em>America Reads at PS 130</em></h6>
+                      </a>
+                    </h5>
+                  </div>
+                  <div id="collapseEDU4" class="collapse hide" role="tabpanel" aria-labelledby="headingEDU4">
+                      <div class="card-body">
+                          <p>New York, NY</p>
+                          <p> September 2012 - June 2013</p>
+                          <p><ul> <li> Assisted Kindergarten teacher in a class of 26 bilingual students </li><li> Provided one-on-one or small group tutoring for students struggling with math concepts or writing tasks </li><li> Guided student through conflict resolution </li><li> Provided basic IT support for teacher on computer-troubleshooting issues </li> </ul></p>
+                     </div>
+                  </div>
+                  <div class="card-footer text-muted"><a href="#" class="badge badge-info">education</a> <a href="#" class="badge badge-info">leadership</a> </div>
+              </div>
+
+
+              <div class="card">
+                  <div class="card-header" role="tab" id="headingEDU5">
+                    <h5 class="mb-0">
+                      <a data-toggle="collapse" data-parent="#accordionEDU" href="#collapseEDU5" aria-expanded="true" aria-controls="collapseEDU5">
+                        <h4 class="card-title">Marketing Chair</h4>
+                        <h6 class="card-subtitle mb-2 text-muted"><em>New York City Asian American Student Conference (NYCAASC)</em></h6>
+                      </a>
+                    </h5>
+                  </div>
+                  <div id="collapseEDU5" class="collapse hide" role="tabpanel" aria-labelledby="headingEDU5">
+                      <div class="card-body">
+                          <p>New York, NY</p>
+                          <p>August 2015 – August 2016</p>
+                          <p><ul> <li> Developed and analysed brand and website surveys to assess current user affinity, found significant difference between frequency of visits and perceived aesthetic appeal and significant difference in perceived ease of use in terms of participants’ year in school </li><li> Instructed committee research members on conducting an in-depth interview and running statistical tests in R </li><li> Organized a short design sprint to quickly examine current research and stakeholder mindsets </li><li> Advocated for research and data-driven decision-making amongst board members </li><li> Launched social media campaigns which consistently reaches 80-90% of a larger audience than previous years’ Facebook posts </li><li> Produced and directed all visual representations of NYCAASC including graphics, videos, and website interface </li><li> Coordinated the social media and press team on the day-of the conference </li> </ul></p>
+                     </div>
+                  </div>
+                  <div class="card-footer text-muted"><a href="#" class="badge badge-info">education</a> <a href="#" class="badge badge-info">leadership</a> <a href="#" class="badge badge-info">design</a> <a href="#" class="badge badge-info">data</a> <a href="#" class="badge badge-info">research</a> </div>
+              </div>
+
+
+              <div class="card">
+                  <div class="card-header" role="tab" id="headingEDU6">
+                    <h5 class="mb-0">
+                      <a data-toggle="collapse" data-parent="#accordionEDU" href="#collapseEDU6" aria-expanded="true" aria-controls="collapseEDU6">
+                        <h4 class="card-title">Layout Director</h4>
+                        <h6 class="card-subtitle mb-2 text-muted"><em>NYU Online Publication of Undergraduate Studies (OPUS)</em></h6>
+                      </a>
+                    </h5>
+                  </div>
+                  <div id="collapseEDU6" class="collapse hide" role="tabpanel" aria-labelledby="headingEDU6">
+                      <div class="card-body">
+                          <p>New York, NY</p>
+                          <p>February 2013 - January 2016</p>
+                          <p><ul> <li> Determine the web-based and printable layouts of a bi-annual student research publication since the Fall 2012 issue </li><li> Orchestrated layout overhauls and the brand redesign of the online magazine to align aesthetics with OPUS’s mission of providing APUG students with a research journal process and experience </li><li> Maintained the OPUS website by uploading new content and editing webpages using HTML </li><li> Created digital and print promotional materials which aligned with the OPUS brand </li><li> Interviewed, trained, and collaborated with future Layout Director to ensure brand and design continuity </li> </ul></p>
+                     </div>
+                  </div>
+                  <div class="card-footer text-muted"><a href="#" class="badge badge-info">education</a> <a href="#" class="badge badge-info">leadership</a> <a href="#" class="badge badge-info">design</a> <a href="#" class="badge badge-info">research</a> </div>
+              </div>
+
+
+              <div class="card">
+                  <div class="card-header" role="tab" id="headingEDU7">
+                    <h5 class="mb-0">
+                      <a data-toggle="collapse" data-parent="#accordionEDU" href="#collapseEDU7" aria-expanded="true" aria-controls="collapseEDU7">
+                        <h4 class="card-title">Vice President of Communications</h4>
+                        <h6 class="card-subtitle mb-2 text-muted"><em>NYU Inter-Residence Hall Council (IRHC)</em></h6>
+                      </a>
+                    </h5>
+                  </div>
+                  <div id="collapseEDU7" class="collapse hide" role="tabpanel" aria-labelledby="headingEDU7">
+                      <div class="card-body">
+                          <p>New York, NY</p>
+                          <p>August 2014 – August 2015</p>
+                          <p><ul> <li> Managed a team of 7 and hosted one-on-one tutorials with committee members on topics ranging from layout design to coding </li><li> Created user experience maps, personas, and surveys to inform the redesign of the IRHC website </li><li> Conceptualized and designed various marketing materials targeting a college undergraduate audience </li><li> Spearhead campaigns and implemented best practices for IRHC social media outlets: Facebook, Twitter, Instagram </li> </ul></p>
+                     </div>
+                  </div>
+                  <div class="card-footer text-muted"><a href="#" class="badge badge-info">education</a> <a href="#" class="badge badge-info">leadership</a> <a href="#" class="badge badge-info">design</a> </div>
+              </div>
+
+
+              <div class="card">
+                  <div class="card-header" role="tab" id="headingEDU8">
+                    <h5 class="mb-0">
+                      <a data-toggle="collapse" data-parent="#accordionEDU" href="#collapseEDU8" aria-expanded="true" aria-controls="collapseEDU8">
+                        <h4 class="card-title">Director of Communications</h4>
+                        <h6 class="card-subtitle mb-2 text-muted"><em>NYU S.O.L.I.D. Lafayette Hall Council</em></h6>
+                      </a>
+                    </h5>
+                  </div>
+                  <div id="collapseEDU8" class="collapse hide" role="tabpanel" aria-labelledby="headingEDU8">
+                      <div class="card-body">
+                          <p>New York, NY</p>
+                          <p>September 2013 - May 2014</p>
+                          <p><ul> <li> Conceptualized and designed various marketing materials targeting a college undergraduate audience </li><li> Co-managed Lafayette Hall’s social media outlets: Facebook, Twitter, Tumblr, Instagram </li><li> Engaged in discussions with Residence Hall Director regarding hall rebranding and logo design </li><li> Assisted in marketing and event planning in the largest residence hall at New York University </li> </ul></p>
+                     </div>
+                  </div>
+                  <div class="card-footer text-muted"><a href="#" class="badge badge-info">education</a> <a href="#" class="badge badge-info">leadership</a> <a href="#" class="badge badge-info">design</a> </div>
+              </div>
+
+
+              <div class="card">
+                  <div class="card-header" role="tab" id="headingEDU9">
+                    <h5 class="mb-0">
+                      <a data-toggle="collapse" data-parent="#accordionEDU" href="#collapseEDU9" aria-expanded="true" aria-controls="collapseEDU9">
+                        <h4 class="card-title">Layout Editor</h4>
+                        <h6 class="card-subtitle mb-2 text-muted"><em>NYU Generasian</em></h6>
+                      </a>
+                    </h5>
+                  </div>
+                  <div id="collapseEDU9" class="collapse hide" role="tabpanel" aria-labelledby="headingEDU9">
+                      <div class="card-body">
+                          <p>New York, NY</p>
+                          <p>February 2013 - May 2014</p>
+                          <p><ul> <li> Directed visual presentation of all articles in an Asian American-Interest Magazine </li><li> Created various graphics to complement articles by hand and via Adobe Illustrator </li><li> Ensured brand consistency within and across the magazine </li><li> Invited to lead magazine layout and design workshop for a collaborative event between NYU Digital Arts Club and Generasian </li> </ul></p>
+                     </div>
+                  </div>
+                  <div class="card-footer text-muted"><a href="#" class="badge badge-info">education</a> <a href="#" class="badge badge-info">leadership</a> <a href="#" class="badge badge-info">design</a> </div>
+              </div>
+
+
+              <div class="card">
+                  <div class="card-header" role="tab" id="headingEDU10">
+                    <h5 class="mb-0">
+                      <a data-toggle="collapse" data-parent="#accordionEDU" href="#collapseEDU10" aria-expanded="true" aria-controls="collapseEDU10">
+                        <h4 class="card-title">Welcome Week Leader</h4>
+                        <h6 class="card-subtitle mb-2 text-muted"><em>NYU Student Resource Center</em></h6>
+                      </a>
+                    </h5>
+                  </div>
+                  <div id="collapseEDU10" class="collapse hide" role="tabpanel" aria-labelledby="headingEDU10">
+                      <div class="card-body">
+                          <p>New York, NY</p>
+                          <p>August 2013</p>
+                          <p><ul> <li> Supported the transition of 5600 incoming students to NYU </li><li> Staffed large scale events with as many as 3000 students in attendance </li><li> Served as a peer mentor and resource for incoming freshmen class </li> </ul></p>
+                     </div>
+                  </div>
+                  <div class="card-footer text-muted"><a href="#" class="badge badge-info">education</a> <a href="#" class="badge badge-info">leadership</a> </div>
+              </div>
+
+            </div><!-- END EDU ACCORDION -->
+          </div> <!--END CARD COLUMNS-->
+        </div>
+      </div>
+      <!-- END EDUCATION TAB PANE-->
+      <!--LEADERSHIP TAB PANE-->
+      <div class="tab-pane fade" id="leadership" role="tabpanel">
+        <div class="py-4">
+          <div class="card-columns">
+            <div id="accordionLEAD" role="tablist" aria-multiselectable="true" style="overflow:hidden;">
+              <div class="card">
+                  <div class="card-header" role="tab" id="headingLEAD0">
+                    <h5 class="mb-0">
+                      <a data-toggle="collapse" data-parent="#accordionLEAD" href="#collapseLEAD0" aria-expanded="true" aria-controls="collapseLEAD0">
+                        <h4 class="card-title">Summer Assistant</h4>
+                        <h6 class="card-subtitle mb-2 text-muted"><em>NYU Residential Life and Housing Services </em></h6>
+                      </a>
+                    </h5>
+                  </div>
+                  <div id="collapseLEAD0" class="collapse hide" role="tabpanel" aria-labelledby="headingLEAD0">
+                      <div class="card-body">
+                          <p>New York, NY</p>
+                          <p>May 2014 – August 2015</p>
+                          <p><ul> <li> Served as peer counselor and live-in resource for summer residents at Rubin Hall </li><li> Provided emergency and crisis response for over 300 residents throughout a rotating duty schedule </li><li> Authored a cross-platform Social Media Playbook establishing structure, best practices, and resources for future Rubin social media managers </li><li> Determined the official Rubin Hall tumblr’s layout and initial content </li><li> Responded promptly to incoming freshman inquires via Rubin Hall’s tumblr page </li> </ul></p>
+                     </div>
+                  </div>
+                  <div class="card-footer text-muted"><a href="#" class="badge badge-info">design</a> <a href="#" class="badge badge-info">education</a> <a href="#" class="badge badge-info">leadership</a> </div>
+              </div>
+
+
+              <div class="card">
+                  <div class="card-header" role="tab" id="headingLEAD1">
+                    <h5 class="mb-0">
+                      <a data-toggle="collapse" data-parent="#accordionLEAD" href="#collapseLEAD1" aria-expanded="true" aria-controls="collapseLEAD1">
+                        <h4 class="card-title">Substitute Teaching Assistant</h4>
+                        <h6 class="card-subtitle mb-2 text-muted"><em>A Place For Kids at PS 2</em></h6>
+                      </a>
+                    </h5>
+                  </div>
+                  <div id="collapseLEAD1" class="collapse hide" role="tabpanel" aria-labelledby="headingLEAD1">
+                      <div class="card-body">
+                          <p>New York, NY</p>
+                          <p>October 2012 - August 2013</p>
+                          <p><ul> <li> Assisted head teachers on various tasks in groups of 15 children (grades K-4) </li><li> Provided individual help in English and Chinese for students struggling with English, Math & Social Studies homework </li><li> Refocused children who are off-task by discussing the importance of their work with them and guiding them through the task until they have regained their concentration </li> </ul></p>
+                     </div>
+                  </div>
+                  <div class="card-footer text-muted"><a href="#" class="badge badge-info">education</a> <a href="#" class="badge badge-info">leadership</a> </div>
+              </div>
+
+
+              <div class="card">
+                  <div class="card-header" role="tab" id="headingLEAD2">
+                    <h5 class="mb-0">
+                      <a data-toggle="collapse" data-parent="#accordionLEAD" href="#collapseLEAD2" aria-expanded="true" aria-controls="collapseLEAD2">
+                        <h4 class="card-title">Tutor</h4>
+                        <h6 class="card-subtitle mb-2 text-muted"><em>America Reads at PS 130</em></h6>
+                      </a>
+                    </h5>
+                  </div>
+                  <div id="collapseLEAD2" class="collapse hide" role="tabpanel" aria-labelledby="headingLEAD2">
+                      <div class="card-body">
+                          <p>New York, NY</p>
+                          <p> September 2012 - June 2013</p>
+                          <p><ul> <li> Assisted Kindergarten teacher in a class of 26 bilingual students </li><li> Provided one-on-one or small group tutoring for students struggling with math concepts or writing tasks </li><li> Guided student through conflict resolution </li><li> Provided basic IT support for teacher on computer-troubleshooting issues </li> </ul></p>
+                     </div>
+                  </div>
+                  <div class="card-footer text-muted"><a href="#" class="badge badge-info">education</a> <a href="#" class="badge badge-info">leadership</a> </div>
+              </div>
+
+
+              <div class="card">
+                  <div class="card-header" role="tab" id="headingLEAD3">
+                    <h5 class="mb-0">
+                      <a data-toggle="collapse" data-parent="#accordionLEAD" href="#collapseLEAD3" aria-expanded="true" aria-controls="collapseLEAD3">
+                        <h4 class="card-title">Marketing Chair</h4>
+                        <h6 class="card-subtitle mb-2 text-muted"><em>New York City Asian American Student Conference (NYCAASC)</em></h6>
+                      </a>
+                    </h5>
+                  </div>
+                  <div id="collapseLEAD3" class="collapse hide" role="tabpanel" aria-labelledby="headingLEAD3">
+                      <div class="card-body">
+                          <p>New York, NY</p>
+                          <p>August 2015 – August 2016</p>
+                          <p><ul> <li> Developed and analysed brand and website surveys to assess current user affinity, found significant difference between frequency of visits and perceived aesthetic appeal and significant difference in perceived ease of use in terms of participants’ year in school </li><li> Instructed committee research members on conducting an in-depth interview and running statistical tests in R </li><li> Organized a short design sprint to quickly examine current research and stakeholder mindsets </li><li> Advocated for research and data-driven decision-making amongst board members </li><li> Launched social media campaigns which consistently reaches 80-90% of a larger audience than previous years’ Facebook posts </li><li> Produced and directed all visual representations of NYCAASC including graphics, videos, and website interface </li><li> Coordinated the social media and press team on the day-of the conference </li> </ul></p>
+                     </div>
+                  </div>
+                  <div class="card-footer text-muted"><a href="#" class="badge badge-info">education</a> <a href="#" class="badge badge-info">leadership</a> <a href="#" class="badge badge-info">design</a> <a href="#" class="badge badge-info">data</a> <a href="#" class="badge badge-info">research</a> </div>
+              </div>
+
+
+              <div class="card">
+                  <div class="card-header" role="tab" id="headingLEAD4">
+                    <h5 class="mb-0">
+                      <a data-toggle="collapse" data-parent="#accordionLEAD" href="#collapseLEAD4" aria-expanded="true" aria-controls="collapseLEAD4">
+                        <h4 class="card-title">Layout Director</h4>
+                        <h6 class="card-subtitle mb-2 text-muted"><em>NYU Online Publication of Undergraduate Studies (OPUS)</em></h6>
+                      </a>
+                    </h5>
+                  </div>
+                  <div id="collapseLEAD4" class="collapse hide" role="tabpanel" aria-labelledby="headingLEAD4">
+                      <div class="card-body">
+                          <p>New York, NY</p>
+                          <p>February 2013 - January 2016</p>
+                          <p><ul> <li> Determine the web-based and printable layouts of a bi-annual student research publication since the Fall 2012 issue </li><li> Orchestrated layout overhauls and the brand redesign of the online magazine to align aesthetics with OPUS’s mission of providing APUG students with a research journal process and experience </li><li> Maintained the OPUS website by uploading new content and editing webpages using HTML </li><li> Created digital and print promotional materials which aligned with the OPUS brand </li><li> Interviewed, trained, and collaborated with future Layout Director to ensure brand and design continuity </li> </ul></p>
+                     </div>
+                  </div>
+                  <div class="card-footer text-muted"><a href="#" class="badge badge-info">education</a> <a href="#" class="badge badge-info">leadership</a> <a href="#" class="badge badge-info">design</a> <a href="#" class="badge badge-info">research</a> </div>
+              </div>
+
+
+              <div class="card">
+                  <div class="card-header" role="tab" id="headingLEAD5">
+                    <h5 class="mb-0">
+                      <a data-toggle="collapse" data-parent="#accordionLEAD" href="#collapseLEAD5" aria-expanded="true" aria-controls="collapseLEAD5">
+                        <h4 class="card-title">Vice President of Communications</h4>
+                        <h6 class="card-subtitle mb-2 text-muted"><em>NYU Inter-Residence Hall Council (IRHC)</em></h6>
+                      </a>
+                    </h5>
+                  </div>
+                  <div id="collapseLEAD5" class="collapse hide" role="tabpanel" aria-labelledby="headingLEAD5">
+                      <div class="card-body">
+                          <p>New York, NY</p>
+                          <p>August 2014 – August 2015</p>
+                          <p><ul> <li> Managed a team of 7 and hosted one-on-one tutorials with committee members on topics ranging from layout design to coding </li><li> Created user experience maps, personas, and surveys to inform the redesign of the IRHC website </li><li> Conceptualized and designed various marketing materials targeting a college undergraduate audience </li><li> Spearhead campaigns and implemented best practices for IRHC social media outlets: Facebook, Twitter, Instagram </li> </ul></p>
+                     </div>
+                  </div>
+                  <div class="card-footer text-muted"><a href="#" class="badge badge-info">education</a> <a href="#" class="badge badge-info">leadership</a> <a href="#" class="badge badge-info">design</a> </div>
+              </div>
+
+
+              <div class="card">
+                  <div class="card-header" role="tab" id="headingLEAD6">
+                    <h5 class="mb-0">
+                      <a data-toggle="collapse" data-parent="#accordionLEAD" href="#collapseLEAD6" aria-expanded="true" aria-controls="collapseLEAD6">
+                        <h4 class="card-title">Director of Communications</h4>
+                        <h6 class="card-subtitle mb-2 text-muted"><em>NYU S.O.L.I.D. Lafayette Hall Council</em></h6>
+                      </a>
+                    </h5>
+                  </div>
+                  <div id="collapseLEAD6" class="collapse hide" role="tabpanel" aria-labelledby="headingLEAD6">
+                      <div class="card-body">
+                          <p>New York, NY</p>
+                          <p>September 2013 - May 2014</p>
+                          <p><ul> <li> Conceptualized and designed various marketing materials targeting a college undergraduate audience </li><li> Co-managed Lafayette Hall’s social media outlets: Facebook, Twitter, Tumblr, Instagram </li><li> Engaged in discussions with Residence Hall Director regarding hall rebranding and logo design </li><li> Assisted in marketing and event planning in the largest residence hall at New York University </li> </ul></p>
+                     </div>
+                  </div>
+                  <div class="card-footer text-muted"><a href="#" class="badge badge-info">education</a> <a href="#" class="badge badge-info">leadership</a> <a href="#" class="badge badge-info">design</a> </div>
+              </div>
+
+
+              <div class="card">
+                  <div class="card-header" role="tab" id="headingLEAD7">
+                    <h5 class="mb-0">
+                      <a data-toggle="collapse" data-parent="#accordionLEAD" href="#collapseLEAD7" aria-expanded="true" aria-controls="collapseLEAD7">
+                        <h4 class="card-title">Layout Editor</h4>
+                        <h6 class="card-subtitle mb-2 text-muted"><em>NYU Generasian</em></h6>
+                      </a>
+                    </h5>
+                  </div>
+                  <div id="collapseLEAD7" class="collapse hide" role="tabpanel" aria-labelledby="headingLEAD7">
+                      <div class="card-body">
+                          <p>New York, NY</p>
+                          <p>February 2013 - May 2014</p>
+                          <p><ul> <li> Directed visual presentation of all articles in an Asian American-Interest Magazine </li><li> Created various graphics to complement articles by hand and via Adobe Illustrator </li><li> Ensured brand consistency within and across the magazine </li><li> Invited to lead magazine layout and design workshop for a collaborative event between NYU Digital Arts Club and Generasian </li> </ul></p>
+                     </div>
+                  </div>
+                  <div class="card-footer text-muted"><a href="#" class="badge badge-info">education</a> <a href="#" class="badge badge-info">leadership</a> <a href="#" class="badge badge-info">design</a> </div>
+              </div>
+
+
+              <div class="card">
+                  <div class="card-header" role="tab" id="headingLEAD8">
+                    <h5 class="mb-0">
+                      <a data-toggle="collapse" data-parent="#accordionLEAD" href="#collapseLEAD8" aria-expanded="true" aria-controls="collapseLEAD8">
+                        <h4 class="card-title">Welcome Week Leader</h4>
+                        <h6 class="card-subtitle mb-2 text-muted"><em>NYU Student Resource Center</em></h6>
+                      </a>
+                    </h5>
+                  </div>
+                  <div id="collapseLEAD8" class="collapse hide" role="tabpanel" aria-labelledby="headingLEAD8">
+                      <div class="card-body">
+                          <p>New York, NY</p>
+                          <p>August 2013</p>
+                          <p><ul> <li> Supported the transition of 5600 incoming students to NYU </li><li> Staffed large scale events with as many as 3000 students in attendance </li><li> Served as a peer mentor and resource for incoming freshmen class </li> </ul></p>
+                     </div>
+                  </div>
+                  <div class="card-footer text-muted"><a href="#" class="badge badge-info">education</a> <a href="#" class="badge badge-info">leadership</a> </div>
+              </div>
+
+            </div><!-- END LEAD ACCORDION -->
+          </div><!--END CARD COLUMN-->
+        </div> <!--END py4-->
+      </div>
+      <!-- END LEADERSHIP TAB PANE-->
+      <!--DESIGN TAB PANE-->
+      <div class="tab-pane fade" id="design" role="tabpanel">
+        <div class="py-4">
+          <!--<p>That's design.</p>-->
+          <div class="card-columns">
+            <div id="accordionDESIGN" role="tablist" aria-multiselectable="true" style="overflow:hidden;">
+              <div class="card">
+                  <div class="card-header" role="tab" id="headingDESIGN0">
+                    <h5 class="mb-0">
+                      <a data-toggle="collapse" data-parent="#accordionDESIGN" href="#collapseDESIGN0" aria-expanded="true" aria-controls="collapseDESIGN0">
+                        <h4 class="card-title">Information Designer</h4>
+                        <h6 class="card-subtitle mb-2 text-muted"><em>Michael Cohen Group, LLC</em></h6>
+                      </a>
+                    </h5>
+                  </div>
+                  <div id="collapseDESIGN0" class="collapse hide" role="tabpanel" aria-labelledby="headingDESIGN0">
+                      <div class="card-body">
+                          <p>New York, NY</p>
+                          <p>May 2014 – August 2015</p>
+                          <p><ul> <li> Ensured research reports, observation logs, presentations, and marketing materials all reflected the company’s brand identity </li><li> Independently managed multiple design tasks and actively sought feedback from different supervisors </li><li> Packaged icons, graphs, and layout for client-side reports with topics ranging from child math affinity to educator online purchasing decisions </li><li> Delivered promptly intuitively organized project files with clearly labeled artboards and layers </li> </ul></p>
+                     </div>
+                  </div>
+                  <div class="card-footer text-muted"><a href="#" class="badge badge-info">design</a> <a href="#" class="badge badge-info">data</a> <a href="#" class="badge badge-info">education</a> </div>
+              </div>
+
+
+              <div class="card">
+                  <div class="card-header" role="tab" id="headingDESIGN1">
+                    <h5 class="mb-0">
+                      <a data-toggle="collapse" data-parent="#accordionDESIGN" href="#collapseDESIGN1" aria-expanded="true" aria-controls="collapseDESIGN1">
+                        <h4 class="card-title">Summer Assistant</h4>
+                        <h6 class="card-subtitle mb-2 text-muted"><em>NYU Residential Life and Housing Services </em></h6>
+                      </a>
+                    </h5>
+                  </div>
+                  <div id="collapseDESIGN1" class="collapse hide" role="tabpanel" aria-labelledby="headingDESIGN1">
+                      <div class="card-body">
+                          <p>New York, NY</p>
+                          <p>May 2014 – August 2015</p>
+                          <p><ul> <li> Served as peer counselor and live-in resource for summer residents at Rubin Hall </li><li> Provided emergency and crisis response for over 300 residents throughout a rotating duty schedule </li><li> Authored a cross-platform Social Media Playbook establishing structure, best practices, and resources for future Rubin social media managers </li><li> Determined the official Rubin Hall tumblr’s layout and initial content </li><li> Responded promptly to incoming freshman inquires via Rubin Hall’s tumblr page </li> </ul></p>
+                     </div>
+                  </div>
+                  <div class="card-footer text-muted"><a href="#" class="badge badge-info">design</a> <a href="#" class="badge badge-info">education</a> <a href="#" class="badge badge-info">leadership</a> </div>
+              </div>
+
+
+              <div class="card">
+                  <div class="card-header" role="tab" id="headingDESIGN2">
+                    <h5 class="mb-0">
+                      <a data-toggle="collapse" data-parent="#accordionDESIGN" href="#collapseDESIGN2" aria-expanded="true" aria-controls="collapseDESIGN2">
+                        <h4 class="card-title">Design Office Assistant</h4>
+                        <h6 class="card-subtitle mb-2 text-muted"><em>NYU Center of Multicultural Education and Programs (CMEP)</em></h6>
+                      </a>
+                    </h5>
+                  </div>
+                  <div id="collapseDESIGN2" class="collapse hide" role="tabpanel" aria-labelledby="headingDESIGN2">
+                      <div class="card-body">
+                          <p>New York, NY</p>
+                          <p>May 2014 – August 2015</p>
+                          <p><ul> <li> Acted as an in-house graphics designer in a fast-paced work environment, managing multiple projects on tight timelines </li><li> Created design playbook and trained two incoming office assistants on CMEP design methodologies </li><li> Transformed abstract instruction to concrete visuals to support marketing for diversity and social justice programming </li><li> Collaborated with the Director, Program Administrators and graduate students to determine final products </li> </ul></p>
+                     </div>
+                  </div>
+                  <div class="card-footer text-muted"><a href="#" class="badge badge-info">design</a> </div>
+              </div>
+
+
+              <div class="card">
+                  <div class="card-header" role="tab" id="headingDESIGN3">
+                    <h5 class="mb-0">
+                      <a data-toggle="collapse" data-parent="#accordionDESIGN" href="#collapseDESIGN3" aria-expanded="true" aria-controls="collapseDESIGN3">
+                        <h4 class="card-title">Marketing Chair</h4>
+                        <h6 class="card-subtitle mb-2 text-muted"><em>New York City Asian American Student Conference (NYCAASC)</em></h6>
+                      </a>
+                    </h5>
+                  </div>
+                  <div id="collapseDESIGN3" class="collapse hide" role="tabpanel" aria-labelledby="headingDESIGN3">
+                      <div class="card-body">
+                          <p>New York, NY</p>
+                          <p>August 2015 – August 2016</p>
+                          <p><ul> <li> Developed and analysed brand and website surveys to assess current user affinity, found significant difference between frequency of visits and perceived aesthetic appeal and significant difference in perceived ease of use in terms of participants’ year in school </li><li> Instructed committee research members on conducting an in-depth interview and running statistical tests in R </li><li> Organized a short design sprint to quickly examine current research and stakeholder mindsets </li><li> Advocated for research and data-driven decision-making amongst board members </li><li> Launched social media campaigns which consistently reaches 80-90% of a larger audience than previous years’ Facebook posts </li><li> Produced and directed all visual representations of NYCAASC including graphics, videos, and website interface </li><li> Coordinated the social media and press team on the day-of the conference </li> </ul></p>
+                     </div>
+                  </div>
+                  <div class="card-footer text-muted"><a href="#" class="badge badge-info">education</a> <a href="#" class="badge badge-info">leadership</a> <a href="#" class="badge badge-info">design</a> <a href="#" class="badge badge-info">data</a> <a href="#" class="badge badge-info">research</a> </div>
+              </div>
+
+
+              <div class="card">
+                  <div class="card-header" role="tab" id="headingDESIGN4">
+                    <h5 class="mb-0">
+                      <a data-toggle="collapse" data-parent="#accordionDESIGN" href="#collapseDESIGN4" aria-expanded="true" aria-controls="collapseDESIGN4">
+                        <h4 class="card-title">Layout Director</h4>
+                        <h6 class="card-subtitle mb-2 text-muted"><em>NYU Online Publication of Undergraduate Studies (OPUS)</em></h6>
+                      </a>
+                    </h5>
+                  </div>
+                  <div id="collapseDESIGN4" class="collapse hide" role="tabpanel" aria-labelledby="headingDESIGN4">
+                      <div class="card-body">
+                          <p>New York, NY</p>
+                          <p>February 2013 - January 2016</p>
+                          <p><ul> <li> Determine the web-based and printable layouts of a bi-annual student research publication since the Fall 2012 issue </li><li> Orchestrated layout overhauls and the brand redesign of the online magazine to align aesthetics with OPUS’s mission of providing APUG students with a research journal process and experience </li><li> Maintained the OPUS website by uploading new content and editing webpages using HTML </li><li> Created digital and print promotional materials which aligned with the OPUS brand </li><li> Interviewed, trained, and collaborated with future Layout Director to ensure brand and design continuity </li> </ul></p>
+                     </div>
+                  </div>
+                  <div class="card-footer text-muted"><a href="#" class="badge badge-info">education</a> <a href="#" class="badge badge-info">leadership</a> <a href="#" class="badge badge-info">design</a> <a href="#" class="badge badge-info">research</a> </div>
+              </div>
+
+
+              <div class="card">
+                  <div class="card-header" role="tab" id="headingDESIGN5">
+                    <h5 class="mb-0">
+                      <a data-toggle="collapse" data-parent="#accordionDESIGN" href="#collapseDESIGN5" aria-expanded="true" aria-controls="collapseDESIGN5">
+                        <h4 class="card-title">Vice President of Communications</h4>
+                        <h6 class="card-subtitle mb-2 text-muted"><em>NYU Inter-Residence Hall Council (IRHC)</em></h6>
+                      </a>
+                    </h5>
+                  </div>
+                  <div id="collapseDESIGN5" class="collapse hide" role="tabpanel" aria-labelledby="headingDESIGN5">
+                      <div class="card-body">
+                          <p>New York, NY</p>
+                          <p>August 2014 – August 2015</p>
+                          <p><ul> <li> Managed a team of 7 and hosted one-on-one tutorials with committee members on topics ranging from layout design to coding </li><li> Created user experience maps, personas, and surveys to inform the redesign of the IRHC website </li><li> Conceptualized and designed various marketing materials targeting a college undergraduate audience </li><li> Spearhead campaigns and implemented best practices for IRHC social media outlets: Facebook, Twitter, Instagram </li> </ul></p>
+                     </div>
+                  </div>
+                  <div class="card-footer text-muted"><a href="#" class="badge badge-info">education</a> <a href="#" class="badge badge-info">leadership</a> <a href="#" class="badge badge-info">design</a> </div>
+              </div>
+
+
+              <div class="card">
+                  <div class="card-header" role="tab" id="headingDESIGN6">
+                    <h5 class="mb-0">
+                      <a data-toggle="collapse" data-parent="#accordionDESIGN" href="#collapseDESIGN6" aria-expanded="true" aria-controls="collapseDESIGN6">
+                        <h4 class="card-title">Director of Communications</h4>
+                        <h6 class="card-subtitle mb-2 text-muted"><em>NYU S.O.L.I.D. Lafayette Hall Council</em></h6>
+                      </a>
+                    </h5>
+                  </div>
+                  <div id="collapseDESIGN6" class="collapse hide" role="tabpanel" aria-labelledby="headingDESIGN6">
+                      <div class="card-body">
+                          <p>New York, NY</p>
+                          <p>September 2013 - May 2014</p>
+                          <p><ul> <li> Conceptualized and designed various marketing materials targeting a college undergraduate audience </li><li> Co-managed Lafayette Hall’s social media outlets: Facebook, Twitter, Tumblr, Instagram </li><li> Engaged in discussions with Residence Hall Director regarding hall rebranding and logo design </li><li> Assisted in marketing and event planning in the largest residence hall at New York University </li> </ul></p>
+                     </div>
+                  </div>
+                  <div class="card-footer text-muted"><a href="#" class="badge badge-info">education</a> <a href="#" class="badge badge-info">leadership</a> <a href="#" class="badge badge-info">design</a> </div>
+              </div>
+
+
+              <div class="card">
+                  <div class="card-header" role="tab" id="headingDESIGN7">
+                    <h5 class="mb-0">
+                      <a data-toggle="collapse" data-parent="#accordionDESIGN" href="#collapseDESIGN7" aria-expanded="true" aria-controls="collapseDESIGN7">
+                        <h4 class="card-title">Layout Editor</h4>
+                        <h6 class="card-subtitle mb-2 text-muted"><em>NYU Generasian</em></h6>
+                      </a>
+                    </h5>
+                  </div>
+                  <div id="collapseDESIGN7" class="collapse hide" role="tabpanel" aria-labelledby="headingDESIGN7">
+                      <div class="card-body">
+                          <p>New York, NY</p>
+                          <p>February 2013 - May 2014</p>
+                          <p><ul> <li> Directed visual presentation of all articles in an Asian American-Interest Magazine </li><li> Created various graphics to complement articles by hand and via Adobe Illustrator </li><li> Ensured brand consistency within and across the magazine </li><li> Invited to lead magazine layout and design workshop for a collaborative event between NYU Digital Arts Club and Generasian </li> </ul></p>
+                     </div>
+                  </div>
+                  <div class="card-footer text-muted"><a href="#" class="badge badge-info">education</a> <a href="#" class="badge badge-info">leadership</a> <a href="#" class="badge badge-info">design</a> </div>
+              </div>
+
+
+              <div class="card">
+                  <div class="card-header" role="tab" id="headingDESIGN8">
+                    <h5 class="mb-0">
+                      <a data-toggle="collapse" data-parent="#accordionDESIGN" href="#collapseDESIGN8" aria-expanded="true" aria-controls="collapseDESIGN8">
+                        <h4 class="card-title">Design Team Member</h4>
+                        <h6 class="card-subtitle mb-2 text-muted"><em>ISO - NYU Tisch School of the Arts Photography Magazine</em></h6>
+                      </a>
+                    </h5>
+                  </div>
+                  <div id="collapseDESIGN8" class="collapse hide" role="tabpanel" aria-labelledby="headingDESIGN8">
+                      <div class="card-body">
+                          <p>New York, NY</p>
+                          <p>October 2012 – March 2013</p>
+                          <p><ul> <li> Participate in the decision process of selecting submissions for publication from over 200 photographs  </li><li> Collaborate with a small team of designers and the Editor-in Chief in design and layout </li><li> Designed promotional flyer to recruit submissions </li> </ul></p>
+                     </div>
+                  </div>
+                  <div class="card-footer text-muted"><a href="#" class="badge badge-info">design</a> </div>
+              </div>
+
+            </div><!-- END DESIGN ACCORDION -->
+        </div><!--END CARD COLUMN-->
+        </div>
+      </div>
+      <!-- END DESIGN TAB PANE-->
+      <!--DATA TAB PANE-->
+      <div class="tab-pane fade" id="data" role="tabpanel">
+        <div class="py-4">
+          <!--<p>That's data</p>-->
+          <div class="card-columns">
+            <div id="accordionDATA" role="tablist" aria-multiselectable="true" style="overflow:hidden;">
+              <div class="card">
+                  <div class="card-header" role="tab" id="headingDATA0">
+                    <h5 class="mb-0">
+                      <a data-toggle="collapse" data-parent="#accordionDATA" href="#collapseDATA0" aria-expanded="true" aria-controls="collapseDATA0">
+                        <h4 class="card-title">Research Assistant</h4>
+                        <h6 class="card-subtitle mb-2 text-muted"><em>Michael Cohen Group, LLC</em></h6>
+                      </a>
+                    </h5>
+                  </div>
+                  <div id="collapseDATA0" class="collapse hide" role="tabpanel" aria-labelledby="headingDATA0">
+                      <div class="card-body">
+                          <p>New York, NY</p>
+                          <p>September 2014 – November 2015</p>
+                          <p><ul> <li> Gained exposure and immersion to entire research process by assisting in over 9 research studies </li><li> Performed qualitative and quantitative analysis, importing data and interpreting descriptives, t-Tests, and ANOVA </li><li> Presented overviews on Python for Data Analysis and Tablets in Education during company-wide meetings </li><li> Assisted in focus group interviews with children and usability testing with Silverback 2 and Invision </li><li> Met with research directors to develop test instruments and review study findings </li><li> Organized literature in reference managers (e.g., Mendeley, Zotero) and created a guide for navigating and using reference tools </li> </ul></p>
+                     </div>
+                  </div>
+                  <div class="card-footer text-muted"><a href="#" class="badge badge-info">research</a> <a href="#" class="badge badge-info">data</a> <a href="#" class="badge badge-info">education</a> </div>
+              </div>
+
+
+              <div class="card">
+                  <div class="card-header" role="tab" id="headingDATA1">
+                    <h5 class="mb-0">
+                      <a data-toggle="collapse" data-parent="#accordionDATA" href="#collapseDATA1" aria-expanded="true" aria-controls="collapseDATA1">
+                        <h4 class="card-title">Information Designer</h4>
+                        <h6 class="card-subtitle mb-2 text-muted"><em>Michael Cohen Group, LLC</em></h6>
+                      </a>
+                    </h5>
+                  </div>
+                  <div id="collapseDATA1" class="collapse hide" role="tabpanel" aria-labelledby="headingDATA1">
+                      <div class="card-body">
+                          <p>New York, NY</p>
+                          <p>May 2014 – August 2015</p>
+                          <p><ul> <li> Ensured research reports, observation logs, presentations, and marketing materials all reflected the company’s brand identity </li><li> Independently managed multiple design tasks and actively sought feedback from different supervisors </li><li> Packaged icons, graphs, and layout for client-side reports with topics ranging from child math affinity to educator online purchasing decisions </li><li> Delivered promptly intuitively organized project files with clearly labeled artboards and layers </li> </ul></p>
+                     </div>
+                  </div>
+                  <div class="card-footer text-muted"><a href="#" class="badge badge-info">design</a> <a href="#" class="badge badge-info">data</a> <a href="#" class="badge badge-info">education</a> </div>
+              </div>
+
+
+              <div class="card">
+                  <div class="card-header" role="tab" id="headingDATA2">
+                    <h5 class="mb-0">
+                      <a data-toggle="collapse" data-parent="#accordionDATA" href="#collapseDATA2" aria-expanded="true" aria-controls="collapseDATA2">
+                        <h4 class="card-title">Marketing Chair</h4>
+                        <h6 class="card-subtitle mb-2 text-muted"><em>New York City Asian American Student Conference (NYCAASC)</em></h6>
+                      </a>
+                    </h5>
+                  </div>
+                  <div id="collapseDATA2" class="collapse hide" role="tabpanel" aria-labelledby="headingDATA2">
+                      <div class="card-body">
+                          <p>New York, NY</p>
+                          <p>August 2015 – August 2016</p>
+                          <p><ul> <li> Developed and analysed brand and website surveys to assess current user affinity, found significant difference between frequency of visits and perceived aesthetic appeal and significant difference in perceived ease of use in terms of participants’ year in school </li><li> Instructed committee research members on conducting an in-depth interview and running statistical tests in R </li><li> Organized a short design sprint to quickly examine current research and stakeholder mindsets </li><li> Advocated for research and data-driven decision-making amongst board members </li><li> Launched social media campaigns which consistently reaches 80-90% of a larger audience than previous years’ Facebook posts </li><li> Produced and directed all visual representations of NYCAASC including graphics, videos, and website interface </li><li> Coordinated the social media and press team on the day-of the conference </li> </ul></p>
+                     </div>
+                  </div>
+                  <div class="card-footer text-muted"><a href="#" class="badge badge-info">education</a> <a href="#" class="badge badge-info">leadership</a> <a href="#" class="badge badge-info">design</a> <a href="#" class="badge badge-info">data</a> <a href="#" class="badge badge-info">research</a> </div>
+              </div>
+
+            </div><!-- END DATA ACCORDION -->
+        </div><!--END CARD COLUMN-->
+        </div>
+      </div>
+      <!-- END DATA TAB PANE-->
+      <!--RESEARCH TAB PANE-->
+      <div class="tab-pane fade" id="research" role="tabpanel">
+        <div class="py-4">
+          <!--<p>That's research. OR is it?</p>-->
+          <div class="card-columns">
+            <div id="accordionRESEARCH" role="tablist" aria-multiselectable="true" style="overflow:hidden;">
+
+  <div class="card">
+      <div class="card-header" role="tab" id="headingRESEARCH0">
+        <h5 class="mb-0">
+          <a data-toggle="collapse" data-parent="#accordionRESEARCH" href="#collapseRESEARCH0" aria-expanded="true" aria-controls="collapseRESEARCH0">
+            <h4 class="card-title">Research Assistant</h4>
+            <h6 class="card-subtitle mb-2 text-muted"><em>Michael Cohen Group, LLC</em></h6>
+          </a>
+        </h5>
+      </div>
+      <div id="collapseRESEARCH0" class="collapse hide" role="tabpanel" aria-labelledby="headingRESEARCH0">
+          <div class="card-body">
+              <p>New York, NY</p>
+              <p>September 2014 – November 2015</p>
+              <p><ul> <li> Gained exposure and immersion to entire research process by assisting in over 9 research studies </li><li> Performed qualitative and quantitative analysis, importing data and interpreting descriptives, t-Tests, and ANOVA </li><li> Presented overviews on Python for Data Analysis and Tablets in Education during company-wide meetings </li><li> Assisted in focus group interviews with children and usability testing with Silverback 2 and Invision </li><li> Met with research directors to develop test instruments and review study findings </li><li> Organized literature in reference managers (e.g., Mendeley, Zotero) and created a guide for navigating and using reference tools </li> </ul></p>
+         </div>
+      </div>
+      <div class="card-footer text-muted"><a href="#" class="badge badge-info">research</a> <a href="#" class="badge badge-info">data</a> <a href="#" class="badge badge-info">education</a> </div>
+  </div>
+
+
+  <div class="card">
+      <div class="card-header" role="tab" id="headingRESEARCH1">
+        <h5 class="mb-0">
+          <a data-toggle="collapse" data-parent="#accordionRESEARCH" href="#collapseRESEARCH1" aria-expanded="true" aria-controls="collapseRESEARCH1">
+            <h4 class="card-title">Marketing Chair</h4>
+            <h6 class="card-subtitle mb-2 text-muted"><em>New York City Asian American Student Conference (NYCAASC)</em></h6>
+          </a>
+        </h5>
+      </div>
+      <div id="collapseRESEARCH1" class="collapse hide" role="tabpanel" aria-labelledby="headingRESEARCH1">
+          <div class="card-body">
+              <p>New York, NY</p>
+              <p>August 2015 – August 2016</p>
+              <p><ul> <li> Developed and analysed brand and website surveys to assess current user affinity, found significant difference between frequency of visits and perceived aesthetic appeal and significant difference in perceived ease of use in terms of participants’ year in school </li><li> Instructed committee research members on conducting an in-depth interview and running statistical tests in R </li><li> Organized a short design sprint to quickly examine current research and stakeholder mindsets </li><li> Advocated for research and data-driven decision-making amongst board members </li><li> Launched social media campaigns which consistently reaches 80-90% of a larger audience than previous years’ Facebook posts </li><li> Produced and directed all visual representations of NYCAASC including graphics, videos, and website interface </li><li> Coordinated the social media and press team on the day-of the conference </li> </ul></p>
+         </div>
+      </div>
+      <div class="card-footer text-muted"><a href="#" class="badge badge-info">education</a> <a href="#" class="badge badge-info">leadership</a> <a href="#" class="badge badge-info">design</a> <a href="#" class="badge badge-info">data</a> <a href="#" class="badge badge-info">research</a> </div>
+  </div>
+
+
+  <div class="card">
+      <div class="card-header" role="tab" id="headingRESEARCH2">
+        <h5 class="mb-0">
+          <a data-toggle="collapse" data-parent="#accordionRESEARCH" href="#collapseRESEARCH2" aria-expanded="true" aria-controls="collapseRESEARCH2">
+            <h4 class="card-title">Layout Director</h4>
+            <h6 class="card-subtitle mb-2 text-muted"><em>NYU Online Publication of Undergraduate Studies (OPUS)</em></h6>
+          </a>
+        </h5>
+      </div>
+      <div id="collapseRESEARCH2" class="collapse hide" role="tabpanel" aria-labelledby="headingRESEARCH2">
+          <div class="card-body">
+              <p>New York, NY</p>
+              <p>February 2013 - January 2016</p>
+              <p><ul> <li> Determine the web-based and printable layouts of a bi-annual student research publication since the Fall 2012 issue </li><li> Orchestrated layout overhauls and the brand redesign of the online magazine to align aesthetics with OPUS’s mission of providing APUG students with a research journal process and experience </li><li> Maintained the OPUS website by uploading new content and editing webpages using HTML </li><li> Created digital and print promotional materials which aligned with the OPUS brand </li><li> Interviewed, trained, and collaborated with future Layout Director to ensure brand and design continuity </li> </ul></p>
+         </div>
+      </div>
+      <div class="card-footer text-muted"><a href="#" class="badge badge-info">education</a> <a href="#" class="badge badge-info">leadership</a> <a href="#" class="badge badge-info">design</a> <a href="#" class="badge badge-info">research</a> </div>
+  </div>
+
+</div><!-- END RESEARCH ACCORDION -->
 
 ​
 
+        </div><!--END CARD COLUMN-->
+      </div> <!--END py4-->
+      <!-- END RESEARCH PANE-->
+      </div>
+      <!--END Nav Tags MODAL-->
+      <!--END Nav Tags-->
 
-​
-
-
-
-</div>
       </div>
     </div> <!-- /container -->
     <footer class="footer">
