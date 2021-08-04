@@ -86,8 +86,8 @@
           <li class="nav-item"><a class="nav-link" href="https://www.linkedin.com/in/ameliachu"><i class="fa fa-linkedin"></i></a></li>
           <li class="nav-item"><a class="nav-link" href="https://www.twitter.com/amelianchu"><i class="fa fa-twitter"></i></a></li>
           <li class="nav-item"><a class="nav-link" href="https://www.github.com/ameliachu"><i class="fa fa-github"></i></a></li>
-          <li class="nav-item"><a class="nav-link" href="../../resume.html">resume</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://amelianchu.tumblr.com">unabridged.</a></li>
+          <li class="nav-item"><a class="nav-link" href="../../resume.html">resume.</a></li>
+
         </ul>
       </div><!--/.nav-collapse -->
 
@@ -107,8 +107,14 @@
       The LaGuardia Pl & W 3 St Citi Bike station was selected because it had slightly above average bike capacity of 35 bikes $(\mu = 30.3)$, and appeared to be consistently used
       (Figure 1 & Figure 2a).
    </p>
-   <script src="js/histo.js"></script>
-   <center><svg width="500" height="300" id="capacity-histo"></svg></center>
+   <p> <center><small><em>Figure 1.</em> Distribution of Station Bike Capacity</small></center></p>
+
+   <div class="row justify-content-md-center">
+
+     <script src="js/histo.js"></script>
+     <svg width="500" height="300" id="capacity-histo" alt="Figure 1"></svg>
+        </div>
+<p> <center><small><em>Figure 2.</em> Time Series of Bikes Available </small></center></p>
   <div class="row"><!--Figure 2-->
     <div class="col-md-6 col-lg-3">
       <div class="card">
@@ -117,7 +123,7 @@
         </div>
 
         <div class="card-footer text-muted">
-          <small>Number of Bikes Available by Minute</small>
+          <small><em>2a.</em> Number of Bikes Available by Minute</small>
         </div>
       </div>
     </div>
@@ -128,7 +134,7 @@
         </div>
 
         <div class="card-footer text-muted">
-           <small>Log of Bikes Available by Minute</small>
+           <small><em>2b.</em> Log of Bikes Available by Minute</small>
         </div>
       </div>
     </div>
@@ -139,7 +145,7 @@
         </div>
 
         <div class="card-footer text-muted">
-           <small>Diff Log of Bikes Available by Minute</small>
+           <small><em>2c.</em> Diff Log of Bikes Available by Minute</small>
         </div>
       </div>
     </div>
@@ -150,7 +156,7 @@
         </div>
 
         <div class="card-footer text-muted">
-           <small>2 Diff Log of Bikes Available by Minute</small>
+           <small><em>2d.</em> 2 Diff Log of Bikes Available by Minute</small>
         </div>
       </div>
     </div>
@@ -161,7 +167,7 @@
        a bike is rented or returned), the timestamp used for this project is based on the time of data retrieval
        (i.e. every minute), rather than the reported timestamp. This was done to ensure evenly spaced time intervals.</p>
     <h5> Part 1: Identify Potential p, d, q for an ARIMA(p, d, q) Model</h5>
-    <p>To determine which ARIMA model is best suited for this dataset $(n = 12995)$, we plot the number of bikes available, its log, and its difference (Figure 2).
+    <p>To determine which ARIMA model is best suited for this dataset $(n = 12,995)$, we plot the number of bikes available, its log, and its difference (Figure 2).
       In the plot with the number of bike available by minute, there does appear to be some seasonality.
       The timeseries does appear to dip and rise in some periodic manner, but it does not appear to be completely consistent.
       For example, sometimes the lowest point on a day is around 8:00 UTC (e.g. April 9), other days it’s around 12:00 UTC (e.g. April 12), and on April 16
@@ -178,6 +184,7 @@
 
   <!-- END paragraph 2 -->
   <!--Figure 3 TABS-->
+  <p><center><small><em>Figure 3.</em> ACF and PACF Plots for Log and Differences Bikes Available</small></center></p>
       <ul class="nav nav-tabs nav-fill" id="meta-tab" role="tablist">
         <li class="nav-item">
           <a class="nav-item nav-link active" id="logsstatus-tab" data-toggle="tab" href="#logsstatus" role="tab">Log</a>
@@ -201,14 +208,14 @@
           <div class="card-body">
             <center><svg width="300" height="300" id="status-acf"></svg></center>
           </div>
-          <div class="card-footer"><small class="text-muted">ACF: Hanging</small></div>
+          <div class="card-footer"><small class="text-muted"><em>3a.</em> ACF: Hanging</small></div>
         </div>
 
         <div class="card">
           <div class="card-body">
           <svg width="300" height="300" id="status-pacf"></svg>
         </div>
-        <div class="card-footer"><small class="text-muted">PACF: Drops off at Lag 1</small></div>
+        <div class="card-footer"><small class="text-muted"><em>3b.</em> PACF: Drops off at Lag 1</small></div>
       </div>
           <script>
           acf ("csv/3a_logstatusac.csv" , "#status-acf")
@@ -226,13 +233,13 @@
         <div class="card-body">
           <center><svg width="300" height="300" id="diffstatus-acf"></svg></center>
         </div>
-        <div class="card-footer"><small class="text-muted">ACF: Dying Down</small></div>
+        <div class="card-footer"><small class="text-muted"><em>3c.</em> ACF: Dying Down</small></div>
       </div>
       <div class="card">
         <div class="card-body">
           <center><svg width="300" height="300" id="diffstatus-pacf"></svg></center>
         </div>
-        <div class="card-footer"><small class="text-muted">PACF:Dying Down</small></div>
+        <div class="card-footer"><small class="text-muted"><em>3d.</em> PACF: Dying Down</small></div>
       </div>
           <script>
           acf ("csv/3c_difflogstatusacf.csv" , "#diffstatus-acf")
@@ -251,13 +258,13 @@
           <div class="card-body">
             <svg width="300" height="300" id="diff2status-acf"></svg>
           </div>
-          <div class="card-footer"><small class="text-muted">ACF: Negative ACF at Lag 1 Suggests Overdifferencing</small></div>
+          <div class="card-footer"><small class="text-muted"><em>3e.</em> ACF: Negative ACF at Lag 1 Suggests Overdifferencing</small></div>
         </div>
         <div class="card">
           <div class="card-body">
             <svg width="300" height="300" id="diff2status-pacf"></svg>
           </div>
-          <div class="card-footer"><small class="text-muted">PACF</small></div>
+          <div class="card-footer"><small class="text-muted"><em>3f.</em> PACF</small></div>
         </div>
 
       </div>
@@ -274,8 +281,13 @@
   <p>To help determine the exact $p$ and determine whether or not to include a constant we use AIC<sub>c</sub>. </p>
   <!--ARIMA AICC-->
       <div class="card">
-        <h5 class="card-header">AIC<sub>C</sub> for Candidate ARIMA Models</h5>
-        <div class="card-body">
+        <h5 class="card-header" role="tab" id="fig4-candidates">
+          <a data-toggle="collapse" href="#fig4-candidates-collapse" aria-expanded="true" aria-controls="fig4-candidates-collapse">
+            <em>Figure 4.</em> AIC<sub>C</sub> for Candidate ARIMA Models
+          </a>
+          </h5>
+
+        <div id="fig4-candidates-collapse" class="card-body collapse hide" role="tabpanel" aria-labelledby="fig4-candidates">
           <p><svg width="20" height="15"><rect width="20" height="15" style="fill:steelblue" />Blue</svg>
             highlight indicates min AIC<sub>C</sub></p>
           <div class="table-responsive">
@@ -283,9 +295,11 @@
           <!--https://stackoverflow.com/questions/24148631/creating-accordion-table-with-bootstrap-->
           </div>
         </div>
+
       </div>
   <!--END ARIMA AICC-->
   <p>The candidate model with the lowest AIC<sub>c</sub> is ARIMA(3,1,3) without constant (-47050.73; Figure 4).</p>
+  <p align="center"><small><em>Figure 5.</em>  Final Estimates of ARIMA Parameters</small></p>
   <div class="table-responsive">
   <table class="table table-sm table-hover" id="arima-param"></table>
   </div>
@@ -306,6 +320,8 @@
 <h5>Part 3: Residuals of the ARIMA Model</h5>
 <p>
   To determine if we have a reasonable model, we will use the Modified Box-Pierce (Ljung-Box) Chi-Square Statistic and examine the residual plots. Using the Modified Box-Pierce Chi-Square Statistic, we see that there is significance at all reported lags (Figure 6). This indicates that there is strong evidence model is inadequate. </p>
+  <p align="center"><small><em>Figure 6.</em> Modified Box-Pierce (Ljung-Box) Chi-Square Statistic for ARIMA(3,1,3) Model
+</small></p>
   <div class="table-responsive">
   <table class="table table-sm table-hover" id="box-pierce"></table>
   </div>
@@ -316,6 +332,7 @@
 </p>
 
 <!--Figure 7-->
+<p align="center"><small><em>Figure 7.</em>  ARIMA Residual Plots</small></p>
     <ul class="nav nav-tabs nav-fill" id="meta-tab" role="tablist">
       <li class="nav-item">
         <a class="nav-item nav-link active" id="arima-resid-ts-tab" data-toggle="tab" href="#arima-resid-ts" role="tab">Residual Timeseries</a>
@@ -345,13 +362,13 @@
       <div class="card-body">
         <center><svg width="300" height="300" id="arima-resid-acf"></svg></center>
       </div>
-      <div class="card-footer"><small class="text-muted">ACF</small></div>
+      <div class="card-footer"><small class="text-muted"><em>7a.</em> ACF</small></div>
     </div>
     <div class="card">
       <div class="card-body">
         <center><svg width="300" height="300" id="arima-resid-pacf"></svg></center>
       </div>
-      <div class="card-footer"><small class="text-muted">PACF</small></div>
+      <div class="card-footer"><small class="text-muted"><em>7b.</em> PACF</small></div>
     </div>
         <script>
         acf ("csv/7b_arima-resid-acf.csv" , "#arima-resid-acf")
@@ -370,13 +387,13 @@
         <div class="card-body">
           <svg width="300" height="300" id="arima-resid2-acf"></svg>
         </div>
-        <div class="card-footer"><small class="text-muted">ACF</small></div>
+        <div class="card-footer"><small class="text-muted"><em>7c.</em> ACF</small></div>
       </div>
       <div class="card">
         <div class="card-body">
           <svg width="300" height="300" id="arima-resid2-pacf"></svg>
         </div>
-        <div class="card-footer"><small class="text-muted">PACF</small></div>
+        <div class="card-footer"><small class="text-muted"><em>7d.</em> PACF</small></div>
       </div>
 
     </div>
@@ -391,10 +408,11 @@
 <h5>Part 4: GARCH Model Selected</h5>
 <p>To determine which ARCH or GARCH model to use, we use AIC<sub>c</sub>  to evaluate candidate models (Figure 8).
 </p>
+<p align="center"><small><em>Figure 8a.</em>AIC<sub>C</sub> for Candidate ARCH Models</small></p>
 <div class="table-responsive">
 <table class="table table-sm table-hover" id="arch-aicc"></table>
 </div>
-
+<p align="center"><small><em>Figure 8b.</em> AIC<sub>C</sub> for Candidate GARCH(1,1) Model</small></p>
 <div class="table-responsive">
 <table class="table table-sm table-hover" id="garch-aicc"></table>
 </div>
@@ -408,6 +426,8 @@
 </script>
 
 <!--Figure 9-->
+<p align="center"><small><em>Figure 9.</em> Model Outputs for GARCH(1,1) Model</small></p>
+
 <!--Figure 9 TABS-->
     <ul class="nav nav-tabs nav-fill" id="fig-12" role="tablist">
       <li class="nav-item">
@@ -459,6 +479,8 @@
   The 95% one-step ahead forecast for ARIMA is (1.865661, 2.020754) and ARIMA-ARCH is (1.608771, 2.277645).
   The ARIMA-ARCH forecast interval is wider.
 </p>
+<p align="center"><small><em>Figure 10.</em> Forecast Intervals for ARIMA and ARIMA-ARCH Model</small></p>
+
 <div class="table-responsive">
 <table class="table table-sm table-hover" id="forecast-intervals"></table>
 </div>
@@ -467,6 +489,7 @@
 <p>Examining the conditional variance plot (Figure 11), periods of high variance do coincide with periods of high volatility in the original plot (Figure 2a).
   There are spikes around April 12 - April 14 the coincide with the large dips in the timeseries.
 </p>
+<p align="center"><small><em>Figure 11.</em> Conditional Variance of ARCH Model</small></p>
 <div id="11" style="height:200px;"></div>
 <h5>Part 7 & 9: Forecast Intervals of the ARIMA/ARIMA-ARCH Model</h5>
 <p>
@@ -475,6 +498,8 @@
   In contrast, the ARIMA-ARCH model forecasts encompass the majority of values, only failing 738 of the 12955 times (5.6%).
 </p>
 <!--Figure 12-->
+<p align="center"><small><em>Figure 12.</em> Log Bikes Available Forecast Intervals</small></p>
+
 <!--Figure 12 TABS-->
     <ul class="nav nav-tabs nav-fill" id="fig-12" role="tablist">
       <li class="nav-item">
@@ -508,6 +533,7 @@
 <!--END Figure 12-->
 <h5>Part 8: Residuals of the ARIMA-ARCH Model</h5>
 <p>The normality plot for ARCH Residuals (Figure 13) appears to exhibit leptokurtosis.</p>
+<p align="center"><small><em>Figure 13.</em>  Normality Plot for ARCH Residuals</small></p>
 <script src="js/scatter.js"></script>
 <center><svg width="500" height="300" id="qq-plot"></svg></center>
 <p>  There is a large number of data points (outliers) that are curved and trailing both the left and right side of the plot.
