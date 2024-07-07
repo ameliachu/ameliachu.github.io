@@ -1,8 +1,13 @@
-// Function to create the HTML structure
 const abv_lookup = {
     "vcbs": "Paramount Global",
-    "apfk": "A Place For Kids"
-}
+    "apfk": "A Place For Kids at PS 2",
+    "ps130": "America Reads at PS 130",
+    "nyu-cmep": "NYU Center of Multicultural Education and Programs (CMEP)",
+    "nyu-res": "NYU Residential Life and Housing Services",
+    "mcg": "Michael Cohen Group, LLC"
+};
+
+// Function to create the HTML structure for each job experience
 function generateAccordionItem(data, index) {
     const accordionItem = document.createElement('div');
     accordionItem.classList.add('accordion-item');
@@ -36,7 +41,7 @@ function generateAccordionItem(data, index) {
     accordionCollapse.classList.add('accordion-collapse', 'collapse');
     accordionCollapse.setAttribute('id', `flush-collapse-${index}`);
     accordionCollapse.setAttribute('aria-labelledby', `flush-heading-${index}`);
-    accordionCollapse.setAttribute('data-bs-parent', '#resume-experience-professional');
+    accordionCollapse.setAttribute('data-bs-parent', `#company-${data.company_abv}`);
 
     const accordionBody = document.createElement('div');
     accordionBody.classList.add('accordion-body');
@@ -57,15 +62,34 @@ function generateAccordionItem(data, index) {
     return accordionItem;
 }
 
+// Function to create a company abbreviation header
+function generateCompanyHeader(abv) {
+    const companyHeader = document.createElement('p');
+    const strong = document.createElement('strong');
+    strong.innerHTML = abv_lookup[abv] || abv;  // Use the lookup or fall back to abv if not found
+    companyHeader.appendChild(strong);
+    return companyHeader;
+}
+
 // Fetch the JSON data and generate the accordion items
 fetch('resume.json')
     .then(response => response.json())
     .then(allExperience => {
         const parentContainer = document.getElementById('resume-experience-professional');
-        // Filter to only include professional section
         const professionalExperience = allExperience.filter(item => item.section === 'professional');
+
+        let previousCompanyAbv = null;
+        let companyContainer = null;
+
         professionalExperience.forEach((experienceData, index) => {
-            parentContainer.appendChild(generateAccordionItem(experienceData, index));
+            if (experienceData.company_abv !== previousCompanyAbv) {
+                companyContainer = document.createElement('div');
+                companyContainer.setAttribute('id', `company-${experienceData.company_abv}`);
+                parentContainer.appendChild(generateCompanyHeader(experienceData.company_abv));
+                parentContainer.appendChild(companyContainer);
+                previousCompanyAbv = experienceData.company_abv;
+            }
+            companyContainer.appendChild(generateAccordionItem(experienceData, index));
         });
     })
     .catch(error => console.error('Error fetching the JSON data:', error));
