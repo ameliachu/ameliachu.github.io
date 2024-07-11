@@ -24,11 +24,9 @@
     <link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- MathJax JS-->
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
-    </script>
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
     </script>
 
     <!--Font Awesome CSS-->
@@ -104,7 +102,7 @@
     <h5>Introduction</h5>
     <p>The data for this project was retrieved every minute via the real-time Citi Bike station status feed<sup> <a href="https://gbfs.citibikenyc.com/gbfs/en/station_status.json" data-toggle="tooltip" data-html="true" title="Citi Bike NYC. Real-time station status. Retrieved from https://gbfs.citibikenyc.com/gbfs/en/station_status.json">1</a></sup> from April 7, 2018 to April 16, 2018.
       This feed scans for updates every 10 seconds and contains information on the availability of bikes and docks at each station in the Citi Bike system.
-      The LaGuardia Pl & W 3 St Citi Bike station was selected because it had slightly above average bike capacity of 35 bikes $(\mu = 30.3)$, and appeared to be consistently used
+      The LaGuardia Pl & W 3 St Citi Bike station was selected because it had slightly above average bike capacity of 35 bikes (\(\mu = 30.3\)), and appeared to be consistently used
       (Figure 1 & Figure 2a).
    </p>
    <p> <center><small><em>Figure 1.</em> Distribution of Station Bike Capacity</small></center></p>
@@ -167,7 +165,7 @@
        a bike is rented or returned), the timestamp used for this project is based on the time of data retrieval
        (i.e. every minute), rather than the reported timestamp. This was done to ensure evenly spaced time intervals.</p>
     <h5> Part 1: Identify Potential p, d, q for an ARIMA(p, d, q) Model</h5>
-    <p>To determine which ARIMA model is best suited for this dataset $(n = 12,995)$, we plot the number of bikes available, its log, and its difference (Figure 2).
+    <p>To determine which ARIMA model is best suited for this dataset (\(n = 12,995\)), we plot the number of bikes available, its log, and its difference (Figure 2).
       In the plot with the number of bike available by minute, there does appear to be some seasonality.
       The timeseries does appear to dip and rise in some periodic manner, but it does not appear to be completely consistent.
       For example, sometimes the lowest point on a day is around 8:00 UTC (e.g. April 9), other days it’s around 12:00 UTC (e.g. April 12), and on April 16
@@ -178,8 +176,8 @@
     <p>
       Based on the ACF/PACF plots of log bike available, we should take differences (Figure 3a & 3b).
       Refering back to the plots of the differenced data over time, it appears that both are mean reverting (Figure 2c & 2d). The twice differenced ACF show negative value at lag 1,
-      which suggest overdifferencing. This suggested that we should set $d = 1$. Looking at the ACF/PACF plots of the differenced log bike available, it appears that both
-      plots are dying down, suggestive of an ARMA model. To follow the guiding principle of parsimony, we will try parameters of 3 or less for $p$, and $q$.
+      which suggest overdifferencing. This suggested that we should set \(d = 1\). Looking at the ACF/PACF plots of the differenced log bike available, it appears that both
+      plots are dying down, suggestive of an ARMA model. To follow the guiding principle of parsimony, we will try parameters of 3 or less for \(p\), and \(q\).
     </p>
 
   <!-- END paragraph 2 -->
@@ -278,7 +276,7 @@
 <!--END Figure 3 MODAL-->
   <!--Part 2: Using AICC to Identify Best p, q for ARIMA(p, 1, q) Model-->
   <h5>Part 2: Using AICC to Identify Best p, q for ARIMA(p, 1, q) Model</h5>
-  <p>To help determine the exact $p$ and determine whether or not to include a constant we use AIC<sub>c</sub>. </p>
+  <p>To help determine the exact \(p\) and determine whether or not to include a constant we use AIC<sub>c</sub>. </p>
   <!--ARIMA AICC-->
       <div class="card">
         <h5 class="card-header" role="tab" id="fig4-candidates">
@@ -306,8 +304,8 @@
 
 
 <p>Thus, we will select these parameters and obtain the model:</p>
-<p align = "center">$x_{t} = -0.6394x_{t-1} + 0.1644x_{t-2} + 0.599x_{t-3} + \varepsilon _{t} + 0.7143\varepsilon_{t-1} - 0.0968\varepsilon_{t-2}  - 0.0667\varepsilon_{t-3} $</p>
-<p>where $x_{t}$ is  log bikes_available$_{t}$ - log bikes_available$_{t - 1}$ </p>
+<p align = "center">\(x_{t} = -0.6394x_{t-1} + 0.1644x_{t-2} + 0.599x_{t-3} + \varepsilon _{t} + 0.7143\varepsilon_{t-1} - 0.0968\varepsilon_{t-2}  - 0.0667\varepsilon_{t-3} \)</p>
+<p>where \(x_{t}\) is  log bikes_available\(_{t}\) - log bikes_available\(_{t - 1}\) </p>
 
 <script>
   aicc_table_generator("csv/4_arima-aicc.csv", "#arima-aicc", ["p","d","q","constant","AICC"])
@@ -417,7 +415,7 @@
 <table class="table table-sm table-hover" id="garch-aicc"></table>
 </div>
 <p>
-  The GARCH(1,1) model has the lowest AIC<sub>c</sub> (-61607.05). Thus, we will use this model, which yields $h_{t} =  0.0000005255 + 0.02037\varepsilon^{2}_{t-1} + 0.9812h_{t-1}$. Based on the model output, all estimates are statistically significance with $p < 2.2e-16$.
+  The GARCH(1,1) model has the lowest AIC<sub>c</sub> (-61607.05). Thus, we will use this model, which yields \(h_{t} =  0.0000005255 + 0.02037\varepsilon^{2}_{t-1} + 0.9812h_{t-1}\). Based on the model output, all estimates are statistically significance with \(p < 2.2e-16\).
 </p>
 
 <script>

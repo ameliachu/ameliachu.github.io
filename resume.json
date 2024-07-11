@@ -1,0 +1,529 @@
+[{
+	"section": "presentation",
+	"presentation_name": "'Do Cheerios have whole grains?': Results from a pilot evaluation of the Discover MyPlate curriculum",
+	"conference_name": "Association for Psychological Science Conference",
+	"conference_city": "New York, NY",
+	"month": "May 2015",
+	"presentation_img": "aps-2015.png",
+	"presentation_img_alt_text": "Picture of Jayden and Mom from MyPlate curriculum",
+	"presentation_artifacts":{"pdf":"https://www.mcgrc.com/wp-content/uploads/2015/03/APS-Poster_Final.pdf"}
+},
+{
+	"section": "presentation",
+	"presentation_name": "Scaling Self-Service Analytics with Databricks and Apache Spark",
+	"conference_name": "Spark Summit",
+	"conference_city": "San Francisco, CA",
+	"month": "June 2017",
+	"presentation_img":"spark-summit-2017.png",
+	"presentation_img_alt_text": "Picture of a Non-Technical User and Data Scientist using Dashboards",
+	"presentation_artifacts":{"video":"https://youtu.be/XYanG56FeuY"}
+},
+{
+	"section": "presentation",
+	"presentation_name": "Advanced Audience Segmentation",
+	"conference_name": "Databricks Solutions Showcase: Case Studies in Data and AI",
+	"conference_city": "Virtual",
+	"month": "March 2021",
+	"presentation_img":"db-showcase-2021.png",
+	"presentation_img_alt_text": "Picture of Advertising Segmentation Tech Stack",
+	"presentation_artifacts":{"video":"https://youtu.be/oucKcdGzMj8"}
+},
+	{
+	"section": "education",
+	"school_name": "New York University",
+	"school_city": "New York, NY",
+	"start_month": "August 2019",
+	"end_month": "Present",
+	"degree_name":"Data Science",
+	"degree_type": "Master of Science",
+	"bullets": ["Cumulative GPA: 3.50", "Leadership Circle 2020"]
+},
+{
+	"section": "education",
+	"school_name": "New York University",
+	"school_city": "New York, NY",
+	"start_month": "August 2012",
+	"end_month": "December 2015",
+	"degree_name":"Applied Psychology",
+	"degree_type": "Bachelor of Science",
+	"bullets": ["Minors in Business Studies, Anthropology","Cumulative GPA: 3.42","Dean’s List Spring 2013"]
+}, {
+	"section": "professional",
+	"job_title": "Director, Advertising Platforms - Audience Data",
+	"company_name": "Paramount Global",
+	"company_abv":"vcbs",
+	"company_city": "New York, NY",
+	"start_month": "October 2021",
+	"end_month": "Present",
+	"job_tags": ["leadership", "data", "data science", "data engineering"],
+	"bullets": [{
+			"line": "Iteratively design and implement enhancements to self-service audience segmentation tool reducing computational overhead by 70%, and analyst hours by 50%",
+			"tags": ["aws","databricks","gcp","snowflake","clean room","graphs","identity","pyspark","spark"]
+		},
+		{
+			"line":"Mentor and manage direct reports, focusing on identify opportunities for their professional growth"
+		}
+	]
+}, {
+	"section": "professional",
+	"job_title": "Sr. Manager, Advertising Technology / Data Platforms",
+	"company_name": "ViacomCBS",
+	"company_abv":"vcbs",
+	"company_city": "New York, NY",
+	"start_month": "January 2020",
+	"end_month": "September 2021",
+	"job_tags": ["leadership", "education", "data", "data science"],
+	"bullets": [
+		{
+			"line": "Streamlined modelling pipeline for cross-platform audience targeting, reducing processing time by 60%",
+			"tags": ["scikit","tensorflow","pyspark"]
+		},
+		{
+			"line": "Support ad-hoc requests across multiple departments and technical domains, leveraging data visualization techniques, from static executive reports to interactive dashboards to empower users with their data"
+		}
+	]
+}, {
+	"section": "professional",
+	"job_title": "Manager, Data Platform",
+	"company_name": "Viacom",
+	"company_abv":"vcbs",
+	"company_city": "New York, NY",
+	"start_month": "July 2019",
+	"end_month": "January 2020",
+	"job_tags": ["data", "data science"],
+	"bullets": [{
+			"line": "Designed and automated modelling pipeline to target over 20M viewers for addressable advertising",
+			"tags": []
+		},
+		{
+			"line": "Independently manage relationships with stakeholders of varying expertise and technical knowledge to obtain feedback and feature validation",
+			"tags": ["leadership"]
+		},
+		{
+			"line": "Support ad-hoc requests from advertising, marketing, and technology teams for a variety of data tasks such as building proof-of-concepts, preparing data, and designing reports",
+			"tags": []
+		},
+		{
+			"line": "Manage data permissioning workflow on the Viacom's Databricks enterprise account via AWS",
+			"tags": []
+		}
+	]
+}, {
+	"section": "professional",
+	"job_title": "Sr. Business Analyst, Data Platform",
+	"company_name": "Viacom",
+	"company_abv":"vcbs",
+	"company_city": "New York, NY",
+	"start_month": "January 2016",
+	"end_month": "July 2019",
+	"job_tags": ["leadership", "education", "data", "data science"],
+	"bullets": [{
+			"line": "Acting product owner for internal real-time data collector, data catalog, and advertising data system",
+			"tags": []
+		},
+		{
+			"line": "Manage three projects with team members across multiple countries and timezones",
+			"tags": ["leadership"]
+		},
+		{
+			"line": "Independently manage relationships with stakeholders of varying expertise and technical knowledge to obtain feedback and feature validation",
+			"tags": []
+		},
+		{
+			"line": "Instruct non-technical analysts on writing Python and PySpark to decrease report turnaround time",
+			"tags": []
+		},
+		{
+			"line": "Construct logistic regression models to target over 10M viewers for addressable advertising",
+			"tags": []
+		}
+	]
+}, {
+	"section": "professional",
+	"job_title": "Product Analyst, Data Platform",
+	"company_name": "Viacom",
+	"company_abv":"vcbs",
+	"company_city": "New York, NY",
+	"start_month": "January 2016",
+	"end_month": "August 2015",
+	"job_tags": ["leadership", "education", "research", "data", "data science"],
+	"bullets": [{
+			"line": "Acting product owner for in-house real-time analytics to deliver a best-in-class user experience for Viacom's global digital audience",
+			"tags": []
+		},
+		{
+			"line": "Define metrics and identify opportunities for MTV International, Comedy Central International, and TV Land through processing large sets of structured and semi-structured data",
+			"tags": []
+		},
+		{
+			"line": "Product owner for real-time streaming reporting during live tentpole events such as the VMAs",
+			"tags": []
+		},
+		{
+			"line": "Investigate data quality and maintenance issues for all international app platforms",
+			"tags": []
+		},
+		{
+			"line": "Provide proof-of-concepts for integrating A|B testing and statistical modeling into the Multi-Platform Product Analytics workflow",
+			"tags": []
+		},
+		{
+			"line": "Interpret data, share insights, and develop models to improve products",
+			"tags": []
+		}
+	]
+}, {
+	"section": "professional",
+	"job_title": "Research Assistant",
+	"company_name": "Michael Cohen Group, LLC",
+	"company_abv":"mcg",
+	"company_city": "New York, NY",
+	"start_month": "September 2014",
+	"end_month": "November 2015",
+	"job_tags": ["research", "data", "education"],
+	"bullets": [{
+			"line": "Gained exposure and immersion to entire research process by assisting in over 9 research studies",
+			"tags": ["research"]
+		},
+		{
+			"line": "Performed qualitative and quantitative analysis, importing data and interpreting descriptives, t-Tests, and ANOVA",
+			"tags": ["research", "data", "statistics"]
+		},
+		{
+			"line": "Presented overviews on Python for Data Analysis and Tablets in Education during company-wide meetings",
+			"tags": ["research"]
+		},
+		{
+			"line": "Assisted in focus group interviews with children and usability testing with Silverback 2 and Invision",
+			"tags": ["research", "ux"]
+		},
+		{
+			"line": "Met with research directors to develop test instruments and review study findings",
+			"tags": ["research"]
+		},
+		{
+			"line": "Organized literature in reference managers (e.g., Mendeley, Zotero) and created a guide for navigating and using reference tools",
+			"tags": ["research"]
+		}
+	]
+}, {
+	"section": "professional",
+	"job_title": "Information Designer",
+	"company_name": "Michael Cohen Group, LLC",
+	"company_abv":"mcg",
+	"company_city": "New York, NY",
+	"start_month": "May 2014",
+	"end_month": "August 2015",
+	"job_tags": ["design", "data", "education"],
+	"bullets": [{
+			"line": "Ensured research reports, observation logs, presentations, and marketing materials all reflected the company’s brand identity",
+			"tags": ["design"]
+		},
+		{
+			"line": "Independently managed multiple design tasks and actively sought feedback from different supervisors",
+			"tags": ["design"]
+		},
+		{
+			"line": "Packaged icons, graphs, and layout for client-side reports with topics ranging from child math affinity to educator online purchasing decisions",
+			"tags": ["design"]
+		},
+		{
+			"line": "Delivered promptly intuitively organized project files with clearly labeled artboards and layers",
+			"tags": ["design"]
+		}
+	]
+}, {
+	"section": "professional",
+	"job_title": "Summer Assistant",
+	"company_name": "NYU Residential Life and Housing Services",
+	"company_abv":"nyu-res",
+	"company_city": "New York, NY",
+	"start_month": "May 2014",
+	"end_month": "August 2015",
+	"job_tags": ["leadership", "education", "social media", "design"],
+	"bullets": [{
+			"line": "Served as peer counselor and live-in resource for summer residents at Rubin Hall",
+			"tags": []
+		},
+		{
+			"line": "Provided emergency and crisis response for over 300 residents throughout a rotating duty schedule",
+			"tags": []
+		},
+		{
+			"line": "Authored a cross-platform Social Media Playbook establishing structure, best practices, and resources for future Rubin social media managers",
+			"tags": []
+		},
+		{
+			"line": "Determined the official Rubin Hall tumblr’s layout and initial content",
+			"tags": []
+		},
+		{
+			"line": "Responded promptly to incoming freshman inquiries via Rubin Hall’s tumblr page",
+			"tags": []
+		}
+	]
+}, {
+	"section": "professional",
+	"job_title": "Design Office Assistant",
+	"company_name": "NYU Center of Multicultural Education and Programs (CMEP)",
+	"company_abv":"nyu-cmep",
+	"company_city": "New York, NY",
+	"start_month": "August 2013",
+	"end_month": "September 2014",
+	"job_tags": ["design", "education"],
+	"bullets": [{
+			"line": "Acted as an in-house graphics designer in a fast-paced work environment, managing multiple projects on tight timelines",
+			"tags": []
+		},
+		{
+			"line": "Created design playbook and trained two incoming office assistants on CMEP design methodologies",
+			"tags": []
+		},
+		{
+			"line": "Transformed abstract instruction to concrete visuals to support marketing for diversity and social justice programming",
+			"tags": []
+		},
+		{
+			"line": "Collaborated with the Director, Program Administrators and graduate students to determine final products",
+			"tags": []
+		}
+	]
+}, {
+	"section": "professional",
+	"job_title": "Substitute Teaching Assistant",
+	"company_name": "A Place For Kids at PS 2",
+	"company_abv":"apfk",
+	"company_city": "New York, NY",
+	"start_month": "October 2012",
+	"end_month": "August 2013",
+	"job_tags": ["leadership", "education"],
+	"bullets": [{
+			"line": "Assisted head teachers on various tasks in groups of 15 children (grades K-4)",
+			"tags": []
+		},
+		{
+			"line": "Provided individual help in English and Chinese for students struggling with English, Math & Social Studies homework",
+			"tags": []
+		},
+		{
+			"line": "Refocused children who are off-task by discussing the importance of their work with them and guiding them through the task until they have regained their concentration",
+			"tags": []
+		}
+	]
+}, {
+	"section": "professional",
+	"job_title": "Tutor",
+	"company_name": "America Reads at PS 130",
+	"company_abv":"ps130",
+	"company_city": "New York, NY",
+	"start_month": "September 2012",
+	"end_month": "June 2013",
+	"job_tags": ["leadership", "education"],
+	"bullets": [{
+			"line": "Assisted Kindergarten teacher in a class of 26 bilingual students",
+			"tags": []
+		},
+		{
+			"line": "Provided one-on-one or small group tutoring for students struggling with math concepts or writing tasks",
+			"tags": []
+		},
+		{
+			"line": "Guided students through conflict resolution",
+			"tags": []
+		},
+		{
+			"line": "Provided basic IT support for teacher on computer-troubleshooting issues",
+			"tags": []
+		}
+	]
+}, {
+	"section": "co-curricular",
+	"job_title": "Marketing Chair",
+	"company_name": "New York City Asian American Student Conference (NYCAASC)",
+	"company_abv":"nycaasc",
+	"company_city": "New York, NY",
+	"start_month": " August 2015",
+	"end_month": "August 2016",
+	"job_tags": ["leadership", "education", "research", "community", "design"],
+	"bullets": [{
+			"line": "Developed and analysed brand and website surveys to assess current user affinity, found significant difference between frequency of visits and perceived aesthetic appeal and significant difference in perceived ease of use in terms of participants’ year in school",
+			"tags": []
+		},
+		{
+			"line": "Instructed committee research members on conducting an in-depth interview and running statistical tests in R",
+			"tags": []
+		},
+		{
+			"line": "Organized a short design sprint to quickly examine current research and stakeholder mindsets",
+			"tags": []
+		},
+		{
+			"line": "Advocated for research and data-driven decision-making amongst board members",
+			"tags": []
+		},
+		{
+			"line": "Launched social media campaigns which consistently reaches 80-90% of a larger audience than previous years’ Facebook posts",
+			"tags": []
+		},
+		{
+			"line": "Produced and directed all visual representations of NYCAASC including graphics, videos, and website interface",
+			"tags": []
+		},
+		{
+			"line": "Coordinated the social media and press team on the day-of the conference",
+			"tags": []
+		}
+	]
+}, {
+	"section": "co-curricular",
+	"job_title": "Layout Director",
+	"company_name": "NYU Online Publication of Undergraduate Studies (OPUS)",
+	"company_abv":"nyu-opus",
+	"company_city": "New York, NY",
+	"start_month": "February 2013",
+	"end_month": "January 2016",
+	"job_tags": ["leadership", "education", "design"],
+	"bullets": [{
+			"line": "Determine the web-based and printable layouts of a bi-annual student research publication since the Fall 2012 issue",
+			"tags": []
+		},
+		{
+			"line": "Orchestrated layout overhauls and the brand redesign of the online magazine to align aesthetics with OPUS’s mission of providing APUG students with a research journal process and experience",
+			"tags": []
+		},
+		{
+			"line": "Maintained the OPUS website by uploading new content and editing webpages using HTML",
+			"tags": []
+		},
+		{
+			"line": "Created digital and print promotional materials which aligned with the OPUS brand",
+			"tags": []
+		},
+		{
+			"line": "Interviewed, trained, and collaborated with future Layout Director to ensure brand and design continuity",
+			"tags": []
+		}
+	]
+}, {
+	"section": "co-curricular",
+	"job_title": "Vice President of Communications (IRHC)",
+	"company_name": "NYU Inter-Residence Hall Council (IRHC)",
+	"company_abv":"nyu-res",
+	"company_city": "New York, NY",
+	"start_month": "August 2015",
+	"end_month": "August 2014",
+	"job_tags": ["leadership", "design"],
+	"bullets": [{
+			"line": "Managed a team of 7 and hosted one-on-one tutorials with committee members on topics ranging from layout design to coding",
+			"tags": ["leadership", "education", "design", "research", "data"]
+		},
+		{
+			"line": "Created user experience maps, personas, and surveys to inform the redesign of the IRHC website",
+			"tags": ["ux", "research", "data"]
+		},
+		{
+			"line": "Conceptualized and designed various marketing materials targeting a college undergraduate audience",
+			"tags": ["design"]
+		},
+		{
+			"line": "Spearhead campaigns and implemented best practices for IRHC social media outlets: Facebook, Twitter, Instagram",
+			"tags": ["social media"]
+		}
+	]
+}, {
+	"section": "co-curricular",
+	"job_title": "Director of Communications (Lafayette Hall)",
+	"company_name": "NYU S.O.L.I.D. Lafayette Hall Council",
+	"company_abv":"nyu-res",
+	"company_city": "New York, NY",
+	"start_month": "September 2013",
+	"end_month": "May 2014",
+	"job_tags": ["leadership", "design"],
+	"bullets": [{
+			"line": "Conceptualized and designed various marketing materials targeting a college undergraduate audience",
+			"tags": []
+		},
+		{
+			"line": "Co-managed Lafayette Hall's social media outlets: Facebook, Twitter, Tumblr, Instagram",
+			"tags": []
+		},
+		{
+			"line": "Engaged in discussions with Residence Hall Director regarding hall rebranding and logo design",
+			"tags": []
+		},
+		{
+			"line": "Assisted in marketing and event planning in the largest residence hall at New York University",
+			"tags": []
+		}
+	]
+}, {
+	"section": "co-curricular",
+	"job_title": "Layout Editor",
+	"company_name": "NYU Generasian",
+	"company_abv":"nyu-gen",
+	"company_city": "New York, NY",
+	"start_month": "February 2013",
+	"end_month": "May 2014",
+	"job_tags": ["leadership", "design", "community"],
+	"bullets": [{
+			"line": "Directed visual presentation of all articles in an Asian American-Interest Magazine",
+			"tags": []
+		},
+		{
+			"line": "Created various graphics to complement articles by hand and via Adobe Illustrator",
+			"tags": []
+		},
+		{
+			"line": "Ensured brand consistency within and across the magazine",
+			"tags": []
+		},
+		{
+			"line": "Invited to lead magazine layout and design workshop for a collaborative event between NYU Digital Arts Club and Generasian",
+			"tags": ["education"]
+		}
+	]
+}, {
+	"section": "co-curricular",
+	"job_title": "Welcome Week Leader",
+	"company_name": "NYU Student Resource Center",
+	"company_abv":"nyu-src",
+	"company_city": "New York, NY",
+	"start_month": "August 2013",
+	"end_month": "August 2013",
+	"job_tags": ["leadership", "education"],
+	"bullets": [{
+			"line": "Supported the transition of 5600 incoming students to NYU",
+			"tags": []
+		},
+		{
+			"line": "Staffed large scale events with as many as 3000 students in attendance",
+			"tags": []
+		},
+		{
+			"line": "Served as a peer mentor and resource for incoming freshmen class",
+			"tags": []
+		}
+	]
+}, {
+	"section": "co-curricular",
+	"job_title": "Design Team Member",
+	"company_name": "ISO - NYU Tisch School of the Arts Photography Magazine",
+	"company_abv":"nyu-iso",
+	"company_city": "New York, NY",
+	"start_month": "October 2012",
+	"end_month": "March 2013",
+	"job_tags": ["design", "photography"],
+	"bullets": [{
+			"line": "Participate in the decision process of selecting submissions for publication from over 200 photographs",
+			"tags": []
+		},
+		{
+			"line": "Collaborate with a small team of designers and the Editor-in Chief in design and layout",
+			"tags": []
+		},
+		{
+			"line": "Designed promotional flyer to recruit submissions",
+			"tags": []
+		}
+	]
+}]

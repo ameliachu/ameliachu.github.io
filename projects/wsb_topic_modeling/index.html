@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2HX76PLF2H"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-2HX76PLF2H');
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="A human with a passion for open-ed, large datasets, and beautiful visualisations.">
+  <meta name="author" content="Amelia Chu">
+  <link rel="icon" href="./assets/favicon.ico">
+
+  <title>Amelia N Chu - Data Scientist - Humans. Data. Design.</title>
+
+  <!-- Bootstrap core CSS -->
+  <!-- offline copy <link href="./assets/css/bootstrap.min.css" rel="stylesheet">-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+  <!-- Custom styles -->
+  <link href="../../assets/css/navbar-fixed-top.css" rel="stylesheet">
+  <link href="../../assets/css/css-custom.css" rel="stylesheet">
+  <link href="../../assets/css/font-awesome.css" rel="stylesheet" type="text/css">
+  <!-- Custom styles -->
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script type="text/javascript" src="js/table.js"></script>
+</head>
+
+<body>
+  <!-- Fixed navbar -->
+
+  <!-- <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light"> -->
+  <nav class="navbar navbar-expand-md fixed-top bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="../../index.html"><img src="../../assets/img/lola.svg" height="32" width="32"
+          alt="Lola."></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item"><a class="nav-link" href="https://www.linkedin.com/in/ameliachu"><i
+                class="fa fa-linkedin"></i></a></li>
+          <li class="nav-item"><a class="nav-link" href="https://www.twitter.com/amelianchu"><i
+                class="fa fa-twitter"></i></a></li>
+          <li class="nav-item"><a class="nav-link" href="https://www.github.com/ameliachu"><i
+                class="fa fa-github"></i></a></li>
+          <li class="nav-item"><a class="nav-link" href="../../resume.html">resume.</a></li>
+          <!--<li class="nav-item"><a class="nav-link" href="https://amelianchu.tumblr.com">unabridged.</a></li>-->
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+  <!--/navigation-->
+
+  <div class="container"><!--body -->
+    <h3>Topic Modelling with GME Megathreads on r/WallStreetBets</h3>
+    <h5>Introduction </h5>
+
+    <p>Over the course of three days, GameStop Stock (NYSE: GME) rose from less than $50 to a peak of more than $350 on
+      January 27th, 2021. This change was largely attributed to a Reddit community called r/WallStreetBets (WSB). Some
+      WSB users noticed that many hedge funds had taken a short position on GameStop and were convinced that the stock
+      price was undervalued ("The frenzied rise", 2021). As more WSB users purchased GME stock, hedge funds and other
+      professional investors, who had previously taken up a short position, were forced to buy GME shares to offset
+      their losses, driving the stock price up further. General panic ensued on Wall Street, and spurred widespread,
+      in-depth mainstream media coverage as the general public started to take notice (Reader’s guide, 2021; McCabe,
+      2021). Some worried the trend set off by r/WallStreetBets could lead to more long lasting issues in the economy as
+      WSB users had started looking at other stocks such as AMC (El-Erian, 2021).</p>
+    <p>However, not everyone was pessimistic about this new influx of retail investors. When venture capitalist Chamath
+      Palihapitiya spoke positively on the matter with CNBC, he outlined three types of users who actively participated
+      in the WallStreetBets GME movement: (1) people who are investment or finance aficionados who were just as good or
+      better than professional hedge fund analysts, (2) people who recall the 2008 financial crisis and had continuously
+      felt abandoned by the establishment, (3) people who are seeking more transparency in conversations around
+      investments and Wall Street in general (CNBC Television, 2021). This project will attempt to identify these user
+      groups (or any other groups) in the WSB community using text data.</p>
+
+    <h6>Hypotheses</h6>
+
+    <p>There are a few places online where the WallStreetBets community is active and text data can be collected, such
+      as Discord, Twitter, and Reddit. As the majority of online activity takes place on the subreddit and, as it is
+      most straightforward to collect text data from there, we use comments from the subreddit r/WallStreetBets for
+      analyses. We would want to identify the three groups mentioned in the CNBC interview in WSB, by examining
+      comments, potential topic groups for those comments, and how authors different by topics of their comments.</p>
+    <p>At
+      first glance, comments and posts that fall under the three categories exist. Reflecting the first category of
+      investment or finance aficionados, there are authors in the subreddit posting thoughtfully on their positions
+      (e.g.
+      Jeffamazon, 2020). Demonstrating the second category, there is this comment from a small business owner: "Small
+      business owner who bought some shares of GME in the $98 dip. Will hold no matter what because I remember occupy
+      and
+      not seeing anyone responsible in a bright orange jump suit... fuck ‘em. Buy and hold." Finally, a comment that
+      demonstrates the third category is: "This isn't a conspiracy thread, it is the antidote to conspiracy. I'm calling
+      for an opportunity for transparency to be established. That is the best antidote to delusion." Although there are
+      individual comments and submissions that reflect the categories, we will have to investigate further to determine
+      if
+      there are discernible patterns that could define these groups.</p>
+    <p>would also probably not expect authors to only post comments that fall neatly into a single topic. However, we
+      may find that authors largely post comments that fall into one topic, but also post comments that fall into
+      another
+      (e.g. an author that uses finance aficionados language, but also laments the 2008 financial crisis).</p>
+
+    <h5>Data and Methods</h5>
+
+    <h6>Data Retrieval and Preprocessing</h6>
+    <p>To obtain text data for analyses, comments were harvested from the subreddit Wall Street Bets (r/wallstreetbets)
+      with a Reddit API wrapper named PRAW. Submissions (Reddit's name for a post or discussion thread) that contained
+      the word "GME" and "Megathread" were queried to identify comments and conversations most related to the GameStop
+      stock. This resulted in 44 submissions with comments ranging from Jan 21, 2021 Apr 17, 2021 for a total of 349,024
+      comments. Due to API constraints, there were three submissions where there were difficulties retrieving comments
+      (submission ids: l4syrd, lm7n51, m16emz). Submission m16emz became retrievable when limited to the top 60,000
+      comments, but not for l4syrd and lm7n51. It is unclear why the API limit occurred as there were submissions
+      harvested (e.g. m0fpgd) with more than 60,000 comments without issue.</p>
+    <p>Each comment was collected with information on its associated submission id, creation time (in UTC), author, and
+      a score (in Reddit any comment can be upvoted or downvoted, and the net value is the "score"). Any comment that
+      was deleted (i.e. appeared as "[deleted]") was removed from analysis. Finally, all comments from the 42
+      retrievable submissions were combined into a single csv file and read into R.
+    </p>
+    <p> From there, the text column was converted into a document frequency matrix (DFM) with all tokens lowercase,
+      punctuation removed, numbers removed and stop words as well as link prefixes (i.e.. "http","https") removed.
+      Tokens were lowercased and punctuation was removed as the quantity of punctuation (e.g. "BUY THE DIP AND HOLD
+      GME!!!!!") and case toggling (e.g. "Finally able to afford GME. Let’s GOOoOo") can often be arbitrary in this
+      corpus. Numbers were also removed as there are many references to the current price of stocks (e.g. "Did gme just
+      freeze at 119.51 for anyone else?", "Purchased another share @114."). Finally, stop words and link prefixes were
+      removed so that words that differentiate the comments can be given more focus.</p>
+    <h6>Defining Topics from LDA Model (k = 6)</h6>
+    <p>To obtain the topics of comments, an LDA model was used. To determine the k value for the model, the LDA Tuning
+      metrics Griffiths2004", "CaoJuan2009", "Arun2010", and "Deveaud2014" were used with k candidates between range 2
+      to 10 evaluated (Figure 1).
+    </p>
+    <p>Figure 1. LDA Tuning Metrics for Select k</p>
+
+    <figure class="figure">
+      <div class="table-responsive">
+        <table class="table table-sm table-hover" id="arima-param"></table>
+      </div>
+      <script>
+        table_generator("csv/fig1-data.csv", "#arima-param", ["", "topics", "Griffiths2004", "CaoJuan2009", "Arun2010", "Deveaud2014"])
+      </script>
+      <figcaption class="figure-caption">k = 6 was identified as the best option that maximized Deveaud2014 and
+        Griffiths2004 while minimizing Arun2010 and CaoJuan2009. Therefore, an LDA model with Gibbs sampling set at k=6
+        was used to determine topics. This yielded topics with the top terms in Figure 2.
+      </figcaption>
+    </figure>
+
+
+    Figure 2. Top Terms by LDA Topic Model (k = 6)
+
+    <div class="row row-cols-3">
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Topic 1: General GME Discussion.</h5>
+            <p class="card-text">This topic seems to contain the terms commonly used in WSB. With the exception of the
+              🌑 (new moon) emoji, the topic's top terms (i.e. "GME", "$") seem to not be particularly distinctive.
+            </p>
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    Accordion Item #1
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <ul class="list-group">
+                      <li class="list-group-item">"$GME is officialy on the NYSE Short Sale Restriction list!...**Source:**"</li>
+                      <li class="list-group-item">"Yoooo they need to stop halting wtf"</li>
+                      <li class="list-group-item">"NO MORE SHORT LADDER ATTACKS STARTING TOMORROW"</li>
+                      <li class="list-group-item"> "I’ve been saying this for a couple days ... in this case it literally could be because the source
+                        of demand has been crippled . When RH shut it down, ... they cut of the greatest source of demand."</li>
+                      </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Topic 2: Negative Outlook.</h5>
+            <p class="card-text">This topic does not seem apparent when examining the top terms. However, when
+              inspecting the comments that fall in the topic, it appears that the main difference compared to other
+              topics is that they contain words that sound much more pessimistic. The following are some excerpts from
+              comments in this topic that reflect this:
+            </p>
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    Accordion Item #1
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <ul class="list-group">
+                      <li class="list-group-item">"damn this shit is so fucking stressful... "</li>
+                      <li class="list-group-item">"Pathetic volume."</li>
+                      <li class="list-group-item"> "Im so sorry.... I got so scared...."</li>
+                      <li class="list-group-item">"Tomorrow is going to be horrible."</li>
+                      <li class="list-group-item">"dips can be scary"</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Topic 3: The Aficionados.</h5>
+            <p class="card-text"> The top terms for this topic contain words that are more technical (e.g. "squeeze",
+              "short", "shares" , "volume"). When examining the comments associated with the topic, the trend of
+              technical language usage continues (i.e. "short sale restriction list", "halting", short ladder attacks",
+              "source of demand"); there also seems to be more comments that cite sources, as illustrated in the
+              examples below:
+
+            </p>
+
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    Example Comments
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <ul class="list-group">
+                      <li class="list-group-item">"$GME is officialy on the NYSE Short Sale Restriction list!...**Source:**"</li>
+                      <li class="list-group-item">"Yoooo they need to stop halting wtf"</li>
+                      <li class="list-group-item">"NO MORE SHORT LADDER ATTACKS STARTING TOMORROW"</li>
+                      <li class="list-group-item"> "I’ve been saying this for a couple days ... in this case it literally could be because the source
+                        of demand has been crippled . When RH shut it down, ... they cut of the greatest source of demand."</li>
+                      </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div><!--card row end--->
+
+    <div class="row row-cols-3">
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Topic 4: Laced with Profanity, but Generally Positive.</h5>
+            <p class="card-text">As reflected in the top terms for this topic (i.e. "fuck", "shit"), the comments here
+              contain a decent amount of profanity. What differentiates this topic from Topic 5 and others, is that,
+              even when profanity is utilized, it seems to be used in a supportive manner, as reflected in the examples
+              below:
+            </p>
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    Example Comments
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <ul class="list-group">
+                      <li class="list-group-item">"This is by far the best cult I’ve ever been in."</li>
+                      <li class="list-group-item">"Just came in here to say good luck, retards."</li>
+                      <li class="list-group-item">"Dip!! 😍 😍 😍"</li>
+                      <li class="list-group-item">"Please 🦍 🦍 🦍 just relax and enjoy the ride."</li>
+                      <li class="list-group-item">"BUT YOU, the O.G. Diamond Hands are fucking legendary & success is
+                        imminent in whatever form that
+                        may be to you in the end, with or without newcomers. You made a difference in this world."</li>
+                    </ul>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Topic 5: Aggressive 💎 👐 .</h5>
+            <p class="card-text">
+              The term 💎 👐 (Diamond Hands) refers to a person who holds onto a stock regardless of gains, risks, or
+              losses (Gillezeau, 2021). The top terms with this topic contain terms such as "fucking", 🦍,, "ape" and
+              "apes". 🦍 or ape is used by the group to refer to everyone on the subreddit. Many of the comments in this
+              topic appear to either assert the authors' conviction in holding their GME stock or encourage others to do
+              so in an aggressive manner. Examples below:
+
+
+            </p>
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    Example Comments
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+
+
+
+
+                    <ul class="list-group">
+                      <li class="list-group-item">"I AM HOLDING, WHETHER IT GOES TO ZERO OR THE MOON. THIS IS WHAT WE
+                        CAME HERE TO DO, APETARDS. 🚀 "</li>
+                      <li class="list-group-item">"DIAMOND FUCKING NUTS 🦍 💎 "</li>
+                      <li class="list-group-item">"I am monkey i hold 💎 ✊ 🦍 "</li>
+                      <li class="list-group-item"> "Boys hold the fucking line 🚀 🚀 🚀 🌕 🌕 🌕 🌕 "</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Topic 6: Community-Oriented.</h5>
+            <p class="card-text">
+              With the exception of "us" in the top terms, it's not readily apparent what distinguishes this particular
+              topic. However, when examining the comments, it appears that a lot of the community-oriented comments have
+              fallen into this topic, as illustrated in the examples below:
+
+            </p>
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    Example Comments
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <ul class="list-group">
+                      <li class="list-group-item">"NOW IS THE TIME TO BUY. THEY CAN'T STOP US WITH THE HALTS. KEEP
+                        BUYING!!!!"</li>
+                      <li class="list-group-item"> "I fucking love you guys and the community you foster. I appreciate
+                        you and fully support the mod
+                        team."</li>
+                      <li class="list-group-item">"HOLD GUYS I LOVE YOU"</li>
+                      <li class="list-group-item">"HOLD THE SHARES YOU BEAUTIES"</li>
+                    </ul>
+
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!--card row end--->
+
+
+    <h6>K-Means Clustering to Determine Author Groups</h6>
+    <p>After determining the topics, the data was prepared for k-means clustering to determine author groups. Each
+      comment
+      was assigned a single topic from the LDA model (retrieving the top 1-3 associated topics was also attempted,
+      however
+      the likelihoods became extremely low). The data was aggregated by author to obtain the number of comments the
+      author
+      had posted in each topic. The number of comments were then logged to reduce the influence of outliers.</p>
+
+    <p> When clustering for authors, k was set at 3, 6, 8, and 10. When k = 3, it seemed like there were far too few
+      clusters. With the exception of cluster 2, the distribution of comments by topics appeared to be more or less
+      even,
+      and it seems like the key differentiator between clusters was the average number of total comments (Table 1.a). k
+      =
+      8 clusters seems like the lowest number where there are clear groups of authors (Table 1.c). As expected, the
+      author
+      clusters are a mix of topics. Some clusters are less clear why it is helpful to distinguish, but here's how they
+      differentiate.</p>
+
+    <h5>Results</h5>
+
+    <div class="row row-cols-4">
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Cluster 1: Generally Negative. </h5>
+            <p class="card-text">This cluster had authors that commented heavily on
+              Topics 1 (General) and 2
+              (Negative) but did not have any comments in Topic 4 (Profane Positivity) and also had a low frequency in
+              Topic 6
+              (Community).</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Cluster 2: The Aficionados. </h5>
+            <p class="card-text">These authors posted primarily in Topic 3 (Aficionados)
+              Interestingly, they did not make
+              many comments that fall in Topic 2 (Negative) nor does this cluster have particularly higher average total
+              comments.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Cluster 3: Indiscriminate Power Users. </h5>
+            <p class="card-text">These authors appear to indiscriminately comment
+              on most submissions, with
+              the highest average of total comments at 29 comments per user. There are bot accounts in this category
+              (e.g.
+              AutoModerator). However, when checking for the other top 10 authors in this category, they all appear to
+              be either
+              real users, or now banned from Reddit.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Cluster 4: Avoided Community.</h5>
+            <p class="card-text"> This cluster has the second highest average total
+              comments, yet seemed to not post
+              comments that fall in Topic 6 (Community).</p>
+          </div>
+        </div>
+      </div>
+    </div><!--card row end--->
+
+    <div class="row row-cols-4">
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Cluster 5: Negative Authors.</h5>
+            <p class="card-text"> This cluster contributed most to Topic 2 (Negative) and
+              also had a high volume of
+              comments in Topic 5 (Aggressive). This group of authors did not post comments that fell into Topic 1.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Cluster 6: The Sh*tposters. </h5>
+            <p class="card-text"> The authors in this cluster only made comments that fell
+              in topics 1 (General), 4 (Profane Positivity), 5 (Aggressive). They have the lowest average total comments
+              and the highest number
+              of unique authors.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Cluster 7: Just not Topic 5.</h5>
+            <p class="card-text">This cluster appeared to have roughly equal comment
+              frequency across topics, with the exception of Topic 5 (Aggressive). The authors here have the third
+              highest average comments per author.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Cluster 8: Community-Oriented.</h5>
+            <p class="card-text"> This cluster of authors commented mostly in Topic 6
+              (Community), interestly, largely avoided Topic 3 (Aficionados) and had roughly equal average comment
+              frequency across other topics.</p>
+          </div>
+        </div>
+      </div>
+    </div><!--card row end--->
+
+
+
+
+
+
+
+
+    <h5>Discussion</h5>
+    <p>The subreddit r/WallStreetBets has brought traditionally closed-door discussions to an open forum. This could be
+      a powerful tool in disseminating and demystifying wealth building knowledge to the general public. And, because
+      this is wealth-building knowledge, this can also attract a toxic crowd (e.g. of the Cluster 6 variety). Because
+      this forum can serve as a powerful force of positive change, it's important to be able to identify who or which
+      authors to follow (e.g. of the Cluster 2 variety) and who are the positive community builders (e.g. Cluster 8).
+      Being able to distinguish the aficionados and community builders could not only lend credibility to
+      r/WallStreetBets but also could help track the sustainability of the community. </p>
+    <p>There are quite a few improvements and further work that could be done to better this analysis. This roughly
+      falls into two categories: (1) Improvements to current data and modelling pipeline and (2) incorporating evolution
+      or time considerations into the model.</p>
+
+    <h6>Potential Improvements to the Current Pipeline</h6>
+
+    <p>There were a few submissions that were unable to be included into this analysis due to the constraint of the PRAW
+      API. The big-data storage platform, pushshift, has copies of all reddit comments and an accessible API which could
+      be used to fill in any gaps in comment collection. We should probably also remove bot comments (e.g. from
+      AutoModerator) and check to see if there are other tokens that should be removed (e.g. "[removed]"). The
+      "[removed]" token may have some utility when aggregated as a count for each author (i.e. to determine how often
+      the author retracts their comment or is penalized by their community).</p>
+    <p> Out of the three initial types of users discussed, we were only able to find the aficionados. Only a handful of
+      k's
+      were evaluated as potential values for the LDA model, thus one improvement could be to evaluate more k's for
+      topics,
+      to determine if there was a better value. There were some comments that were assigned a certain topic, but were
+      assigned another. For example, "IT SMELLS LIKE A BITCH IN HERE. Hold retards" seems like it should belong in topic
+      5
+      but was assigned topic 2. Quite a few of the top terms appear to be potential collocations (e.g. "short" &
+      "squeeze", "share" & "price"). We could also potentially look at collocations and see how topics change when they
+      are accounted for.</p>
+    <h6>Evolution Considerations and Changes Over Time</h6>
+
+    <p> To examine changes (or consistency) to the community over time, we could try an STM model. We could also
+      visualize
+      topic usage over time and superimpose stock price data and key events (e.g. GameStop CEO stepping down, quarterly
+      earning calls) to examine changes. We can also perform comparisons between the GME Megathread submissions and the
+      Daily Discussion Thread, to see if topic prevalence changes between submission types. Finally, we may want to
+      examine if users differ in language convention depending on when they started commenting on WSB like in
+      Danescu-Niculescu-Mizil, West, Jurafsky, Leskovec, & Potts (2013). Or if users influence each other's language?
+      That
+      is, could new authors that start off with Topic 1 comments slowly start posting more Topic 3 comments after more
+      time on the subreddit? Or could authors that comment mainly in Topic 3, drift toward Topic 5, due to the influx of
+      Topic 5 comments / Cluster 6 authors? </p>
+    More: https://kscarrott.com/investing-reddit/
+
+
+
+  </div><!--body -->
+
+  <footer class="footer">
+    <div class="container">
+      <p class="text-muted">Amelia N Chu.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript
+================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+    integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>

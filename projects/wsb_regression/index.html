@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2HX76PLF2H"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-2HX76PLF2H');
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="A human with a passion for open-ed, large datasets, and beautiful visualisations.">
+  <meta name="author" content="Amelia Chu">
+  <link rel="icon" href="./assets/favicon.ico">
+
+  <title>Amelia N Chu - Data Scientist - Humans. Data. Design. - Correlation Analysis between Stock Prices and User Behavior on r/WallStreetBets</title>
+
+  <!-- Bootstrap core CSS -->
+  <!-- offline copy <link href="./assets/css/bootstrap.min.css" rel="stylesheet">-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+  <!-- Custom styles -->
+  <link href="../../assets/css/navbar-fixed-top.css" rel="stylesheet">
+  <link href="../../assets/css/css-custom.css" rel="stylesheet">
+  <link href="../../assets/css/font-awesome.css" rel="stylesheet" type="text/css">
+  <!-- Custom styles -->
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+
+</head>
+
+<body>
+  <!-- Fixed navbar -->
+
+  <!-- <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light"> -->
+  <nav class="navbar navbar-expand-md fixed-top bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="../../index.html"><img src="../../assets/img/lola.svg" height="32" width="32"
+          alt="Lola."></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item"><a class="nav-link" href="https://www.linkedin.com/in/ameliachu"><i
+                class="fa fa-linkedin"></i></a></li>
+          <li class="nav-item"><a class="nav-link" href="https://www.twitter.com/amelianchu"><i
+                class="fa fa-twitter"></i></a></li>
+          <li class="nav-item"><a class="nav-link" href="https://www.github.com/ameliachu"><i
+                class="fa fa-github"></i></a></li>
+          <li class="nav-item"><a class="nav-link" href="../../resume.html">resume.</a></li>
+          <!--<li class="nav-item"><a class="nav-link" href="https://amelianchu.tumblr.com">unabridged.</a></li>-->
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+  <!--/navigation-->
+
+  <div class="container"><!--body -->
+  <h1>Correlation Analysis between Stock Prices and User Behavior on r/WallStreetBets</h1>
+  <h3>Motivation</h3>
+  <p>During the COVID-19 pandemic, retail investing became increasingly popular, and so did a niche---investing in meme stocks. A meme stock is a stock which gains rapid popularity via social media and retail investors \citep{fool}. One such meme stock is GameStop (NYSE: GME). At the end of January 2021, a subreddit called r/WallStreetBets gained headlines as contributors were attributed to causing the GameStop stock price to skyrocket over the course of a few days \citep{BanerjiWSJ}. </p>
+  <p>With this attention, the subreddit attracted momentum and attention from even more retail investors. Almost all were looking to earn a profit, but many viewed the phenomenon (and participation in it) as a sign of protest against traditional banking and investment. There were people who were themselves (or had family members) impacted by the 2008 financial crisis or those who philosophically disagreed with the opaque nature of contemporary financial institutions. These groups found a community within r/WallStreetBets to have transparent discussions on financial investments \citep{chamath}. </p>
+  <p>At the time, this led to a panic amongst traditional investors and financial commentators \citep{economist}. Many feared an influx of retail investor participation, in this manner, may be a precursor to long-term market instability \citep{panic}. </p>
+  
+  <p>Although it seems clear now that the panic was largely unfounded, the impact of what happened on r/WallStreetBets, continues to today. The trading volumes almost shuttered Robinhood, a retail investment app, and Melvin Capital, the hedgefund which took large bets against GME, shuttered its doors last year \citep{robinhood,melvin}. There are now realtime dashboards available to traditional and retail investors that track stock ticker mentions and sentiment on r/WallStreetBets \citep{quiver,swaggy,fool}. There are also r/WallStreetBets participants who suffered large losses in the movement, now left wondering what to do next \citep{lostmoney}.</p>
+  <p>Because of the cultural impact of the 2021 r/WallStreetBets movement, we are looking to understand the impact of the community around r/WallStreetBets and stock prices by explore ways to quantify the relationship between the WallStreetBets community and stock prices during that time period. Specifically, is there a correlation with behavior on r/WallStreetBets and stock prices or the overall market?  </p>
+  <h3>Datasets</h3>
+  <h3>Methodology</h3>
+  <h3>Results & Analysis</h3>
+  <h3>References</h3>
+ 
+  <!-- Create a div where the graph will take place -->
+  <div id="my_dataviz"></div>
+  
+  <script>
+
+    // set the dimensions and margins of the graph
+    var margin = {top: 10, right: 30, bottom: 30, left: 60},
+        width = 460 - margin.left - margin.right,
+        height = 400 - margin.top - margin.bottom;
+    
+    // append the svg object to the body of the page
+    var svg = d3.select("#my_dataviz")
+      .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+        .attr("transform",
+              "translate(" + margin.left + "," + margin.top + ")");
+    
+    //Read the data
+    d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/5_OneCatSevNumOrdered.csv", function(data) {
+    
+      // group the data: I want to draw one line per group
+      var sumstat = d3.nest() // nest function allows to group the calculation per level of a factor
+        .key(function(d) { return d.name;})
+        .entries(data);
+    
+      // Add X axis --> it is a date format
+      var x = d3.scaleLinear()
+        .domain(d3.extent(data, function(d) { return d.year; }))
+        .range([ 0, width ]);
+      svg.append("g")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x).ticks(5));
+    
+      // Add Y axis
+      var y = d3.scaleLinear()
+        .domain([0, d3.max(data, function(d) { return +d.n; })])
+        .range([ height, 0 ]);
+      svg.append("g")
+        .call(d3.axisLeft(y));
+    
+      // color palette
+      var res = sumstat.map(function(d){ return d.key }) // list of group names
+      var color = d3.scaleOrdinal()
+        .domain(res)
+        .range(['#e41a1c','#377eb8','#4daf4a','#984ea3','#ff7f00','#ffff33','#a65628','#f781bf','#999999'])
+    
+      // Draw the line
+      svg.selectAll(".line")
+          .data(sumstat)
+          .enter()
+          .append("path")
+            .attr("fill", "none")
+            .attr("stroke", function(d){ return color(d.key) })
+            .attr("stroke-width", 1.5)
+            .attr("d", function(d){
+              return d3.line()
+                .x(function(d) { return x(d.year); })
+                .y(function(d) { return y(+d.n); })
+                (d.values)
+            })
+    
+    })
+    
+    </script>
+
+  
+
+
+
+
+  </div><!--body -->
+
+  <footer class="footer">
+    <div class="container">
+      <p class="text-muted">Amelia N Chu.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript
+================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+    integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>
